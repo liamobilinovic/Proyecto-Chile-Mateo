@@ -28,6 +28,9 @@ Pasos para editar el GitHub y realizar cambios a los archivos.
   decir que es lo que pasó. Una vez lo hagas debes darle al boton PUSH. Esto hará cambios en el GitHub. 
   -Finalmente, te pedirá tu usuario de GitHub y luego la contraseña la cual es la que te mandé. Solo puedes usar esa. Una vez hagas eso ya estarían     todos los cambios listos. 
   
+  
+8- Por ultimo, siempre debes estar chequeando cuando entres a Rstudio la pestaña Pull de Git en el panel superior derecho. Dandole click te va a bajar todos los cambios que se hicieron en el GitHub. 
+  
 
 
 
