@@ -42,3 +42,8 @@ kable(Nt_rural2020) %>%
   kable_styling(bootstrap_options = kablevectores, full_width = FALSE) %>% 
   add_header_above(c("Promedios entre colegios rurales y urbanos 2020" = 3), bold = TRUE, font_size = 15)
 
+
+ggplot(Nt_rural2020, mapping = aes(x = Rural, y = PROM_GRAL2)) +
+  geom_bar()
+
+

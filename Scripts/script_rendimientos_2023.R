@@ -18,9 +18,9 @@ library(ggThemeAssist)
 
 kablevectores <- c("striped", "bordered", "responsive")
 
-rendimientos2018 <- read_delim("2018/Rendimiento-2018/20190220_Rendimiento_2018_20190131_PUBL.csv", 
-                               delim = ";", quote = "'", escape_double = FALSE, 
-                               trim_ws = TRUE)
+rendimientos2018 <- read_delim("Bases de datos/Rendimiento-2018/20190220_Rendimiento_2018_20190131_PUBL.csv", 
+                                delim = ";", quote = "'", escape_double = FALSE, 
+                                trim_ws = TRUE)
 
 
 tabla_rendimientos2018 <- rendimientos2018 %>% select(COD_REG_RBD, 
@@ -110,8 +110,9 @@ summary(tabla_rendimientos2018$PROM_GRAL)
 
 ####2019#######################################################################
 
-rendimientos2019 <- read_delim("2019/Rendimiento-2019/20200220_Rendimiento_2019_20200131_PUBL.csv", 
-                               delim = ";", escape_double = FALSE, trim_ws = TRUE)
+rendimientos2019 <- read_delim("Bases de datos/Rendimiento-2019/20200220_Rendimiento_2019_20200131_PUBL.csv", 
+                                delim = ";", quote = "'", escape_double = FALSE, 
+                                trim_ws = TRUE)
 
 
 
@@ -194,10 +195,8 @@ kablevectores <- c("striped", "bordered", "responsive")
 
 ####2020#####################################################################
 
-
-rendimientos2020 <- read_delim("2020/20210223_Rendimiento_2020_20210131_WEB.csv", 
-                               delim = ";", quote = "'", escape_double = FALSE, 
-                               trim_ws = TRUE)
+rendimientos2020 <- read_delim("Bases de datos/Rendimiento-2020/20210223_Rendimiento_2020_20210131_WEB.csv", 
+                               delim = ";", escape_double = FALSE, trim_ws = TRUE)
 
 
 tabla_rendimientos2020 <- rendimientos2020 %>% select(COD_REG_RBD, 
@@ -280,9 +279,8 @@ summary(tabla_rendimientos2020$PROM_GRAL)
 
 ###2021#######################################################################
 
-rendimientos2021 <- read_delim("2021/Rendimiento-2021/20220302_Rendimiento_2021_20220131_WEB.csv", 
-                               delim = ";", quote = "'", escape_double = FALSE, 
-                               trim_ws = TRUE)
+rendimientos2021 <- read_delim("Bases de datos/Rendimiento-2021/20220302_Rendimiento_2021_20220131_WEB.csv", 
+                               delim = ";", quote = "'", escape_double = FALSE, trim_ws = TRUE)
 
 tabla_rendimientos2021 <- rendimientos2021 %>% select(COD_REG_RBD, 
                                                 COD_PRO_RBD, 
@@ -363,8 +361,9 @@ summary(tabla_rendimientos2021$PROM_GRAL)
 
 ###2022#######################################################################
 
-rendimientos2022 <- read_delim("2022/20230209_Rendimiento_2022_20230131_WEB.csv", 
-                               delim = ";", escape_double = FALSE, trim_ws = TRUE)
+rendimientos2022 <- read_delim("Bases de datos/Rendimiento-2022/20230209_Rendimiento_2022_20230131_WEB.csv", 
+                               delim = ";", quote = "'", escape_double = FALSE, 
+                               trim_ws = TRUE)
 
 tabla_rendimientos2022 <- rendimientos2022 %>% select(COD_REG_RBD, 
                                                 COD_PRO_RBD, 
@@ -450,8 +449,9 @@ summary(tabla_rendimientos2022$PROM_GRAL)
 
 ####2023####
 
-rendimientos2023 <- read_delim("2022/20230209_Rendimiento_2022_20230131_WEB.csv", 
-                               delim = ";", escape_double = FALSE, trim_ws = TRUE)
+rendimientos2023 <- read_delim("Bases de datos/Rendimiento-2023/20240209_Rendimiento_2023_20240131_WEB.csv", 
+                               delim = ";", quote = "'", escape_double = FALSE, 
+                               trim_ws = TRUE)
 
 tabla_rendimientos2023 <- rendimientos2023 %>% select(COD_REG_RBD, 
                                                       COD_PRO_RBD, 
