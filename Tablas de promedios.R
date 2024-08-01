@@ -29,7 +29,7 @@ Prom_cursos2018 <- tabla_promedios_2018 %>%
   group_by(Curso) %>%
   summarize(promedio = mean(PROM_GRAL, na.rm = TRUE))
 
-ggplot(data=Prom_cursos, aes(x=Curso, y=promedio, group=1)) +
+ggplot(data=Prom_cursos2018, aes(x=Curso, y=promedio, group=1)) +
   geom_line()+
   geom_point() + theme(plot.caption = element_text(size = 8,
     colour = "gray21", hjust = 0), axis.line = element_line(colour = "cornflowerblue",

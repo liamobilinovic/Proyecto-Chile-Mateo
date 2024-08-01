@@ -19,8 +19,11 @@ if (!require("shiny")) install.packages("shiny")
 if (!require("bslib")) install.packages("bslib")
 if (!require("ggplot2")) install.packages("ggplot2")
 if (!require("ggThemeAssist")) install.packages("ggThemeAssist")
-
-
+if (!require("leaflet")) install.packages("leaflet")
+if (!require("stringr")) install.packages("stringr")
+if (!require("sf")) install.packages("sf")
+if (!require("chilemapas")) install.packages("chilemapas")
+if (!require("RColorBrewer ")) install.packages("RColorBrewer ")
 
 library(summarytools)
 library(tidyverse)
@@ -36,6 +39,11 @@ library(shiny)
 library(bslib)
 library(ggplot2)
 library(ggThemeAssist)
+library(stringr)
+library(leaflet)
+library(sf)
+library(chilemapas)
+library(RColorBrewer)
 
 
 ####2018####
@@ -54,6 +62,7 @@ tabla_rendimientos2018 <- rendimientos2018 %>% select(COD_REG_RBD,
                                                 COD_REG_ALU, 
                                                 COD_COM_ALU,
                                                 COD_COM_RBD,
+                                                NOM_COM_RBD,
                                                 LET_CUR,
                                                 COD_ENSE,
                                                 COD_ENSE2,
@@ -87,7 +96,8 @@ tabla_rendimientos2018 <- tabla_rendimientos2018 %>%
                            COD_GRADO %in% c(4) ~ "4to Básico", 
                            COD_GRADO %in% c(5) ~ "5to Básico")) %>% 
   mutate(TipoRural = case_when(RURAL_RBD %in% c(0) ~ "Urbano",
-                               RURAL_RBD %in% c(1) ~ "Rural"))
+                               RURAL_RBD %in% c(1) ~ "Rural")) %>% 
+  mutate(COD_COM_RBD = str_pad(COD_COM_RBD, width = 5, pad = "0"))
   
   
 
@@ -128,6 +138,7 @@ tabla_rendimientos2019 <- rendimientos2019 %>% select(COD_REG_RBD,
                                                 COD_REG_ALU, 
                                                 COD_COM_ALU,
                                                 COD_COM_RBD,
+                                                NOM_COM_RBD,
                                                 LET_CUR,
                                                 COD_ENSE,
                                                 COD_ENSE2,
@@ -159,7 +170,8 @@ tabla_rendimientos2019 <- tabla_rendimientos2019 %>%
                            COD_GRADO %in% c(4) ~ "4to Básico", 
                            COD_GRADO %in% c(5) ~ "5to Básico")) %>% 
   mutate(TipoRural = case_when(RURAL_RBD %in% c(0) ~ "Urbano",
-                               RURAL_RBD %in% c(1) ~ "Rural"))
+                               RURAL_RBD %in% c(1) ~ "Rural")) %>% 
+  mutate(COD_COM_RBD = str_pad(COD_COM_RBD, width = 5, pad = "0"))
 
 ###Total notas 2020###
 
@@ -167,7 +179,7 @@ tabla_rendimientos2019 <- tabla_rendimientos2019 %>%
 Nt_cursos2019 <- tabla_rendimientos2019 %>% 
   tabyl(PROM_GRAL2, Curso) %>% 
   adorn_percentages("col") %>% 
-  adorn_totals("col") %>% 2
+  adorn_totals("col") %>% 
   adorn_pct_formatting(digits=2) %>% 
   adorn_ns()
 
@@ -193,6 +205,7 @@ tabla_rendimientos2020 <- rendimientos2020 %>% select(COD_REG_RBD,
                                                 COD_REG_ALU, 
                                                 COD_COM_ALU,
                                                 COD_COM_RBD,
+                                                NOM_COM_RBD,
                                                 LET_CUR,
                                                 COD_ENSE,
                                                 COD_ENSE2,
@@ -224,7 +237,9 @@ tabla_rendimientos2020 <- tabla_rendimientos2020 %>%
                            COD_GRADO %in% c(4) ~ "4to Básico", 
                            COD_GRADO %in% c(5) ~ "5to Básico")) %>% 
   mutate(TipoRural = case_when(RURAL_RBD %in% c(0) ~ "Urbano",
-                               RURAL_RBD %in% c(1) ~ "Rural"))
+                               RURAL_RBD %in% c(1) ~ "Rural")) %>% 
+  mutate(COD_COM_RBD = str_pad(COD_COM_RBD, width = 5, pad = "0"))
+
 ###Total notas 2020###
 
 Nt_cursos2020 <- tabla_rendimientos2020 %>% 
@@ -257,6 +272,7 @@ tabla_rendimientos2021 <- rendimientos2021 %>% select(COD_REG_RBD,
                                                 COD_REG_ALU, 
                                                 COD_COM_ALU,
                                                 COD_COM_RBD,
+                                                NOM_COM_RBD,
                                                 LET_CUR,
                                                 COD_ENSE,
                                                 COD_ENSE2,
@@ -288,7 +304,8 @@ tabla_rendimientos2021 <- tabla_rendimientos2021 %>%
                            COD_GRADO %in% c(4) ~ "4to Básico", 
                            COD_GRADO %in% c(5) ~ "5to Básico")) %>% 
   mutate(TipoRural = case_when(RURAL_RBD %in% c(0) ~ "Urbano",
-                               RURAL_RBD %in% c(1) ~ "Rural"))
+                               RURAL_RBD %in% c(1) ~ "Rural")) %>% 
+  mutate(COD_COM_RBD = str_pad(COD_COM_RBD, width = 5, pad = "0"))
 
 ###Total notas 2021###
 
@@ -322,6 +339,7 @@ tabla_rendimientos2022 <- rendimientos2022 %>% select(COD_REG_RBD,
                                                 COD_REG_ALU, 
                                                 COD_COM_ALU,
                                                 COD_COM_RBD,
+                                                NOM_COM_RBD,
                                                 LET_CUR,
                                                 COD_ENSE,
                                                 COD_ENSE2,
@@ -353,7 +371,8 @@ tabla_rendimientos2022 <- tabla_rendimientos2022 %>%
                            COD_GRADO %in% c(4) ~ "4to Básico", 
                            COD_GRADO %in% c(5) ~ "5to Básico")) %>% 
   mutate(TipoRural = case_when(RURAL_RBD %in% c(0) ~ "Urbano",
-                               RURAL_RBD %in% c(1) ~ "Rural"))
+                               RURAL_RBD %in% c(1) ~ "Rural")) %>% 
+  mutate(COD_COM_RBD = str_pad(COD_COM_RBD, width = 5, pad = "0"))
 
 
 
@@ -391,6 +410,7 @@ tabla_rendimientos2023 <- rendimientos2023 %>% select(COD_REG_RBD,
                                                       COD_REG_ALU, 
                                                       COD_COM_ALU,
                                                       COD_COM_RBD,
+                                                      NOM_COM_RBD,
                                                       LET_CUR,
                                                       COD_ENSE,
                                                       COD_ENSE2,
@@ -422,7 +442,8 @@ tabla_rendimientos2023 <- tabla_rendimientos2023 %>%
                            COD_GRADO %in% c(4) ~ "4to Básico", 
                            COD_GRADO %in% c(5) ~ "5to Básico")) %>% 
   mutate(TipoRural = case_when(RURAL_RBD %in% c(0) ~ "Urbano",
-                               RURAL_RBD %in% c(1) ~ "Rural"))
+                               RURAL_RBD %in% c(1) ~ "Rural")) %>% 
+  mutate(COD_COM_RBD = str_pad(COD_COM_RBD, width = 5, pad = "0"))
 
 
 ###Total notas 2023###

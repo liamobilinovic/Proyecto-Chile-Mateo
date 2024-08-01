@@ -65,3 +65,38 @@ orden <- c("Excelente (7,0)", "Satisfactorio (6,0-6,9)", "Bueno (5,0-5,9)", "Suf
 Nt_rural2018 <- Nt_rural2018 %>% slice(match(orden, PROM_GRAL2))
 
 orden <- glimpse(Nt_rural2018$PROM_GRAL2)
+
+
+#########################################################################
+
+
+comunas1 <- mapa_comunas
+
+comunas <- mapa_comunas %>% 
+  filter(codigo_region==13)
+
+notas_geo <- st_sf(comunas_santiago)
+
+pal <- colorNumeric(
+  palette = "YloBr",
+  domain = comunas_santiago$promedio
+)
+
+mapa <- leaflet() %>% 
+  addProviderTiles(providers$CartoDB.Positron) %>% 
+  addPolygons(data = notas_geo,
+              fillColor = ~pal(comunas_santiago$promedio),
+              color = "#b2aeae",
+              fillOpacity = 1,
+              smoothFactor = 0.2,
+              weight = 0.8) %>% 
+  addLegend(pal = pal,
+            values = notas_geo$promedio,
+            position = "bottomright",
+            title = "Promedio General") %>% 
+  addScaleBar(position = "topright")
+
+
+
+
+
