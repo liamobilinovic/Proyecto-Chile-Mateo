@@ -4,6 +4,9 @@
 paleta <- c("blue", "deepskyblue", "lightblue", "aquamarine3", "grey")
 
 
+paleta1 <- c("#114b5f","#456990","#e4fde1","#f45b69","#6b2737")
+
+
 library(openxlsx)
 
 ###2018###
@@ -26,7 +29,7 @@ comunas_santiago2018 <- mapa_comunas %>%
 
 ggplot(comunas_santiago2018) + 
   geom_sf(aes(fill = promedio, geometry = geometry)) +
-  scale_fill_gradientn(colours = rev(paleta), name = "Promedios") +
+  scale_fill_gradientn(colours = rev(paleta1), name = "Promedios") +
   labs(title = "Promedios en Santiago 2018") +
   theme_minimal(base_size = 13)
 
@@ -53,12 +56,10 @@ comunas_santiago2019 <- mapa_comunas %>%
 
 ggplot(comunas_santiago2019) + 
   geom_sf(aes(fill = promedio, geometry = geometry)) +
-  scale_fill_gradientn(colours = rev(paleta), name = "Promedios") +
+  scale_fill_gradientn(colours = rev(paleta1), name = "Promedios") +
   labs(title = "Promedios en Santiago 2019") +
   theme_minimal(base_size = 13)
- + theme(panel.grid.major = element_line(colour = NA,
-    linetype = "blank"), panel.grid.minor = element_line(colour = NA,
-    linetype = "blank"), plot.title = element_text(size = 15))
+
 
 ###2020###
 
@@ -79,7 +80,7 @@ comunas_santiago2020 <- mapa_comunas %>%
 
 ggplot(comunas_santiago2020) + 
   geom_sf(aes(fill = promedio, geometry = geometry)) +
-  scale_fill_gradientn(colours = rev(paleta), name = "Promedios") +
+  scale_fill_gradientn(colours = rev(paleta1), name = "Promedios") +
   labs(title = "Promedios en Santiago 2020") +
   theme_minimal(base_size = 13)
 
@@ -103,7 +104,7 @@ comunas_santiago2021 <- mapa_comunas %>%
 
 ggplot(comunas_santiago2021) + 
   geom_sf(aes(fill = promedio, geometry = geometry)) +
-  scale_fill_gradientn(colours = rev(paleta), name = "Promedios") +
+  scale_fill_gradientn(colours = rev(paleta1), name = "Promedios") +
   labs(title = "Promedios en Santiago 2021") +
   theme_minimal(base_size = 13)
 
@@ -126,7 +127,7 @@ comunas_santiago2022 <- mapa_comunas %>%
 
 ggplot(comunas_santiago2022) + 
   geom_sf(aes(fill = promedio, geometry = geometry)) +
-  scale_fill_gradientn(colours = rev(paleta), name = "Promedios") +
+  scale_fill_gradientn(colours = rev(paleta1), name = "Promedios") +
   labs(title = "Promedios en Santiago 2022") +
   theme_minimal(base_size = 13)
 
@@ -149,6 +150,6 @@ comunas_santiago2023 <- mapa_comunas %>%
 
 ggplot(comunas_santiago2023) + 
   geom_sf(aes(fill = promedio, geometry = geometry)) +
-  scale_fill_gradientn(colours = rev(paleta), name = "Promedios") +
+  scale_fill_gradientn(colours = rev(paleta1), name = "Promedios") +
   labs(title = "Promedios en Santiago 2023") +
   theme_minimal(base_size = 13)

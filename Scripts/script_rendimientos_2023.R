@@ -44,6 +44,7 @@ library(leaflet)
 library(sf)
 library(chilemapas)
 library(RColorBrewer)
+library(shinyuieditor)
 
 
 ####2018####
