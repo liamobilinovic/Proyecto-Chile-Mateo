@@ -3,7 +3,6 @@
 
 
 
-paleta1 <- c("#114b5f","#456990","#e4fde1","#f45b69","#6b2737")
 
 paleta1 <- c("#6b2737","#f45b69","#e4fde1","#456990","#114b5f")
 
@@ -12,6 +11,7 @@ pal <- colorNumeric(
   domain = rango_global
 )
 
+data_combinada <- rbind(promedios2018, promedios2019, promedios2020, promedios2021, promedios2022, promedios2023)
 
 rango_global <- range(data_combinada$promedio, na.rm = TRUE)
 
@@ -25,6 +25,8 @@ promedios2018 <- tabla_rendimientos2018 %>%
 
 promedios2018 <- promedios2018 %>% 
   rename("codigo_comuna" = `as.character(COD_COM_RBD)`)
+
+
 
 comunas_santiago2018 <- mapa_zonas %>%
   filter(codigo_provincia == 131) %>% 
