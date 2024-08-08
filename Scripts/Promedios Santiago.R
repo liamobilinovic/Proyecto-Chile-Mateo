@@ -42,7 +42,7 @@ comunas_santiago2018 <- mapa_zonas %>%
 comunas_santiago2018 <- st_as_sf(comunas_santiago2018)
 
 
-leaflet(comunas_santiago2018) %>% 
+mapa_santiago2018 <- leaflet(comunas_santiago2018) %>% 
   addTiles(
     urlTemplate = "",
     options = tileOptions(background = "white")
@@ -90,7 +90,7 @@ comunas_santiago2019 <- mapa_zonas %>%
 
 comunas_santiago2019 <- st_as_sf(comunas_santiago2019)
 
-leaflet(comunas_santiago2019) %>% 
+mapa_santiago2019 <- leaflet(comunas_santiago2019) %>% 
   addTiles(
     urlTemplate = "",
     options = tileOptions(background = "white")
@@ -134,7 +134,7 @@ comunas_santiago2020 <- mapa_zonas %>%
 
 comunas_santiago2020 <- st_as_sf(comunas_santiago2020)
 
-leaflet(comunas_santiago2020) %>% 
+mapa_santiago2020 <- leaflet(comunas_santiago2020) %>% 
   addTiles(
     urlTemplate = "",
     options = tileOptions(background = "white")
@@ -179,7 +179,7 @@ comunas_santiago2021 <- mapa_zonas %>%
 
 comunas_santiago2021 <- st_as_sf(comunas_santiago2021)
 
-leaflet(comunas_santiago2021) %>% 
+mapa_santiago2021 <- leaflet(comunas_santiago2021) %>% 
   addTiles(
     urlTemplate = "",
     options = tileOptions(background = "white")
@@ -222,7 +222,7 @@ comunas_santiago2022 <- mapa_zonas %>%
 
 comunas_santiago2022 <- st_as_sf(comunas_santiago2022)
 
-leaflet(comunas_santiago2022) %>% 
+mapa_santiago2022 <- leaflet(comunas_santiago2022) %>% 
   addTiles(
     urlTemplate = "",
     options = tileOptions(background = "white")
@@ -265,7 +265,7 @@ comunas_santiago2023 <- mapa_zonas %>%
 
 comunas_santiago2023 <- st_as_sf(comunas_santiago2023)
 
-leaflet(comunas_santiago2023) %>% 
+mapa_santiago2023 <- leaflet(comunas_santiago2023) %>% 
   addTiles(
     urlTemplate = "",
     options = tileOptions(background = "white")
@@ -286,4 +286,7 @@ leaflet(comunas_santiago2023) %>%
     ),
     label = ~paste("Comuna: ", comunas_santiago2023$nombre_comuna, "", "Promedio: ", comunas_santiago2023$promedio)
   )
+
+
+
 

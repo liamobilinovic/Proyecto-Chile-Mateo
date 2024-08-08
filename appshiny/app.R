@@ -1,85 +1,66 @@
+library(shiny)
+library(leaflet)
 
-
-####lista####
-
-graficos <- list(
-  "2018" = ggplot(comunas_santiago2018) +
-    geom_sf(aes(fill = promedio, geometry = geometry)) +
-    scale_fill_gradientn(colours = rev(paleta1), name = "Promedios") +
-    labs(title = "Promedios en Santiago 2018") +
-    theme_minimal(base_size = 13),
-  "2019" = ggplot(comunas_santiago2019) +
-    geom_sf(aes(fill = promedio, geometry = geometry)) +
-    scale_fill_gradientn(colours = rev(paleta1), name = "Promedios") +
-    labs(title = "Promedios en Santiago 2019") +
-    theme_minimal(base_size = 13),
-  "2020" = ggplot(comunas_santiago2020) +
-    geom_sf(aes(fill = promedio, geometry = geometry)) +
-    scale_fill_gradientn(colours = rev(paleta1), name = "Promedios") +
-    labs(title = "Promedios en Santiago 2020") +
-    theme_minimal(base_size = 13),
-  "2021" = ggplot(comunas_santiago2021) +
-    geom_sf(aes(fill = promedio, geometry = geometry)) +
-    scale_fill_gradientn(colours = rev(paleta1), name = "Promedios") +
-    labs(title = "Promedios en Santiago 2021") +
-    theme_minimal(base_size = 13),
-  "2022" = ggplot(comunas_santiago2022) +
-    geom_sf(aes(fill = promedio, geometry = geometry)) +
-    scale_fill_gradientn(colours = rev(paleta1), name = "Promedios") +
-    labs(title = "Promedios en Santiago 2022") +
-    theme_minimal(base_size = 13),
-  "2023" = ggplot(comunas_santiago2023) +
-    geom_sf(aes(fill = promedio, geometry = geometry)) +
-    scale_fill_gradientn(colours = rev(paleta1), name = "Promedios") +
-    labs(title = "Promedios en Santiago 2023") +
-    theme_minimal(base_size = 13)
-)
-
-#######
-
-
-
-
+# Define la interfaz de usuario
 ui <- fluidPage(
-  titlePanel("Visualizador de datos abiertos TRANSPARENTA 2024"),
-  includeCSS("paleta.css"),
-  tags$style(HTML("
-    .irs-bar { background-color: #F02D3A; }
-    .irs-bar-edge { background-color: #F02D3A; }
-    .irs-line { background-color: #273043; }
-    .irs-grid-text { color: #EFF6EE; }
-    .irs-min, .irs-max, .irs-from, .irs-to, .irs-single { background-color: #007bff; color: #ffffff; }
-  ")),
+  includeCSS("/Users/liam/Desktop/Proyecto DARA/paleta.css"),
+  titlePanel("Promedios Santiago 2018-2023"),
   sidebarLayout(
     sidebarPanel(
-      sliderInput("year_slider",
-                  label = "Año:",
-                  min = 2018,
-                  max = 2023,
-                  value = 2018,
-                  step = 1,
-                  animate = FALSE,
-                  sep = ""),
+      selectInput("year", "Seleccione el año: ",
+        choices = 2018:2023,
+        selected = 2018
+      )
     ),
     mainPanel(
-      plotOutput("dynamic_plot"),
+      uiOutput("map_title"),
+      leafletOutput("mapa1")  # Contenedor del mapa
     )
   )
 )
 
-server <- function(input, output) {
-  output$dynamic_plot <- renderPlot({
-    selected_year <- as.character(input$year_slider)
+
+server <- function(input, output, session) {
+  
+  
+  output$map_title <- renderUI({
+    titulo <- switch(as.character(input$year),
+                     "2018" = "Promedio por comuna 2018",
+                     "2019" = "Promedio por comuna 2019",
+                     "2020" = "Promedio por comuna 2020",
+                     "2021" = "Promedio por comuna 2021", 
+                     "2022" = "Promedio por comuna 2022",
+                     "2023" = "Promedio por comuna 2023")
+    h3(titulo)
+  })
+  
+
+  output$mapa1 <- renderLeaflet({
+    mapa_santiago2018  
+  })
+  
+  # Observa cambios en el slider de años y actualiza el mapa
+  observe({
+    # Selecciona el mapa adecuado según el año elegido
+    mapa <- switch(as.character(input$year),
+                   "2018" = mapa_santiago2018,
+                   "2019" = mapa_santiago2019,
+                   "2020" = mapa_santiago2020,
+                   "2021" = mapa_santiago2021,
+                   "2022" = mapa_santiago2022,
+                   "2023" = mapa_santiago2023)
     
-    
-    graficos[[selected_year]]
+    # Renderiza de nuevo el mapa completo cada vez que se cambia el año
+    output$mapa1 <- renderLeaflet({
+      mapa  # Renderiza el mapa seleccionado
+    })
+  })
+  
+  # Detiene la aplicación cuando la sesión termina
+  session$onSessionEnded(function() {
+    stopApp()
   })
 }
 
-
-
-
-
-shinyApp(ui = ui, server = server)
-
-
+# Lanza la aplicación
+shinyApp(ui, server)
