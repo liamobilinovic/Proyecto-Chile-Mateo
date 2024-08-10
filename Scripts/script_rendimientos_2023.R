@@ -23,7 +23,7 @@ if (!require("leaflet")) install.packages("leaflet")
 if (!require("stringr")) install.packages("stringr")
 if (!require("sf")) install.packages("sf")
 if (!require("chilemapas")) install.packages("chilemapas")
-if (!require("RColorBrewer ")) install.packages("RColorBrewer ")
+if (!require("shinydashboard")) install.packages("shinydashboard")
 
 library(summarytools)
 library(tidyverse)
@@ -43,7 +43,7 @@ library(stringr)
 library(leaflet)
 library(sf)
 library(chilemapas)
-library(RColorBrewer)
+library(shinydashboard)
 
 
 ####2018####
