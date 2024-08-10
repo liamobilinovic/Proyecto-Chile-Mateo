@@ -1,9 +1,40 @@
 library(shiny)
 library(leaflet)
+library(bslib)
 
-# Define la interfaz de usuario
+
 ui <- fluidPage(
-  includeCSS("/Users/liam/Desktop/Proyecto DARA/paleta.css"),
+  tags$head(
+    tags$link(rel = "stylesheet", href = "https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"),
+    tags$style(HTML("
+      body {
+        background: rgb(254,78,124);
+        background: linear-gradient(90deg, rgba(254,78,124,1) 19%, rgba(82,92,208,1) 100%);
+        color: white;
+        font-family: 'Poppins', sans-serif;
+      }
+      .well {
+        background-color: #2C11DD; /* Fondo del panel lateral */
+        padding: 10px;
+        border-radius: 10px;
+        color: white;
+      }
+      .leaflet-container {
+        background: rgba(255, 255, 255, 0.1); /* Fondo del contenedor del mapa con opacidad */
+        border-radius: 10px;
+      }
+      .map-title {
+        color: white;
+        font-family: 'Poppins', sans-serif;
+        text-align: center;
+        margin-top: 20px;
+      }
+      .value-box {
+        color: white;
+        font-family: 'Poppins', sans-serif;
+      }
+    ")),
+  ),
   titlePanel("Promedios Santiago 2018-2023"),
   sidebarLayout(
     sidebarPanel(
@@ -14,10 +45,11 @@ ui <- fluidPage(
     ),
     mainPanel(
       uiOutput("map_title"),
-      leafletOutput("mapa1")  # Contenedor del mapa
-    )
-  )
+      leafletOutput("mapa1")
+        )
+      ),
 )
+
 
 
 server <- function(input, output, session) {
@@ -31,7 +63,7 @@ server <- function(input, output, session) {
                      "2021" = "Promedio por comuna 2021", 
                      "2022" = "Promedio por comuna 2022",
                      "2023" = "Promedio por comuna 2023")
-    h3(titulo)
+    h3(titulo, class = "map-title")
   })
   
 
@@ -55,6 +87,9 @@ server <- function(input, output, session) {
       mapa  # Renderiza el mapa seleccionado
     })
   })
+  
+  
+
   
   # Detiene la aplicación cuando la sesión termina
   session$onSessionEnded(function() {
