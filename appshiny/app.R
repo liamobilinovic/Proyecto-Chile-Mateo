@@ -1,7 +1,4 @@
-
-
-## Mapas ##
-
+##App de shiny, este script es el que se ejecuta para correr la aplicación##
 
 
 ui <- fluidPage(
@@ -163,15 +160,15 @@ server <- function(input, output, session) {
   
   # Renderiza el contenido de las tarjetas basado en los valores reactivos
   output$selected_comuna <- renderText({
-    paste("Comuna: ", selected_comuna())
+    paste(selected_comuna())
   })
   
   output$average_comuna <- renderText({
-    paste("Promedio: ", selected_promedio())
+    paste(selected_promedio())
   })
   
   output$student_count <- renderText({
-    paste("Número de estudiantes: ", selected_n_estudiantes())
+    paste(selected_n_estudiantes())
   })
   
   # Detiene la aplicación cuando la sesión termina
@@ -181,3 +178,5 @@ server <- function(input, output, session) {
 }
 
 shinyApp(ui, server)
+
+
