@@ -5,9 +5,9 @@ account: votosfeuc
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 12435225
-bundleId: 8969254
+bundleId: 8992297
 url: https://votosfeuc.shinyapps.io/rendimientos/
 version: 1
 asMultiple: FALSE
 asStatic: FALSE
-ignoredFiles: Asistencia Santiago.R|Promedios Chile.R|Regiones.R|Ruralidad.R|Santiago.R|Todos los cursos.R
+ignoredFiles: Mapas.R
