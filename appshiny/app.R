@@ -1,5 +1,5 @@
 ##App de shiny, este script es el que se ejecuta para correr la aplicación##
-
+#################
 
 if (!require("summarytools")) install.packages("summarytools")
 if (!require("tidyverse")) install.packages("tidyverse")
@@ -231,7 +231,7 @@ mapa_santiago2023 <- leaflet(comunas_santiago2023) %>%
 
 
 
-
+######################################
 
 
 ###app shiny más abajo###
@@ -273,49 +273,104 @@ ui <- fluidPage(
           font-family: 'Poppins', sans-serif;
           text-align: center;
         }
+        .card2 {
+          background-color: rgba(243, 198, 221, 0.8);
+          border-radius: 10px;
+          padding: 15px;
+          margin-top: 20px;
+          color: white;
+          font-family: 'Poppins', sans-serif;
+          text-align: center;
+        }
+        .highlighted-subtitle {
+          color: white;
+          background-color: rgba(0, 0, 0, 0.5); 
+          padding: 5px 10px;
+          border-radius: 5px;
+          display: inline-block;
+          font-size: 14px;
+          font-weight: 400;
+          border-radius: 10px;
+        }
+        .title {
+          color: white;
+          height: 40px;
+          background-color: rgba(0, 0, 0, 0.5);
+          font-family: 'Poppins', sans-serif;
+          font-size: 24px;
+          font-weight: 400;
+          position: relative;
+          line-height: 40px;
+          margin-top: 30px;
+          border-radius: 10px;
+        }
+        .text {
+          color: white;
+          font-family: 'Poppins', sans-serif;
+          font-size: 16px;
+          font-weight: 300;
+          background-color: rgba(0, 0, 0, 0.5);
+          margin-top: 10px;
+          border-radius: 10px;
+        }
         "
       )
     )
   ),
-  titlePanel("Promedios Santiago 2018-2023"),
-  fluidRow(column(
-    6,
-    selectInput(
-      "year",
-      "Seleccione el año: ",
-      choices = 2018:2023,
-      selected = 2018
-    )
-  )),
-  fluidRow(column(
-    12,
-    uiOutput("map_title"),
-    leafletOutput("mapa1", height = "590", width = "100%")
-  )),
-  fluidRow(
+  titlePanel((div(class = "title", "Promedios Gran Santiago 2018-2023"))
+    ),
+  column(12,
+         p(div(class = "highlighted-subtitle",
+               "Los siguientes mapas muestran el promedio final de estudiantes entre quinto básico y cuarto básico del Gran Santiago entre los años 2018 y 2023. Fuente: Sistema de Información General de Estudiantes (SIGE)"))),
+  sidebarPanel(
+    card(
+    fluidRow(
+      column(12,
+             selectInput(
+               "year",
+               "Seleccione el año: ",
+               choices = 2018:2023,
+               selected = 2018
+             )
+      )),
+    column(12,
+           p("Haga clic en el selector de años para seleccionar el año de interés"),
+           p(""),
+           br(),
+           br(),
+           p("Haga clic en una comuna para ver los datos sobre el rendimiento académico promedio")
+    ))
+    ),
+  card(
+    fluidRow(
     column(4,
            div(
              class = "card",
-             h4("Comuna seleccionada:", class = "card-title"),
+             h4("Comuna", class = "card-title"),
              htmlOutput("selected_comuna")
            )
     ),
     column(4,
            div(
              class = "card",
-             h4("Promedio de la comuna:", class = "card-title"),
+             h4("Promedio", class = "card-title"),
              htmlOutput("average_comuna")
            )
     ),
     column(4,
            div(
              class = "card",
-             h4("Número de estudiantes:", class = "card-title"),
+             h4("Estudiantes", class = "card-title"),
              htmlOutput("student_count")
            )
-    )
+    ),
+    column(12,
+           uiOutput("map_title"),
+           leafletOutput("mapa1", height = "500", width = "100%")
   )
-)
+)))
+
+
 
 server <- function(input, output, session) {
   # Variables reactivas para almacenar la comuna y los datos asociados
@@ -395,15 +450,15 @@ server <- function(input, output, session) {
   
   # Renderiza el contenido de las tarjetas basado en los valores reactivos
   output$selected_comuna <- renderText({
-    paste(selected_comuna())
+    paste(div(class = "text", selected_comuna()))
   })
   
   output$average_comuna <- renderText({
-    paste(selected_promedio())
+    paste(div(class = "text", selected_promedio()))
   })
   
   output$student_count <- renderText({
-    paste(selected_n_estudiantes())
+    paste(div(class = "text", selected_n_estudiantes()))
   })
   
   # Detiene la aplicación cuando la sesión termina
