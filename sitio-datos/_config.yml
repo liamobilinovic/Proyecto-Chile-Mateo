@@ -34,7 +34,6 @@ theme: minima
 plugins:
   - jekyll-feed
   
-port: 2020
 
 
 # Exclude from processing.
