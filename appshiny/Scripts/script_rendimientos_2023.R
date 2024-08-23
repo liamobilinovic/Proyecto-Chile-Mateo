@@ -47,7 +47,7 @@ library(chilemapas)
 library(shinydashboard)
 
 
-####2018####
+####2018#####
 
 kablevectores <- c("striped", "bordered", "responsive")
 
