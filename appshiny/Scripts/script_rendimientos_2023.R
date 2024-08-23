@@ -60,7 +60,8 @@ tabla_rendimientos2018 <- rendimientos2018 %>% select(COD_REG_RBD,
                                                 COD_PRO_RBD, 
                                                 COD_DEPE2, 
                                                 GEN_ALU, 
-                                                COD_REG_ALU, 
+                                                COD_REG_ALU,
+                                                NUM_RBD,
                                                 COD_COM_ALU,
                                                 COD_COM_RBD,
                                                 NOM_COM_RBD,
@@ -98,6 +99,11 @@ tabla_rendimientos2018 <- tabla_rendimientos2018 %>%
                            COD_GRADO %in% c(5) ~ "5to Básico")) %>% 
   mutate(TipoRural = case_when(RURAL_RBD %in% c(0) ~ "Urbano",
                                RURAL_RBD %in% c(1) ~ "Rural")) %>% 
+  mutate(TipoEstablecimiento = case_when(COD_DEPE2 %in% c(1) ~ "Municipal",
+                                         COD_DEPE2 %in% c(2) ~ "Particular Subvencionado",
+                                         COD_DEPE2 %in% c(3) ~ "Particular Pagado",
+                                         COD_DEPE2 %in% c(4) ~ "Corporación de Administración Delegada",
+                                         COD_DEPE2 %in% c(5) ~ "Servicio Local de Educación",)) %>% 
   mutate(COD_COM_RBD = str_pad(COD_COM_RBD, width = 5, pad = "0"))
   
   
@@ -171,7 +177,12 @@ tabla_rendimientos2019 <- tabla_rendimientos2019 %>%
                            COD_GRADO %in% c(4) ~ "4to Básico", 
                            COD_GRADO %in% c(5) ~ "5to Básico")) %>% 
   mutate(TipoRural = case_when(RURAL_RBD %in% c(0) ~ "Urbano",
-                               RURAL_RBD %in% c(1) ~ "Rural")) %>% 
+                               RURAL_RBD %in% c(1) ~ "Rural")) %>%
+  mutate(TipoEstablecimiento = case_when(COD_DEPE2 %in% c(1) ~ "Municipal",
+                                         COD_DEPE2 %in% c(2) ~ "Particular Subvencionado",
+                                         COD_DEPE2 %in% c(3) ~ "Particular Pagado",
+                                         COD_DEPE2 %in% c(4) ~ "Corporación de Administración Delegada",
+                                         COD_DEPE2 %in% c(5) ~ "Servicio Local de Educación",)) %>% 
   mutate(COD_COM_RBD = str_pad(COD_COM_RBD, width = 5, pad = "0"))
 
 ###Total notas 2020###
@@ -239,6 +250,11 @@ tabla_rendimientos2020 <- tabla_rendimientos2020 %>%
                            COD_GRADO %in% c(5) ~ "5to Básico")) %>% 
   mutate(TipoRural = case_when(RURAL_RBD %in% c(0) ~ "Urbano",
                                RURAL_RBD %in% c(1) ~ "Rural")) %>% 
+  mutate(TipoEstablecimiento = case_when(COD_DEPE2 %in% c(1) ~ "Municipal",
+                                         COD_DEPE2 %in% c(2) ~ "Particular Subvencionado",
+                                         COD_DEPE2 %in% c(3) ~ "Particular Pagado",
+                                         COD_DEPE2 %in% c(4) ~ "Corporación de Administración Delegada",
+                                         COD_DEPE2 %in% c(5) ~ "Servicio Local de Educación",)) %>% 
   mutate(COD_COM_RBD = str_pad(COD_COM_RBD, width = 5, pad = "0"))
 
 ###Total notas 2020###
@@ -306,6 +322,11 @@ tabla_rendimientos2021 <- tabla_rendimientos2021 %>%
                            COD_GRADO %in% c(5) ~ "5to Básico")) %>% 
   mutate(TipoRural = case_when(RURAL_RBD %in% c(0) ~ "Urbano",
                                RURAL_RBD %in% c(1) ~ "Rural")) %>% 
+  mutate(TipoEstablecimiento = case_when(COD_DEPE2 %in% c(1) ~ "Municipal",
+                                         COD_DEPE2 %in% c(2) ~ "Particular Subvencionado",
+                                         COD_DEPE2 %in% c(3) ~ "Particular Pagado",
+                                         COD_DEPE2 %in% c(4) ~ "Corporación de Administración Delegada",
+                                         COD_DEPE2 %in% c(5) ~ "Servicio Local de Educación",)) %>% 
   mutate(COD_COM_RBD = str_pad(COD_COM_RBD, width = 5, pad = "0"))
 
 ###Total notas 2021###
@@ -373,6 +394,11 @@ tabla_rendimientos2022 <- tabla_rendimientos2022 %>%
                            COD_GRADO %in% c(5) ~ "5to Básico")) %>% 
   mutate(TipoRural = case_when(RURAL_RBD %in% c(0) ~ "Urbano",
                                RURAL_RBD %in% c(1) ~ "Rural")) %>% 
+  mutate(TipoEstablecimiento = case_when(COD_DEPE2 %in% c(1) ~ "Municipal",
+                                         COD_DEPE2 %in% c(2) ~ "Particular Subvencionado",
+                                         COD_DEPE2 %in% c(3) ~ "Particular Pagado",
+                                         COD_DEPE2 %in% c(4) ~ "Corporación de Administración Delegada",
+                                         COD_DEPE2 %in% c(5) ~ "Servicio Local de Educación",)) %>% 
   mutate(COD_COM_RBD = str_pad(COD_COM_RBD, width = 5, pad = "0"))
 
 
@@ -444,6 +470,11 @@ tabla_rendimientos2023 <- tabla_rendimientos2023 %>%
                            COD_GRADO %in% c(5) ~ "5to Básico")) %>% 
   mutate(TipoRural = case_when(RURAL_RBD %in% c(0) ~ "Urbano",
                                RURAL_RBD %in% c(1) ~ "Rural")) %>% 
+  mutate(TipoEstablecimiento = case_when(COD_DEPE2 %in% c(1) ~ "Municipal",
+                                         COD_DEPE2 %in% c(2) ~ "Particular Subvencionado",
+                                         COD_DEPE2 %in% c(3) ~ "Particular Pagado",
+                                         COD_DEPE2 %in% c(4) ~ "Corporación de Administración Delegada",
+                                         COD_DEPE2 %in% c(5) ~ "Servicio Local de Educación",)) %>% 
   mutate(COD_COM_RBD = str_pad(COD_COM_RBD, width = 5, pad = "0"))
 
 
