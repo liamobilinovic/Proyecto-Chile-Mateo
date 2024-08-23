@@ -2,23 +2,82 @@
 
 ###Santiago###
 
-###2018###
+###Tablas por año####
 
-
-particularidad2018santiago <- tabla_rendimientos2018 %>% 
+establecimiento2018 <- tabla_rendimientos2018 %>% 
   filter(COD_PRO_RBD == 131) %>% 
-  group_by(NOM_COM_RBD, TipoEstablecimiento) %>%
+  group_by(as.integer(COD_COM_RBD), TipoEstablecimiento) %>%
   summarise(n_estudiantes = n(), 
             promedio = mean(PROM_GRAL), 
             .groups = "drop")
 
+establecimiento2018 <- establecimiento2018 %>% 
+  rename("codigo_comuna" = `as.integer(COD_COM_RBD)`)
+
+establecimiento2019 <- tabla_rendimientos2019 %>% 
+  filter(COD_PRO_RBD == 131) %>% 
+  group_by(as.integer(COD_COM_RBD), TipoEstablecimiento) %>%
+  summarise(n_estudiantes = n(), 
+            promedio = mean(PROM_GRAL), 
+            .groups = "drop")
+
+establecimiento2019 <- establecimiento2019 %>% 
+  rename("codigo_comuna" = `as.integer(COD_COM_RBD)`)
+
+establecimiento2020 <- tabla_rendimientos2020 %>% 
+  filter(COD_PRO_RBD == 131) %>% 
+  group_by(as.integer(COD_COM_RBD), TipoEstablecimiento) %>%
+  summarise(n_estudiantes = n(), 
+            promedio = mean(PROM_GRAL), 
+            .groups = "drop")
+
+establecimiento2020 <- establecimiento2020 %>%
+  rename("codigo_comuna" = `as.integer(COD_COM_RBD)`)
+
+establecimiento2021 <- tabla_rendimientos2021 %>% 
+  filter(COD_PRO_RBD == 131) %>% 
+  group_by(as.integer(COD_COM_RBD), TipoEstablecimiento) %>%
+  summarise(n_estudiantes = n(), 
+            promedio = mean(PROM_GRAL), 
+            .groups = "drop")
+
+establecimiento2021 <- establecimiento2021 %>%
+  rename("codigo_comuna" = `as.integer(COD_COM_RBD)`)
+
+establecimiento2022 <- tabla_rendimientos2022 %>% 
+  filter(COD_PRO_RBD == 131) %>% 
+  group_by(as.integer(COD_COM_RBD), TipoEstablecimiento) %>%
+  summarise(n_estudiantes = n(), 
+            promedio = mean(PROM_GRAL), 
+            .groups = "drop")
+
+establecimiento2022 <- establecimiento2022 %>%
+  rename("codigo_comuna" = `as.integer(COD_COM_RBD)`)
+
+establecimiento2023 <- tabla_rendimientos2023 %>% 
+  filter(COD_PRO_RBD == 131) %>% 
+  group_by(as.integer(COD_COM_RBD), TipoEstablecimiento) %>%
+  summarise(n_estudiantes = n(), 
+            promedio = mean(PROM_GRAL), 
+            .groups = "drop")
+
+establecimiento2023 <- establecimiento2023 %>%
+  rename("codigo_comuna" = `as.integer(COD_COM_RBD)`)
+
+establecimientos_total <- list(establecimiento2018, establecimiento2019, establecimiento2020, establecimiento2021, establecimiento2022, establecimiento2023)
+
+#####
+
 #Función para hacer graficos interactivos##
 
-comunas <- unique(particularidad2018santiago$NOM_COM_RBD)
+comunas <- unique(establecimientos_total$codigo_comuna)
 
-grafico_interactivo <- function(comuna){
-  df_comuna <- particularidad2018santiago %>% 
-    filter(NOM_COM_RBD == comuna)
+grafico_interactivo <- function(comuna, year_index){
+  
+  df_comuna <- establecimientos_total[[year_index]]
+  
+  df_comuna <- df_comuna %>% 
+    filter(codigo_comuna == comuna)
   
   total_estudiantes <- sum(df_comuna$n_estudiantes)
   
@@ -33,6 +92,7 @@ grafico_interactivo <- function(comuna){
   )
 }
 
-#Aqui solo hay que poner el nombre.
+#Aqui solo hay que poner el codigo de la comuna
 
-grafico_interactivo("RECOLETA")
+grafico_interactivo(comuna = 13101, year_index = 1)
+

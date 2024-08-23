@@ -368,7 +368,10 @@ ui <- fluidPage(
            uiOutput("map_title"),
            leafletOutput("mapa1", height = "500", width = "100%")
   )
-)))
+)),
+fluidRow(
+  column(12, plotlyOutput("grafico_interactivo"))
+))
 
 
 
@@ -448,6 +451,12 @@ server <- function(input, output, session) {
     }
   })
   
+  output$grafico_interactivo <- renderPlotly({
+    req(selected_comuna())
+    year_index <- as.numeric(input$year) - 2017
+    grafico_interactivo(selected_comuna(), year_index)
+  })
+  
   # Renderiza el contenido de las tarjetas basado en los valores reactivos
   output$selected_comuna <- renderText({
     paste(div(class = "text", selected_comuna()))
@@ -469,4 +478,5 @@ server <- function(input, output, session) {
 
 shinyApp(ui, server)
 
-
+ 
+      

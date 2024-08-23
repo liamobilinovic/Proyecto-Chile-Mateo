@@ -24,6 +24,7 @@ if (!require("stringr")) install.packages("stringr")
 if (!require("sf")) install.packages("sf")
 if (!require("chilemapas")) install.packages("chilemapas")
 if (!require("shinydashboard")) install.packages("shinydashboard")
+if (!require("plotly")) install.packages("plotly")
 
 
 library(summarytools)
@@ -45,6 +46,7 @@ library(leaflet)
 library(sf)
 library(chilemapas)
 library(shinydashboard)
+library(plotly)
 
 
 ####2018#####
@@ -61,7 +63,6 @@ tabla_rendimientos2018 <- rendimientos2018 %>% select(COD_REG_RBD,
                                                 COD_DEPE2, 
                                                 GEN_ALU, 
                                                 COD_REG_ALU,
-                                                NUM_RBD,
                                                 COD_COM_ALU,
                                                 COD_COM_RBD,
                                                 NOM_COM_RBD,
