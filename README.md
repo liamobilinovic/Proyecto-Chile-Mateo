@@ -71,8 +71,7 @@ Este proyecto fue realizado completamente a través de R. Adicionalmente, este r
 <!-- Motivación -->
 ## Motivación
 
-Nuestra motivación.
-
+Nuestra motivación para llevar a cabo esta visualización viene desde el sentimiento de poder tener a mano el rendimiento escolar de las generaciones más jovenes de nuestro país. La educación básica es un proceso importante dentro del desarrollo escolar de nuestro país y seguir de cerca el desempeño de les niñes nos ayuda a entender en como podemos mejorar nuestros modelos de enseñanza y así poder llevar una educación de primer nivel y, obviamente, más equitativa entre todos los habitantes del país.
 
 <!--Uso-->
 ## Uso
