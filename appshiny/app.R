@@ -1,4 +1,4 @@
-##App de shiny, este script es el que se ejecuta para correr la aplicación##
+## App de shiny, este script es el que se ejecuta para correr la aplicación##
 #################
 
 if (!require("summarytools")) install.packages("summarytools")
@@ -43,136 +43,209 @@ library(chilemapas)
 library(shinydashboard)
 library(plotly)
 
-###Particularidad.r####
+##### Situación fina.r#####
+
+
+sfinal2018 <- read_csv("Datos-proyecto /situacionfinal2018.csv")
+sfinal2019 <- read_csv("Datos-proyecto /situacionfinal2019.csv")
+sfinal2020 <- read_csv("Datos-proyecto /situacionfinal2020.csv")
+sfinal2021 <- read_csv("Datos-proyecto /situacionfinal2021.csv")
+sfinal2022 <- read_csv("Datos-proyecto /situacionfinal2022.csv")
+sfinal2023 <- read_csv("Datos-proyecto /situacionfinal2023.csv")
+
+
+
+situacion_final_total <- list(sfinal2018, sfinal2019, sfinal2020, sfinal2021, sfinal2022, sfinal2023)
+
+capitalize <- function(text) {
+  # Divide el texto en palabras
+  words <- unlist(strsplit(text, " "))
+
+  # Capitaliza la primera letra de cada palabra y une las palabras
+  capitalize <- paste(toupper(substring(words, 1, 1)),
+    tolower(substring(words, 2)),
+    sep = "",
+    collapse = " "
+  )
+
+  return(capitalize)
+}
+
+
+
+comunas <- unique(situacion_final_total[1]$codigo_comuna)
+
+grafico_sfinal <- function(comuna, year_index) {
+  df_comuna2 <- situacion_final_total[[year_index]]
+
+  df_comuna2 <- df_comuna2 %>%
+    filter(codigo_comuna == comuna)
+
+  total_estudiantes <- sum(df_comuna2$n_estudiantes)
+
+  df_comuna2 <- df_comuna2 %>%
+    mutate(porcentaje = (n_estudiantes / total_estudiantes) * 100)
+
+
+  nombre_comuna <- unique(df_comuna2$nombre_comuna)
+
+  nombre_comuna <- capitalize(nombre_comuna)
+
+  plot_ly(df_comuna2,
+    labels = ~SituacionFinal, values = ~n_estudiantes, type = "pie", hole = 0.6, width = 410, height = 260, # Aumentar tamaño para mayor control
+    hoverinfo = "label+text",
+    text = ~ paste(n_estudiantes),
+    textinfo = "percent",
+    marker = list(colors = c("#C70319", "#2C0DBB", "#6F0976", "#B10530", "#85085E"))
+  ) %>%
+    layout(
+      showlegend = FALSE, # Mostrar la leyenda
+      paper_bgcolor = "rgba(0,0,0,0)", # Fondo del área del gráfico
+      plot_bgcolor = "rgba(0,0,0,0)", # Fondo del gráfico
+      font = list(color = "white"),
+      autosize = TRUE,
+      margin = list(l = 50, r = 50, t = 20, b = 70), # Ajustar márgenes para centrar el gráfico
+      legend = list(
+        x = 0.5, # Centrar la leyenda horizontalmente
+        y = 0.5, # Centrar la leyenda verticalmente
+        xanchor = "center", # Fijar la posición horizontal de la leyenda
+        yanchor = "middle",
+        font = list(size = 12, color = "white") # Tamaño y color de la leyenda
+      )
+    )
+}
+
+
+
+### Particularidad.r####
 
 
 
 #######
 
-establecimiento2018 <- read_csv("establecimiento2018.csv")
-establecimiento2019 <- read_csv("establecimiento2019.csv")
-establecimiento2020 <- read_csv("establecimiento2020.csv")
-establecimiento2021 <- read_csv("establecimiento2021.csv")
-establecimiento2022 <- read_csv("establecimiento2022.csv")
-establecimiento2023 <- read_csv("establecimiento2023.csv")
+establecimiento2018 <- read_csv("Datos-proyecto /establecimiento2018.csv")
+establecimiento2019 <- read_csv("Datos-proyecto /establecimiento2019.csv")
+establecimiento2020 <- read_csv("Datos-proyecto /establecimiento2020.csv")
+establecimiento2021 <- read_csv("Datos-proyecto /establecimiento2021.csv")
+establecimiento2022 <- read_csv("Datos-proyecto /establecimiento2022.csv")
+establecimiento2023 <- read_csv("Datos-proyecto /establecimiento2023.csv")
 
 establecimientos_total <- list(establecimiento2018, establecimiento2019, establecimiento2020, establecimiento2021, establecimiento2022, establecimiento2023)
 
-###Función para hacer que las comunas estén bien#####
+### Función para hacer que las comunas estén bien#####
 
 capitalize <- function(text) {
   # Divide el texto en palabras
   words <- unlist(strsplit(text, " "))
-  
+
   # Capitaliza la primera letra de cada palabra y une las palabras
-  capitalize <- paste(toupper(substring(words, 1, 1)), 
-                      tolower(substring(words, 2)), 
-                      sep = "", 
-                      collapse = " ")
-  
+  capitalize <- paste(toupper(substring(words, 1, 1)),
+    tolower(substring(words, 2)),
+    sep = "",
+    collapse = " "
+  )
+
   return(capitalize)
 }
 
 
 
 
-#Función para hacer graficos interactivos##
+# Función para hacer graficos interactivos##
 
 comunas <- unique(establecimientos_total[1]$codigo_comuna)
 
-grafico_interactivo <- function(comuna, year_index){
-  
+grafico_interactivo <- function(comuna, year_index) {
   df_comuna <- establecimientos_total[[year_index]]
-  
-  df_comuna <- df_comuna %>% 
+
+  df_comuna <- df_comuna %>%
     filter(codigo_comuna == comuna)
-  
+
   total_estudiantes <- sum(df_comuna$n_estudiantes)
-  
+
   df_comuna <- df_comuna %>%
     mutate(porcentaje = (n_estudiantes / total_estudiantes) * 100)
-  
-  
+
+
   nombre_comuna <- unique(df_comuna$nombre_comuna)
-  
+
   nombre_comuna <- capitalize(nombre_comuna)
-  
-  plot_ly(df_comuna, labels = ~TipoEstablecimiento, values = ~n_estudiantes, type = 'pie', hole = 0.6, width = 410, height = 260, # Aumentar tamaño para mayor control
-          hoverinfo = 'label+text',
-          text = ~paste("Promedio de notas:", as.integer(round(promedio, 1))),
-          textinfo = 'percent',
-          marker = list(colors = c("#C70319", "#2C0DBB", "#6F0976", "#B10530", "#85085E"))
+
+  plot_ly(df_comuna,
+    labels = ~TipoEstablecimiento, values = ~n_estudiantes, type = "pie", hole = 0.6, width = 410, height = 260, # Aumentar tamaño para mayor control
+    hoverinfo = "label+text",
+    text = ~ paste("Promedio de notas:", as.integer(round(promedio, 1))),
+    textinfo = "percent",
+    marker = list(colors = c("#C70319", "#2C0DBB", "#6F0976", "#B10530", "#85085E"))
   ) %>%
     layout(
       showlegend = FALSE, # Mostrar la leyenda
-      paper_bgcolor = 'rgba(0,0,0,0)', # Fondo del área del gráfico
-      plot_bgcolor = 'rgba(0,0,0,0)',  # Fondo del gráfico
+      paper_bgcolor = "rgba(0,0,0,0)", # Fondo del área del gráfico
+      plot_bgcolor = "rgba(0,0,0,0)", # Fondo del gráfico
       font = list(color = "white"),
       autosize = TRUE,
       margin = list(l = 50, r = 50, t = 20, b = 70), # Ajustar márgenes para centrar el gráfico
       legend = list(
-        x = 0.5,           # Centrar la leyenda horizontalmente
-        y = 0.5,           # Centrar la leyenda verticalmente
-        xanchor = 'center',# Fijar la posición horizontal de la leyenda
-        yanchor = 'middle',
+        x = 0.5, # Centrar la leyenda horizontalmente
+        y = 0.5, # Centrar la leyenda verticalmente
+        xanchor = "center", # Fijar la posición horizontal de la leyenda
+        yanchor = "middle",
         font = list(size = 12, color = "white") # Tamaño y color de la leyenda
       )
     )
-  
-  
 }
-#Aqui solo hay que poner el codigo de la comuna
+# Aqui solo hay que poner el codigo de la comuna
 
 
 
 #######
 
 
-comunas_santiago2018 <- read_sf("comunas_santiago2018.gpkg")
-comunas_santiago2019 <- read_sf("comunas_santiago2019.gpkg")
-comunas_santiago2020 <- read_sf("comunas_santiago2020.gpkg")
-comunas_santiago2021 <- read_sf("comunas_santiago2021.gpkg")
-comunas_santiago2022 <- read_sf("comunas_santiago2022.gpkg")
-comunas_santiago2023 <- read_sf("comunas_santiago2023.gpkg")
-
-
+comunas_santiago2018 <- read_sf("Datos-proyecto /comunas_santiago2018.gpkg")
+comunas_santiago2019 <- read_sf("Datos-proyecto /comunas_santiago2019.gpkg")
+comunas_santiago2020 <- read_sf("Datos-proyecto /comunas_santiago2020.gpkg")
+comunas_santiago2021 <- read_sf("Datos-proyecto /comunas_santiago2021.gpkg")
+comunas_santiago2022 <- read_sf("Datos-proyecto /comunas_santiago2022.gpkg")
+comunas_santiago2023 <- read_sf("Datos-proyecto /comunas_santiago2023.gpkg")
 
 
 
 bins <- c(40, 45, 50, 52, 54, 56, 58, 60, 62, 64, 65)
 
 paleta <- c(
-  "#DD0202", 
-  "#C70319", 
-  "#B10530", 
-  "#9B0647", 
-  "#85085E", 
-  "#6F0976", 
+  "#DD0202",
+  "#C70319",
+  "#B10530",
+  "#9B0647",
+  "#85085E",
+  "#6F0976",
   "#580A8D",
-  "#420CA4", 
-  "#2C0DBB", 
-  "#160FD2", 
-  "#0010E9")
+  "#420CA4",
+  "#2C0DBB",
+  "#160FD2",
+  "#0010E9"
+)
 
 
 
 pal <- colorBin(
   palette = paleta,
   domain = c(40, 65),
-  bins = bins)
+  bins = bins
+)
 
 
 
-###2018###
+### 2018###
 
 
-mapa_santiago2018 <- leaflet(comunas_santiago2018) %>% 
+mapa_santiago2018 <- leaflet(comunas_santiago2018) %>%
   addTiles(
     urlTemplate = "",
     options = tileOptions(background = "white")
-  ) %>% 
+  ) %>%
   addPolygons(
-    fillColor = ~pal(comunas_santiago2018$promedio),
+    fillColor = ~ pal(comunas_santiago2018$promedio),
     weight = 1,
     opacity = 1,
     color = "white",
@@ -186,19 +259,19 @@ mapa_santiago2018 <- leaflet(comunas_santiago2018) %>%
       fillOpacity = 0.7,
       bringToFront = TRUE
     ),
-    label = ~paste("Comuna: ", comunas_santiago2018$nombre_comuna, "", "Promedio: ", comunas_santiago2018$promedio)
+    label = ~ paste("Comuna: ", comunas_santiago2018$nombre_comuna, "", "Promedio: ", comunas_santiago2018$promedio)
   )
 
 
-###2019###
+### 2019###
 
-mapa_santiago2019 <- leaflet(comunas_santiago2019) %>% 
+mapa_santiago2019 <- leaflet(comunas_santiago2019) %>%
   addTiles(
     urlTemplate = "",
     options = tileOptions(background = "white")
-  ) %>% 
+  ) %>%
   addPolygons(
-    fillColor = ~pal(comunas_santiago2019$promedio),
+    fillColor = ~ pal(comunas_santiago2019$promedio),
     weight = 1,
     opacity = 1,
     color = "white",
@@ -212,18 +285,18 @@ mapa_santiago2019 <- leaflet(comunas_santiago2019) %>%
       fillOpacity = 0.7,
       bringToFront = TRUE
     ),
-    label = ~paste("Comuna: ", comunas_santiago2019$nombre_comuna, "", "Promedio: ", comunas_santiago2019$promedio)
+    label = ~ paste("Comuna: ", comunas_santiago2019$nombre_comuna, "", "Promedio: ", comunas_santiago2019$promedio)
   )
 
-###2020###
+### 2020###
 
-mapa_santiago2020 <- leaflet(comunas_santiago2020) %>% 
+mapa_santiago2020 <- leaflet(comunas_santiago2020) %>%
   addTiles(
     urlTemplate = "",
     options = tileOptions(background = "white")
-  ) %>% 
+  ) %>%
   addPolygons(
-    fillColor = ~pal(comunas_santiago2020$promedio),
+    fillColor = ~ pal(comunas_santiago2020$promedio),
     weight = 1,
     opacity = 1,
     color = "white",
@@ -237,18 +310,18 @@ mapa_santiago2020 <- leaflet(comunas_santiago2020) %>%
       fillOpacity = 0.7,
       bringToFront = TRUE
     ),
-    label = ~paste("Comuna: ", comunas_santiago2020$nombre_comuna, "", "Promedio: ", comunas_santiago2020$promedio)
+    label = ~ paste("Comuna: ", comunas_santiago2020$nombre_comuna, "", "Promedio: ", comunas_santiago2020$promedio)
   )
 
-###2021###
+### 2021###
 
-mapa_santiago2021 <- leaflet(comunas_santiago2021) %>% 
+mapa_santiago2021 <- leaflet(comunas_santiago2021) %>%
   addTiles(
     urlTemplate = "",
     options = tileOptions(background = "white")
-  ) %>% 
+  ) %>%
   addPolygons(
-    fillColor = ~pal(comunas_santiago2021$promedio),
+    fillColor = ~ pal(comunas_santiago2021$promedio),
     weight = 1,
     opacity = 1,
     color = "white",
@@ -262,19 +335,19 @@ mapa_santiago2021 <- leaflet(comunas_santiago2021) %>%
       fillOpacity = 0.7,
       bringToFront = TRUE
     ),
-    label = ~paste("Comuna: ", comunas_santiago2021$nombre_comuna, "", "Promedio: ", comunas_santiago2021$promedio)
+    label = ~ paste("Comuna: ", comunas_santiago2021$nombre_comuna, "", "Promedio: ", comunas_santiago2021$promedio)
   )
 
-###2022###
+### 2022###
 
 
-mapa_santiago2022 <- leaflet(comunas_santiago2022) %>% 
+mapa_santiago2022 <- leaflet(comunas_santiago2022) %>%
   addTiles(
     urlTemplate = "",
     options = tileOptions(background = "white")
-  ) %>% 
+  ) %>%
   addPolygons(
-    fillColor = ~pal(comunas_santiago2022$promedio),
+    fillColor = ~ pal(comunas_santiago2022$promedio),
     weight = 1,
     opacity = 1,
     color = "white",
@@ -288,18 +361,18 @@ mapa_santiago2022 <- leaflet(comunas_santiago2022) %>%
       fillOpacity = 0.7,
       bringToFront = TRUE
     ),
-    label = ~paste("Comuna: ", comunas_santiago2022$nombre_comuna, "", "Promedio: ", comunas_santiago2022$promedio)
+    label = ~ paste("Comuna: ", comunas_santiago2022$nombre_comuna, "", "Promedio: ", comunas_santiago2022$promedio)
   )
 
-###2023###
+### 2023###
 
-mapa_santiago2023 <- leaflet(comunas_santiago2023) %>% 
+mapa_santiago2023 <- leaflet(comunas_santiago2023) %>%
   addTiles(
     urlTemplate = "",
     options = tileOptions(background = "white")
-  ) %>% 
+  ) %>%
   addPolygons(
-    fillColor = ~pal(comunas_santiago2023$promedio),
+    fillColor = ~ pal(comunas_santiago2023$promedio),
     weight = 1,
     opacity = 1,
     color = "white",
@@ -313,7 +386,7 @@ mapa_santiago2023 <- leaflet(comunas_santiago2023) %>%
       fillOpacity = 0.7,
       bringToFront = TRUE
     ),
-    label = ~paste("Comuna: ", comunas_santiago2023$nombre_comuna, "", "Promedio: ", comunas_santiago2023$promedio)
+    label = ~ paste("Comuna: ", comunas_santiago2023$nombre_comuna, "", "Promedio: ", comunas_santiago2023$promedio)
   )
 
 
@@ -322,7 +395,7 @@ mapa_santiago2023 <- leaflet(comunas_santiago2023) %>%
 ######################################
 
 
-###app shiny más abajo###
+### app shiny más abajo###
 
 
 
@@ -374,7 +447,7 @@ ui <- fluidPage(
         }
         .highlighted-subtitle {
           color: white;
-          background-color: rgba(0, 0, 0, 0.5); 
+          background-color: rgba(0, 0, 0, 0.5);
           padding: 5px 10px;
           border-radius: 5px;
           display: inline-block;
@@ -418,63 +491,88 @@ ui <- fluidPage(
         .custom-selector {
           align-items: center;
           width: 150px;
-          margin: 0 auto; 
+          margin: 0 auto;
         }
         "
       )
     )
   ),
-  titlePanel((div(class = "title", "Promedios Gran Santiago 2018-2023"))
+  titlePanel((div(class = "title", "Promedios Gran Santiago 2018-2023"))),
+  column(
+    12,
+    p(div(
+      class = "highlighted-subtitle",
+      "Los siguientes mapas muestran el promedio final de estudiantes entre primer básico y quinto básico del Gran Santiago entre los años 2018 y 2023. Fuente: Sistema de Información General de Estudiantes (SIGE)"
+    ))
   ),
-  column(12,
-         p(div(class = "highlighted-subtitle",
-               "Los siguientes mapas muestran el promedio final de estudiantes entre primer básico y quinto básico del Gran Santiago entre los años 2018 y 2023. Fuente: Sistema de Información General de Estudiantes (SIGE)"))),
-  sidebarPanel(width = 2,
-      fluidRow(div(class = "plot-container", div(class = "custom-selector", selectInput(
-                              "year",
-                              "Seleccione el año: ",
-                              choices = 2018:2023,
-                              selected = 2018
-                     )))),
-      div(class = "text2",
-                          p("Haga clic en el selector de años para seleccionar el año de interés"),
-                          p(""),
-                          br(),
-                          br(),
-                          p("Haga clic en una comuna para ver los datos sobre el rendimiento académico promedio")
-                   )),
+  sidebarPanel(
+    width = 2,
+    fluidRow(div(class = "plot-container", div(class = "custom-selector", selectInput(
+      "year",
+      "Seleccione el año: ",
+      choices = 2018:2023,
+      selected = 2018
+    )))),
+    div(
+      class = "text2",
+      p("Haga clic en el selector de años para seleccionar el año de interés"),
+      p(""),
+      br(),
+      br(),
+      p("Haga clic en una comuna para ver los datos sobre el rendimiento académico promedio")
+    )
+  ),
   card(
     fluidRow(
-      column(4,
-             div(
-               class = "card",
-               h4("Comuna", class = "card-title"),
-               htmlOutput("selected_comuna")
-             )
+      column(
+        4,
+        div(
+          class = "card",
+          h4("Comuna", class = "card-title"),
+          htmlOutput("selected_comuna")
+        )
       ),
-      column(4,
-             div(
-               class = "card",
-               h4("Promedio", class = "card-title"),
-               htmlOutput("average_comuna")
-             )
+      column(
+        4,
+        div(
+          class = "card",
+          h4("Promedio", class = "card-title"),
+          htmlOutput("average_comuna")
+        )
       ),
-      column(4,
-             div(
-               class = "card",
-               h4("Estudiantes", class = "card-title"),
-               htmlOutput("student_count")
-             )
+      column(
+        4,
+        div(
+          class = "card",
+          h4("Estudiantes", class = "card-title"),
+          htmlOutput("student_count")
+        )
       ),
-      column(8,
-             uiOutput("map_title"),
-             leafletOutput("mapa1", height = "500", width = "100%")),
-      column(4,
-             div(
-               class = "card",
-               h4("Tipos de establecimientos", class = "card-title"),
-               plotlyOutput("grafico_interactivo", height = "200px", width = "100%"))))))
-  
+      column(
+        8,
+        uiOutput("map_title"),
+        leafletOutput("mapa1", height = "500", width = "100%")
+      ),
+      column(
+        4,
+        div(
+          class = "card",
+          h4("Tipos de establecimientos", class = "card-title"),
+          plotlyOutput("grafico_interactivo", height = "200px", width = "100%")
+        )
+      ),
+      column(
+        4,
+        div(
+          class = "card",
+          h4("Situación final por comuna", class = "card-title"),
+          plotlyOutput("grafico_sfinal", height = "200px", width = "100%")
+        )
+      )
+    )
+  )
+)
+
 
 
 
@@ -484,11 +582,10 @@ server <- function(input, output, session) {
   selected_promedio <- reactiveVal(NULL)
   selected_n_estudiantes <- reactiveVal(NULL)
   selected_codigo_comuna <- reactiveVal(NULL)
-  
+
   # Actualiza el título del mapa basado en el año seleccionado
   output$map_title <- renderUI({
-    titulo <- switch(
-      as.character(input$year),
+    titulo <- switch(as.character(input$year),
       "2018" = "Promedio por comuna 2018",
       "2019" = "Promedio por comuna 2019",
       "2020" = "Promedio por comuna 2020",
@@ -498,16 +595,15 @@ server <- function(input, output, session) {
     )
     h3(titulo, class = "map-title")
   })
-  
+
   # Renderiza el mapa inicial
   output$mapa1 <- renderLeaflet({
     mapa_santiago2018
   })
-  
+
   # Observa cambios en el slider de años y actualiza el mapa
   observe({
-    mapa <- switch(
-      as.character(input$year),
+    mapa <- switch(as.character(input$year),
       "2018" = mapa_santiago2018,
       "2019" = mapa_santiago2019,
       "2020" = mapa_santiago2020,
@@ -515,21 +611,20 @@ server <- function(input, output, session) {
       "2022" = mapa_santiago2022,
       "2023" = mapa_santiago2023
     )
-    
+
     output$mapa1 <- renderLeaflet({
       mapa
     })
   })
-  
+
   # Observa los clics en el mapa y actualiza el contenido de las tarjetas
   observeEvent(input$mapa1_shape_click, {
     click <- input$mapa1_shape_click
     if (!is.null(click)) {
-      comuna <- click$id  
-      
+      comuna <- click$id
+
       # Encuentra el promedio de la comuna seleccionada según el año
-      promedio <- switch(
-        as.character(input$year),
+      promedio <- switch(as.character(input$year),
         "2018" = comunas_santiago2018$promedio[comunas_santiago2018$nombre_comuna == comuna],
         "2019" = comunas_santiago2019$promedio[comunas_santiago2019$nombre_comuna == comuna],
         "2020" = comunas_santiago2020$promedio[comunas_santiago2020$nombre_comuna == comuna],
@@ -537,9 +632,8 @@ server <- function(input, output, session) {
         "2022" = comunas_santiago2022$promedio[comunas_santiago2022$nombre_comuna == comuna],
         "2023" = comunas_santiago2023$promedio[comunas_santiago2023$nombre_comuna == comuna]
       )
-      
-      n_estudiantes <- switch(
-        as.character(input$year),
+
+      n_estudiantes <- switch(as.character(input$year),
         "2018" = comunas_santiago2018$n_estudiantes[comunas_santiago2018$nombre_comuna == comuna],
         "2019" = comunas_santiago2019$n_estudiantes[comunas_santiago2019$nombre_comuna == comuna],
         "2020" = comunas_santiago2020$n_estudiantes[comunas_santiago2020$nombre_comuna == comuna],
@@ -547,9 +641,8 @@ server <- function(input, output, session) {
         "2022" = comunas_santiago2022$n_estudiantes[comunas_santiago2022$nombre_comuna == comuna],
         "2023" = comunas_santiago2023$n_estudiantes[comunas_santiago2023$nombre_comuna == comuna]
       )
-      
-      codigo_comuna <- switch(
-        as.character(input$year),
+
+      codigo_comuna <- switch(as.character(input$year),
         "2018" = comunas_santiago2018$codigo_comuna[comunas_santiago2018$nombre_comuna == comuna],
         "2019" = comunas_santiago2019$codigo_comuna[comunas_santiago2019$nombre_comuna == comuna],
         "2020" = comunas_santiago2020$codigo_comuna[comunas_santiago2020$nombre_comuna == comuna],
@@ -557,7 +650,7 @@ server <- function(input, output, session) {
         "2022" = comunas_santiago2022$codigo_comuna[comunas_santiago2022$nombre_comuna == comuna],
         "2023" = comunas_santiago2023$codigo_comuna[comunas_santiago2023$nombre_comuna == comuna]
       )
-      
+
       # Actualiza los valores reactivos
       selected_comuna(comuna)
       selected_promedio(promedio)
@@ -565,27 +658,33 @@ server <- function(input, output, session) {
       selected_codigo_comuna(codigo_comuna)
     }
   })
-  
+
 
   output$grafico_interactivo <- renderPlotly({
     req(selected_codigo_comuna())
     year_index <- as.numeric(input$year) - 2017
     grafico_interactivo(selected_codigo_comuna(), year_index)
   })
-  
+
+  output$grafico_sfinal <- renderPlotly({
+    req(selected_codigo_comuna())
+    year_index <- as.numeric(input$year) - 2017
+    grafico_sfinal(selected_codigo_comuna(), year_index)
+  })
+
   # Renderiza el contenido de las tarjetas basado en los valores reactivos
   output$selected_comuna <- renderText({
     paste(div(class = "text", selected_comuna()))
   })
-  
+
   output$average_comuna <- renderText({
     paste(div(class = "text", selected_promedio()))
   })
-  
+
   output$student_count <- renderText({
     paste(div(class = "text", selected_n_estudiantes()))
   })
-  
+
   # Detiene la aplicación cuando la sesión termina
   session$onSessionEnded(function() {
     stopApp()
@@ -593,6 +692,3 @@ server <- function(input, output, session) {
 }
 
 shinyApp(ui, server)
-
- 
-      
