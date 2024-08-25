@@ -34,9 +34,9 @@
       </ul>
     </li>
     <li><a href="#uso">Uso</a></li>
-    <li><a href="#futuro">Adiciones a futuro</a></li>
+    <li><a href="#adiciones-a-futuro">Adiciones a futuro</a></li>
     <li><a href="#sobre-nosotros">Sobre nosotros</a></li>
-    <li><a href="#license">Licencia</a></li>
+    <li><a href="#licencia">Licencia</a></li>
     <li><a href="#reconocimientos">Reconocimientos</a></li>
   </ol>
 </details>
@@ -133,7 +133,7 @@ The above copyright notice and this permission notice shall be included in all c
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">Volver hacia arriba</a>)</p>
 
 
 
@@ -153,6 +153,6 @@ Los siguientes sitios webs, herramientas y paquetes de R fueron de gran ayuda pa
 * [PlotLy](https://plotly.com)
 * [RStudio](https://posit.co/products/open-source/rstudio/)
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">Volver hacia arriba</a>)</p>
 
 
