@@ -30,7 +30,7 @@
       <a href="#sobre-el-proyecto">Sobre el proyecto</a>
       <ul>
         <li><a href="#primeros-pasos">Primeros pasos</a></li>
-        <li><a href="#motivacion">Motivación</a><li>
+        <li><a href="#Motivación">Motivación</a></li>
       </ul>
     </li>
     <li><a href="#uso">Uso</a></li>
