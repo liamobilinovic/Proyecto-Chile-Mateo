@@ -19,6 +19,7 @@ if (!require("stringr")) install.packages("stringr")
 if (!require("sf")) install.packages("sf")
 if (!require("chilemapas")) install.packages("chilemapas")
 if (!require("shinydashboard")) install.packages("shinydashboard")
+if (!require("plotly")) install.packages("plotly")
 
 
 library(summarytools)
@@ -40,6 +41,7 @@ library(leaflet)
 library(sf)
 library(chilemapas)
 library(shinydashboard)
+library(plotly)
 
 
 comunas_santiago2018 <- read_sf("comunas_santiago2018.gpkg")
@@ -236,6 +238,8 @@ mapa_santiago2023 <- leaflet(comunas_santiago2023) %>%
 
 ###app shiny más abajo###
 
+
+
 ui <- fluidPage(
   tags$head(
     tags$link(rel = "stylesheet", href = "https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"),
@@ -243,8 +247,8 @@ ui <- fluidPage(
       HTML(
         "
         body {
-          background: rgb(254,78,124);
-          background: linear-gradient(90deg, rgba(254,78,124,1) 19%, rgba(82,92,208,1) 100%);
+          background: rgb(221,2,2);
+          background: linear-gradient(125deg, rgba(221,2,2,1) 7%, rgba(0,16,233,1) 76%);
           color: white;
           font-family: 'Poppins', sans-serif;
         }
@@ -307,71 +311,83 @@ ui <- fluidPage(
         .text {
           color: white;
           font-family: 'Poppins', sans-serif;
+          text-align: center;
           font-size: 16px;
           font-weight: 300;
           background-color: rgba(0, 0, 0, 0.5);
           margin-top: 10px;
           border-radius: 10px;
         }
+        .text2 {
+        font-family: 'Poppins', sans-serif;
+        text-align: center;
+        }
+        .plot-container {
+          text-align: center;
+        }
+        .sidebarpanel {
+        width: 200px;
+        }
+        .custom-selector {
+          align-items: center;
+          width: 150px;
+          margin: 0 auto; 
+        }
         "
       )
     )
   ),
   titlePanel((div(class = "title", "Promedios Gran Santiago 2018-2023"))
-    ),
+  ),
   column(12,
          p(div(class = "highlighted-subtitle",
-               "Los siguientes mapas muestran el promedio final de estudiantes entre quinto básico y cuarto básico del Gran Santiago entre los años 2018 y 2023. Fuente: Sistema de Información General de Estudiantes (SIGE)"))),
-  sidebarPanel(
-    card(
-    fluidRow(
-      column(12,
-             selectInput(
-               "year",
-               "Seleccione el año: ",
-               choices = 2018:2023,
-               selected = 2018
-             )
-      )),
-    column(12,
-           p("Haga clic en el selector de años para seleccionar el año de interés"),
-           p(""),
-           br(),
-           br(),
-           p("Haga clic en una comuna para ver los datos sobre el rendimiento académico promedio")
-    ))
-    ),
+               "Los siguientes mapas muestran el promedio final de estudiantes entre primer básico y quinto básico del Gran Santiago entre los años 2018 y 2023. Fuente: Sistema de Información General de Estudiantes (SIGE)"))),
+  sidebarPanel(width = 2,
+      fluidRow(div(class = "plot-container", div(class = "custom-selector", selectInput(
+                              "year",
+                              "Seleccione el año: ",
+                              choices = 2018:2023,
+                              selected = 2018
+                     )))),
+      div(class = "text2",
+                          p("Haga clic en el selector de años para seleccionar el año de interés"),
+                          p(""),
+                          br(),
+                          br(),
+                          p("Haga clic en una comuna para ver los datos sobre el rendimiento académico promedio")
+                   )),
   card(
     fluidRow(
-    column(4,
-           div(
-             class = "card",
-             h4("Comuna", class = "card-title"),
-             htmlOutput("selected_comuna")
-           )
-    ),
-    column(4,
-           div(
-             class = "card",
-             h4("Promedio", class = "card-title"),
-             htmlOutput("average_comuna")
-           )
-    ),
-    column(4,
-           div(
-             class = "card",
-             h4("Estudiantes", class = "card-title"),
-             htmlOutput("student_count")
-           )
-    ),
-    column(12,
-           uiOutput("map_title"),
-           leafletOutput("mapa1", height = "500", width = "100%")
-  )
-)),
-fluidRow(
-  column(12, plotlyOutput("grafico_interactivo"))
-))
+      column(4,
+             div(
+               class = "card",
+               h4("Comuna", class = "card-title"),
+               htmlOutput("selected_comuna")
+             )
+      ),
+      column(4,
+             div(
+               class = "card",
+               h4("Promedio", class = "card-title"),
+               htmlOutput("average_comuna")
+             )
+      ),
+      column(4,
+             div(
+               class = "card",
+               h4("Estudiantes", class = "card-title"),
+               htmlOutput("student_count")
+             )
+      ),
+      column(8,
+             uiOutput("map_title"),
+             leafletOutput("mapa1", height = "500", width = "100%")),
+      column(4,
+             div(
+               class = "card",
+               h4("Tipos de establecimientos", class = "card-title"),
+               plotlyOutput("grafico_interactivo", height = "200px", width = "100%"))))))
+  
 
 
 
@@ -380,6 +396,7 @@ server <- function(input, output, session) {
   selected_comuna <- reactiveVal(NULL)
   selected_promedio <- reactiveVal(NULL)
   selected_n_estudiantes <- reactiveVal(NULL)
+  selected_codigo_comuna <- reactiveVal(NULL)
   
   # Actualiza el título del mapa basado en el año seleccionado
   output$map_title <- renderUI({
@@ -421,7 +438,7 @@ server <- function(input, output, session) {
   observeEvent(input$mapa1_shape_click, {
     click <- input$mapa1_shape_click
     if (!is.null(click)) {
-      comuna <- click$id  # Obtiene el nombre de la comuna del `layerId`
+      comuna <- click$id  
       
       # Encuentra el promedio de la comuna seleccionada según el año
       promedio <- switch(
@@ -444,17 +461,29 @@ server <- function(input, output, session) {
         "2023" = comunas_santiago2023$n_estudiantes[comunas_santiago2023$nombre_comuna == comuna]
       )
       
+      codigo_comuna <- switch(
+        as.character(input$year),
+        "2018" = comunas_santiago2018$codigo_comuna[comunas_santiago2018$nombre_comuna == comuna],
+        "2019" = comunas_santiago2019$codigo_comuna[comunas_santiago2019$nombre_comuna == comuna],
+        "2020" = comunas_santiago2020$codigo_comuna[comunas_santiago2020$nombre_comuna == comuna],
+        "2021" = comunas_santiago2021$codigo_comuna[comunas_santiago2021$nombre_comuna == comuna],
+        "2022" = comunas_santiago2022$codigo_comuna[comunas_santiago2022$nombre_comuna == comuna],
+        "2023" = comunas_santiago2023$codigo_comuna[comunas_santiago2023$nombre_comuna == comuna]
+      )
+      
       # Actualiza los valores reactivos
       selected_comuna(comuna)
       selected_promedio(promedio)
       selected_n_estudiantes(n_estudiantes)
+      selected_codigo_comuna(codigo_comuna)
     }
   })
   
+
   output$grafico_interactivo <- renderPlotly({
-    req(selected_comuna())
+    req(selected_codigo_comuna())
     year_index <- as.numeric(input$year) - 2017
-    grafico_interactivo(selected_comuna(), year_index)
+    grafico_interactivo(selected_codigo_comuna(), year_index)
   })
   
   # Renderiza el contenido de las tarjetas basado en los valores reactivos

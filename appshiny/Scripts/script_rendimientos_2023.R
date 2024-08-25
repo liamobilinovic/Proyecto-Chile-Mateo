@@ -493,6 +493,76 @@ kable(Nt_cursos2023) %>%
   kable_styling(bootstrap_options = kablevectores)
 
 
+####Tipos de establecimiento Santiago###
+
+
+establecimiento2018 <- tabla_rendimientos2018 %>% 
+  filter(COD_PRO_RBD == 131) %>% 
+  group_by(as.integer(COD_COM_RBD), NOM_COM_RBD, TipoEstablecimiento) %>%
+  summarise(n_estudiantes = n(), 
+            promedio = mean(PROM_GRAL), 
+            .groups = "drop")
+
+establecimiento2018 <- establecimiento2018 %>% 
+  rename("codigo_comuna" = `as.integer(COD_COM_RBD)`) %>% 
+  rename("nombre_comuna" = NOM_COM_RBD)
+
+establecimiento2019 <- tabla_rendimientos2019 %>% 
+  filter(COD_PRO_RBD == 131) %>% 
+  group_by(as.integer(COD_COM_RBD),NOM_COM_RBD, TipoEstablecimiento) %>%
+  summarise(n_estudiantes = n(), 
+            promedio = mean(PROM_GRAL), 
+            .groups = "drop")
+
+establecimiento2019 <- establecimiento2019 %>% 
+  rename("codigo_comuna" = `as.integer(COD_COM_RBD)`) %>% 
+  rename("nombre_comuna" = NOM_COM_RBD)
+
+establecimiento2020 <- tabla_rendimientos2020 %>% 
+  filter(COD_PRO_RBD == 131) %>% 
+  group_by(as.integer(COD_COM_RBD),NOM_COM_RBD, TipoEstablecimiento) %>%
+  summarise(n_estudiantes = n(), 
+            promedio = mean(PROM_GRAL), 
+            .groups = "drop")
+
+establecimiento2020 <- establecimiento2020 %>%
+  rename("codigo_comuna" = `as.integer(COD_COM_RBD)`) %>% 
+  rename("nombre_comuna" = NOM_COM_RBD)
+
+establecimiento2021 <- tabla_rendimientos2021 %>% 
+  filter(COD_PRO_RBD == 131) %>% 
+  group_by(as.integer(COD_COM_RBD),NOM_COM_RBD, TipoEstablecimiento) %>%
+  summarise(n_estudiantes = n(), 
+            promedio = mean(PROM_GRAL), 
+            .groups = "drop")
+
+establecimiento2021 <- establecimiento2021 %>%
+  rename("codigo_comuna" = `as.integer(COD_COM_RBD)`) %>% 
+  rename("nombre_comuna" = NOM_COM_RBD)
+
+establecimiento2022 <- tabla_rendimientos2022 %>% 
+  filter(COD_PRO_RBD == 131) %>% 
+  group_by(as.integer(COD_COM_RBD),NOM_COM_RBD, TipoEstablecimiento) %>%
+  summarise(n_estudiantes = n(), 
+            promedio = mean(PROM_GRAL), 
+            .groups = "drop")
+
+establecimiento2022 <- establecimiento2022 %>%
+  rename("codigo_comuna" = `as.integer(COD_COM_RBD)`) %>% 
+  rename("nombre_comuna" = NOM_COM_RBD)
+
+establecimiento2023 <- tabla_rendimientos2023 %>% 
+  filter(COD_PRO_RBD == 131) %>% 
+  group_by(as.integer(COD_COM_RBD),NOM_COM_RBD, TipoEstablecimiento) %>%
+  summarise(n_estudiantes = n(), 
+            promedio = mean(PROM_GRAL), 
+            .groups = "drop")
+
+establecimiento2023 <- establecimiento2023 %>%
+  rename("codigo_comuna" = `as.integer(COD_COM_RBD)`) %>% 
+  rename("nombre_comuna" = NOM_COM_RBD)
+
+
 
 
 
