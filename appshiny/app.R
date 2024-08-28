@@ -48,12 +48,12 @@ library(shinyWidgets)
 ##### Situación fina.r#####
 
 
-sfinal2018 <- read_csv("Datos-proyecto /situacionfinal2018.csv")
-sfinal2019 <- read_csv("Datos-proyecto /situacionfinal2019.csv")
-sfinal2020 <- read_csv("Datos-proyecto /situacionfinal2020.csv")
-sfinal2021 <- read_csv("Datos-proyecto /situacionfinal2021.csv")
-sfinal2022 <- read_csv("Datos-proyecto /situacionfinal2022.csv")
-sfinal2023 <- read_csv("Datos-proyecto /situacionfinal2023.csv")
+sfinal2018 <- read_csv("Datos-proyecto/situacionfinal2018.csv")
+sfinal2019 <- read_csv("Datos-proyecto/situacionfinal2019.csv")
+sfinal2020 <- read_csv("Datos-proyecto/situacionfinal2020.csv")
+sfinal2021 <- read_csv("Datos-proyecto/situacionfinal2021.csv")
+sfinal2022 <- read_csv("Datos-proyecto/situacionfinal2022.csv")
+sfinal2023 <- read_csv("Datos-proyecto/situacionfinal2023.csv")
 
 
 
@@ -125,12 +125,12 @@ grafico_sfinal <- function(comuna, year_index) {
 
 #######
 
-establecimiento2018 <- read_csv("Datos-proyecto /establecimiento2018.csv")
-establecimiento2019 <- read_csv("Datos-proyecto /establecimiento2019.csv")
-establecimiento2020 <- read_csv("Datos-proyecto /establecimiento2020.csv")
-establecimiento2021 <- read_csv("Datos-proyecto /establecimiento2021.csv")
-establecimiento2022 <- read_csv("Datos-proyecto /establecimiento2022.csv")
-establecimiento2023 <- read_csv("Datos-proyecto /establecimiento2023.csv")
+establecimiento2018 <- read_csv("Datos-proyecto/establecimiento2018.csv")
+establecimiento2019 <- read_csv("Datos-proyecto/establecimiento2019.csv")
+establecimiento2020 <- read_csv("Datos-proyecto/establecimiento2020.csv")
+establecimiento2021 <- read_csv("Datos-proyecto/establecimiento2021.csv")
+establecimiento2022 <- read_csv("Datos-proyecto/establecimiento2022.csv")
+establecimiento2023 <- read_csv("Datos-proyecto/establecimiento2023.csv")
 
 establecimientos_total <- list(establecimiento2018, establecimiento2019, establecimiento2020, establecimiento2021, establecimiento2022, establecimiento2023)
 
@@ -203,12 +203,12 @@ grafico_interactivo <- function(comuna, year_index) {
 #######
 
 
-comunas_santiago2018 <- read_sf("Datos-proyecto /comunas_santiago2018.gpkg")
-comunas_santiago2019 <- read_sf("Datos-proyecto /comunas_santiago2019.gpkg")
-comunas_santiago2020 <- read_sf("Datos-proyecto /comunas_santiago2020.gpkg")
-comunas_santiago2021 <- read_sf("Datos-proyecto /comunas_santiago2021.gpkg")
-comunas_santiago2022 <- read_sf("Datos-proyecto /comunas_santiago2022.gpkg")
-comunas_santiago2023 <- read_sf("Datos-proyecto /comunas_santiago2023.gpkg")
+comunas_santiago2018 <- read_sf("Datos-proyecto/comunas_santiago2018.gpkg")
+comunas_santiago2019 <- read_sf("Datos-proyecto/comunas_santiago2019.gpkg")
+comunas_santiago2020 <- read_sf("Datos-proyecto/comunas_santiago2020.gpkg")
+comunas_santiago2021 <- read_sf("Datos-proyecto/comunas_santiago2021.gpkg")
+comunas_santiago2022 <- read_sf("Datos-proyecto/comunas_santiago2022.gpkg")
+comunas_santiago2023 <- read_sf("Datos-proyecto/comunas_santiago2023.gpkg")
 
 
 
@@ -249,6 +249,13 @@ mapa_santiago2018 <- leaflet(comunas_santiago2018) %>%
       bringToFront = TRUE
     ),
     label = ~ paste("Comuna: ", comunas_santiago2018$nombre_comuna, "", "Promedio: ", comunas_santiago2018$promedio)
+  ) %>% 
+  addLegend(
+    pal = pal,
+    values = ~ promedio,
+    opacity = 0.5,
+    title = "Promedio",
+    position = "topright"
   )
 
 
@@ -275,6 +282,13 @@ mapa_santiago2019 <- leaflet(comunas_santiago2019) %>%
       bringToFront = TRUE
     ),
     label = ~ paste("Comuna: ", comunas_santiago2019$nombre_comuna, "", "Promedio: ", comunas_santiago2019$promedio)
+  ) %>% 
+  addLegend(
+    pal = pal,
+    values = ~ promedio,
+    opacity = 0.5,
+    title = "Promedio",
+    position = "topright"
   )
 
 ### 2020###
@@ -300,6 +314,13 @@ mapa_santiago2020 <- leaflet(comunas_santiago2020) %>%
       bringToFront = TRUE
     ),
     label = ~ paste("Comuna: ", comunas_santiago2020$nombre_comuna, "", "Promedio: ", comunas_santiago2020$promedio)
+  ) %>% 
+  addLegend(
+    pal = pal,
+    values = ~ promedio,
+    opacity = 0.5,
+    title = "Promedio",
+    position = "topright"
   )
 
 ### 2021###
@@ -325,6 +346,13 @@ mapa_santiago2021 <- leaflet(comunas_santiago2021) %>%
       bringToFront = TRUE
     ),
     label = ~ paste("Comuna: ", comunas_santiago2021$nombre_comuna, "", "Promedio: ", comunas_santiago2021$promedio)
+  ) %>% 
+  addLegend(
+    pal = pal,
+    values = ~ promedio,
+    opacity = 0.5,
+    title = "Promedio",
+    position = "topright"
   )
 
 ### 2022###
@@ -351,6 +379,13 @@ mapa_santiago2022 <- leaflet(comunas_santiago2022) %>%
       bringToFront = TRUE
     ),
     label = ~ paste("Comuna: ", comunas_santiago2022$nombre_comuna, "", "Promedio: ", comunas_santiago2022$promedio)
+  ) %>% 
+  addLegend(
+    pal = pal,
+    values = ~ promedio,
+    opacity = 0.5,
+    title = "Promedio",
+    position = "topright"
   )
 
 ### 2023###
@@ -376,6 +411,13 @@ mapa_santiago2023 <- leaflet(comunas_santiago2023) %>%
       bringToFront = TRUE
     ),
     label = ~ paste("Comuna: ", comunas_santiago2023$nombre_comuna, "", "Promedio: ", comunas_santiago2023$promedio)
+  ) %>% 
+  addLegend(
+    pal = pal,
+    values = ~ promedio,
+    opacity = 0.5,
+    title = "Promedio",
+    position = "topright"
   )
 
 
@@ -395,7 +437,7 @@ ui <- fluidPage(
       HTML(
         "
         body {
-          background: #011638;
+          background: #000E25;
           color: white;
           font-family: 'Poppins', sans-serif;
         }

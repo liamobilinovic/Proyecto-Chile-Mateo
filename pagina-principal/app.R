@@ -7,7 +7,7 @@ ui <- fluidPage(
     tags$style(HTML(
       "
       body {
-        background-color: #011638;
+        background-color: #000E25;
         color: white;
         font-family: 'Poppins', sans-serif;
         text-align: center;
@@ -47,11 +47,17 @@ ui <- fluidPage(
       }
       
       .github-icon {
-        margin-top: 40px;
+        margin-top: 500px;
       }
-
       .github-icon img {
-        width: 100px; /* Ajusta el tamaño del icono */
+        width: 70px; 
+        height: auto;
+      }
+      .transparenta-icon {
+        margin-top: 100px;
+        margin-left: 50px;
+      }
+      .transparenta-icon img {
         height: auto;
       }
     "
@@ -67,8 +73,14 @@ ui <- fluidPage(
   
   # Ícono de GitHub
   div(class = "github-icon",
-      a(href = "https://github.com/tu-perfil", target = "_blank", 
+      a(href = "https://github.com/liamobilinovic/Proyecto-Chile-Mateo", target = "_blank", 
         img(src = "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"))
+  ),
+
+
+  div(class = "transparenta-icon",
+      a(href = "https://transparentadatos.cl/", target = "_blank", 
+        img(src = "https://cienciaabierta.uc.cl/wp-content/uploads/2023/09/transparenta.jpg"))
   )
 )
 
