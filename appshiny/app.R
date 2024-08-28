@@ -20,6 +20,7 @@ if (!require("sf")) install.packages("sf")
 if (!require("chilemapas")) install.packages("chilemapas")
 if (!require("shinydashboard")) install.packages("shinydashboard")
 if (!require("plotly")) install.packages("plotly")
+if (!require("shinyWidgets")) install.packages("shinyWidgets")
 
 
 library(summarytools)
@@ -42,6 +43,7 @@ library(sf)
 library(chilemapas)
 library(shinydashboard)
 library(plotly)
+library(shinyWidgets)
 
 ##### Situación fina.r#####
 
@@ -96,9 +98,9 @@ grafico_sfinal <- function(comuna, year_index) {
     hoverinfo = "label+text",
     text = ~ paste(n_estudiantes),
     textinfo = "percent",
-    marker = list(colors = c("#C70319", "#2C0DBB", "#6F0976", "#B10530", "#85085E"))
+    marker = list(colors = c("#00BFB2", "#028090", "#F0F3BD", "#78D9B8", "#D8EEBC"))
   ) %>%
-    layout(
+    layout( 
       showlegend = FALSE, # Mostrar la leyenda
       paper_bgcolor = "rgba(0,0,0,0)", # Fondo del área del gráfico
       plot_bgcolor = "rgba(0,0,0,0)", # Fondo del gráfico
@@ -176,7 +178,7 @@ grafico_interactivo <- function(comuna, year_index) {
     hoverinfo = "label+text",
     text = ~ paste("Promedio de notas:", as.integer(round(promedio, 1))),
     textinfo = "percent",
-    marker = list(colors = c("#C70319", "#2C0DBB", "#6F0976", "#B10530", "#85085E"))
+    marker = list(colors = c("#00BFB2", "#028090", "#F0F3BD", "#78D9B8", "#D8EEBC"))
   ) %>%
     layout(
       showlegend = FALSE, # Mostrar la leyenda
@@ -212,20 +214,7 @@ comunas_santiago2023 <- read_sf("Datos-proyecto /comunas_santiago2023.gpkg")
 
 bins <- c(40, 45, 50, 52, 54, 56, 58, 60, 62, 64, 65)
 
-paleta <- c(
-  "#DD0202",
-  "#C70319",
-  "#B10530",
-  "#9B0647",
-  "#85085E",
-  "#6F0976",
-  "#580A8D",
-  "#420CA4",
-  "#2C0DBB",
-  "#160FD2",
-  "#0010E9"
-)
-
+paleta <- c("#00BFB2", "#18C4B3", "#30C9B4", "#48CFB5", "#60D4B6", "#78D9B8", "#90DEB9", "#A8E3BA", "#C0E9BB", "#D8EEBC", "#F0F3BD")
 
 
 pal <- colorBin(
@@ -406,13 +395,12 @@ ui <- fluidPage(
       HTML(
         "
         body {
-          background: rgb(221,2,2);
-          background: linear-gradient(125deg, rgba(221,2,2,1) 7%, rgba(0,16,233,1) 76%);
+          background: #011638;
           color: white;
           font-family: 'Poppins', sans-serif;
         }
         .well {
-          background-color: #2C11DD; /* Fondo del panel lateral */
+          background-color: #061a40;
           padding: 10px;
           border-radius: 10px;
           color: white;
@@ -429,6 +417,15 @@ ui <- fluidPage(
         }
         .card {
           background-color: rgba(0, 0, 0, 0.5);
+          border-radius: 10px;
+          padding: 15px;
+          margin-top: 20px;
+          color: white;
+          font-family: 'Poppins', sans-serif;
+          text-align: center;
+        }
+        .card-final {
+          background-color: #1D263B;
           border-radius: 10px;
           padding: 15px;
           margin-top: 20px;
@@ -527,7 +524,7 @@ ui <- fluidPage(
       column(
         4,
         div(
-          class = "card",
+          class = "card-final",
           h4("Comuna", class = "card-title"),
           htmlOutput("selected_comuna")
         )
@@ -535,7 +532,7 @@ ui <- fluidPage(
       column(
         4,
         div(
-          class = "card",
+          class = "card-final",
           h4("Promedio", class = "card-title"),
           htmlOutput("average_comuna")
         )
@@ -543,7 +540,7 @@ ui <- fluidPage(
       column(
         4,
         div(
-          class = "card",
+          class = "card-final",
           h4("Estudiantes", class = "card-title"),
           htmlOutput("student_count")
         )
@@ -556,7 +553,7 @@ ui <- fluidPage(
       column(
         4,
         div(
-          class = "card",
+          class = "card-final",
           h4("Tipos de establecimientos", class = "card-title"),
           plotlyOutput("grafico_interactivo", height = "200px", width = "100%")
         )
@@ -564,7 +561,7 @@ ui <- fluidPage(
       column(
         4,
         div(
-          class = "card",
+          class = "card-final",
           h4("Situación final por comuna", class = "card-title"),
           plotlyOutput("grafico_sfinal", height = "200px", width = "100%")
         )
