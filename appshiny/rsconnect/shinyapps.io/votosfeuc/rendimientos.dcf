@@ -5,9 +5,9 @@ account: votosfeuc
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 12435225
-bundleId: 9024062
+bundleId: 9035922
 url: https://chile-mateo.shinyapps.io/rendimientos/
 version: 1
 asMultiple: FALSE
 asStatic: FALSE
-ignoredFiles: Mapas.R|Particularidad.R|Scripts
+ignoredFiles: comunas_santiago2018.gpkg|comunas_santiago2019.gpkg|comunas_santiago2020.gpkg|comunas_santiago2021.gpkg|comunas_santiago2022.gpkg|comunas_santiago2023.gpkg|establecimiento2018.csv|establecimiento2019.csv|establecimiento2020.csv|establecimiento2021.csv|establecimiento2022.csv|establecimiento2023.csv|Mapas.R|Particularidad.R|Scripts

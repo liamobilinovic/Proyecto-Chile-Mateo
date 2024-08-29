@@ -56,7 +56,7 @@ grafico_interactivo <- function(comuna, year_index){
 
   plot_ly(df_comuna, labels = ~TipoEstablecimiento, values = ~n_estudiantes, type = 'pie', hole = 0.6, width = 410, height = 260, # Aumentar tamaño para mayor control
           hoverinfo = 'label+text',
-          text = ~paste("Promedio de notas:", as.integer(round(promedio, 1))),
+          text = ~paste("Promedio de notas:", promedio),
           textinfo = 'percent',
           marker = list(colors = c("#C70319", "#2C0DBB", "#6F0976", "#B10530", "#85085E"))
   ) %>%

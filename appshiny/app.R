@@ -45,6 +45,16 @@ library(shinydashboard)
 library(plotly)
 library(shinyWidgets)
 
+
+###paleta###
+
+
+
+
+
+paleta <- c("#EC5A25", "#D7522D", "#C14936", "#AC413E", "#963846", "#81304F", "#6B2757", "#551E5F", "#401667", "#2B0E70", "#150578")
+
+
 ##### Situación fina.r#####
 
 
@@ -98,7 +108,7 @@ grafico_sfinal <- function(comuna, year_index) {
     hoverinfo = "label+text",
     text = ~ paste(n_estudiantes),
     textinfo = "percent",
-    marker = list(colors = c("#00BFB2", "#028090", "#F0F3BD", "#78D9B8", "#D8EEBC"))
+    marker = list(colors = c("#EC5A25", "#2B0E70", "#6B2757", "#AC413E", "#150578"))
   ) %>%
     layout( 
       showlegend = FALSE, # Mostrar la leyenda
@@ -176,10 +186,10 @@ grafico_interactivo <- function(comuna, year_index) {
   plot_ly(df_comuna,
     labels = ~TipoEstablecimiento, values = ~n_estudiantes, type = "pie", hole = 0.6, width = 410, height = 260, # Aumentar tamaño para mayor control
     hoverinfo = "label+text",
-    text = ~ paste("Promedio de notas:", as.integer(round(promedio, 1))),
+    text = ~ paste("Promedio de notas:", promedio),
     textinfo = "percent",
-    marker = list(colors = c("#00BFB2", "#028090", "#F0F3BD", "#78D9B8", "#D8EEBC"))
-  ) %>%
+    marker = list(colors = c("#EC5A25", "#2B0E70", "#6B2757", "#AC413E", "#150578"))
+  ) %>% 
     layout(
       showlegend = FALSE, # Mostrar la leyenda
       paper_bgcolor = "rgba(0,0,0,0)", # Fondo del área del gráfico
@@ -210,16 +220,22 @@ comunas_santiago2021 <- read_sf("Datos-proyecto/comunas_santiago2021.gpkg")
 comunas_santiago2022 <- read_sf("Datos-proyecto/comunas_santiago2022.gpkg")
 comunas_santiago2023 <- read_sf("Datos-proyecto/comunas_santiago2023.gpkg")
 
+st_transform(comunas_santiago2018, crs = 4326)
+st_transform(comunas_santiago2019, crs = 4326)
+st_transform(comunas_santiago2020, crs = 4326)
+st_transform(comunas_santiago2021, crs = 4326)
+st_transform(comunas_santiago2022, crs = 4326)
+st_transform(comunas_santiago2023, crs = 4326)
 
 
-bins <- c(40, 45, 50, 52, 54, 56, 58, 60, 62, 64, 65)
+bins <- c(4.0, 4.5, 5.0, 5.2, 5.4, 5.6, 5.8, 6.0, 6.2, 6.4, 6.5)
 
-paleta <- c("#00BFB2", "#18C4B3", "#30C9B4", "#48CFB5", "#60D4B6", "#78D9B8", "#90DEB9", "#A8E3BA", "#C0E9BB", "#D8EEBC", "#F0F3BD")
 
+paleta <- c("#EC5A25", "#D7522D", "#C14936", "#AC413E", "#963846", "#81304F", "#6B2757", "#551E5F", "#401667", "#2B0E70", "#150578")
 
 pal <- colorBin(
   palette = paleta,
-  domain = c(40, 65),
+  domain = c(4.0, 6.5),
   bins = bins
 )
 
@@ -396,7 +412,7 @@ mapa_santiago2023 <- leaflet(comunas_santiago2023) %>%
     options = tileOptions(background = "white")
   ) %>%
   addPolygons(
-    fillColor = ~ pal(comunas_santiago2023$promedio),
+    fillColor = ~ pal(comunas_santiago2022$promedio),
     weight = 1,
     opacity = 1,
     color = "white",
@@ -419,6 +435,7 @@ mapa_santiago2023 <- leaflet(comunas_santiago2023) %>%
     title = "Promedio",
     position = "topright"
   )
+
 
 
 
