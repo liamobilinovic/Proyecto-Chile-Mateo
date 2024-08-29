@@ -549,6 +549,17 @@ ui <- fluidPage(
           width: 150px;
           margin: 0 auto;
         }
+        .evolucion {
+          color: white;
+          font-family: 'Poppins', sans-serif;
+          text-align: center;
+          font-size: 16px;
+          font-weight: 300;
+          background-color: rgba(0, 0, 0, 0.5);
+          margin-top: 10px;
+          border-radius: 10px;
+          overflow: hidden;
+        } 
         "
       )
     )
@@ -624,8 +635,14 @@ ui <- fluidPage(
           h4("Situación final por comuna", class = "card-title"),
           plotlyOutput("grafico_sfinal", height = "200px", width = "100%")
         )
-      )
-    )
+      ),
+      column(
+        4,
+        div(
+          class = "card-final",
+          div(class = "evolucion" ,plotlyOutput("grafico_evolucion", height = "200px", width = "100%")
+        ))
+    ))
   )
 )
 
@@ -726,6 +743,12 @@ server <- function(input, output, session) {
     req(selected_codigo_comuna())
     year_index <- as.numeric(input$year) - 2017
     grafico_sfinal(selected_codigo_comuna(), year_index)
+  })
+  
+  output$grafico_evolucion <- renderPlotly({
+    req(selected_codigo_comuna())
+    year_index <- as.numeric(input$year) - 2017
+    grafico_evolucion(selected_codigo_comuna(), year_index)
   })
 
   # Renderiza el contenido de las tarjetas basado en los valores reactivos
