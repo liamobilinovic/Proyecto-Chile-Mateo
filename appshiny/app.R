@@ -489,60 +489,6 @@ grafico_evolucion <- function(comuna, year_index) {
 
 ## Funcion para mapa de todas las comunas
 
-comunas_chile2018 <- read_sf("Datos-proyecto/comunas_chile2018.gpkg")
-comunas_chile2019 <- read_sf("Datos-proyecto/comunas_chile2019.gpkg")
-comunas_chile2020 <- read_sf("Datos-proyecto/comunas_chile2020.gpkg")
-comunas_chile2021 <- read_sf("Datos-proyecto/comunas_chile2021.gpkg")
-comunas_chile2022 <- read_sf("Datos-proyecto/comunas_chile2022.gpkg")
-comunas_chile2023 <- read_sf("Datos-proyecto/comunas_chile2023.gpkg")
-
-
-comunas_total <- list(comunas_chile2018, comunas_chile2019, comunas_chile2020, comunas_chile2021, comunas_chile2022, comunas_chile2023)
-
-
-comunas <- unique(comunas_total[1]$codigo_comuna)
-
-generar_mapa <- function(year_index, region){
-  
-  df_total <- comunas_total[[year_index]]
-  
-  df_total <- df_total %>% 
-    filter(codigo_region == region)
-  
-  leaflet(df_total) %>%
-    addTiles(
-      urlTemplate = "",
-      options = tileOptions(background = "white")
-    ) %>%
-    addPolygons(
-      fillColor = ~ pal(df_total$promedio),
-      weight = 1,
-      opacity = 1,
-      color = "white",
-      dashArray = "3",
-      fillOpacity = 0.7,
-      layerId = ~nombre_comuna,
-      highlightOptions = highlightOptions(
-        weight = 5,
-        color = "#666",
-        dashArray = "",
-        fillOpacity = 0.7,
-        bringToFront = TRUE
-      ),
-      label = ~ paste("Comuna: ", nombre_comuna, "", "Promedio: ", promedio)
-    ) %>% 
-    addLegend(
-      pal = pal,
-      values = ~ promedio,
-      opacity = 0.5,
-      title = "Promedio",
-      position = "topright"
-    )
-}
-
-generar_mapa(1, "12")
-
-
 
 #######################################
 
@@ -683,13 +629,6 @@ ui <- fluidPage(
       "Seleccione el año: ",
       choices = 2018:2023,
       selected = 2018
-    )))),
-    fluidRow(
-      div(class = "plot-container", div(class = "custom-selector", selectInput(
-        "Region",
-        "Seleccione la región: ",
-        choices = nombres_regiones,
-        selected = "Región Metropolitana de Santiago"
     )))),
     div(
       class = "text2",

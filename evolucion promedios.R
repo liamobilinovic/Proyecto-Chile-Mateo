@@ -48,26 +48,5 @@ grafico_evolucion <- function(comuna, year_index) {
 
 grafico_evolucion(13101)
 
-ggplot(df_total, aes(x = as.factor(anio), y = promedio, group = 1)) +
-  geom_line() +
-  geom_point() +
-  labs(
-    x = "Año",
-    y = "Promedio") +
-  theme_minimal() +
-  theme(plot.title = element_text(hjust = 0.5),
-        axis.text.x = element_text(angle = 45, hjust = 1))
 
-
-plot_ly(df_total, 
-        x = ~as.factor(anio), 
-        y = ~promedio, 
-        type = 'scatter', 
-        mode = 'lines+markers') %>%
-  layout(title = list(text = paste("Evolución del promedio de", nombre_comuna),
-                      x = 0.5),
-         xaxis = list(title = "Año"),
-         yaxis = list(title = "Promedio"),
-         margin = list(t = 50),
-         hovermode = 'x unified')
 

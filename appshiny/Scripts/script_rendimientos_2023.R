@@ -581,4 +581,128 @@ write_csv(establecimiento2021, "establecimiento2021.csv")
 write_csv(establecimiento2022, "establecimiento2022.csv")
 write_csv(establecimiento2023, "establecimiento2023.csv")
 
+establecimientos_chile2018 <- tabla_rendimientos2018 %>% 
+  group_by(as.integer(COD_COM_RBD), NOM_COM_RBD, TipoEstablecimiento) %>%
+  summarise(n_estudiantes = n(), 
+            promedio = round(mean(PROM_GRAL)) / 10,
+            .groups = "drop")
+
+establecimientos_chile2018 <- establecimientos_chile2018 %>% 
+  rename("codigo_comuna" = `as.integer(COD_COM_RBD)`) %>% 
+  rename("nombre_comuna" = NOM_COM_RBD)
+
+establecimientos_chile2019 <- tabla_rendimientos2019 %>% 
+  group_by(as.integer(COD_COM_RBD), NOM_COM_RBD, TipoEstablecimiento) %>%
+  summarise(n_estudiantes = n(), 
+            promedio = round(mean(PROM_GRAL)) / 10,
+            .groups = "drop")
+
+establecimientos_chile2019 <- establecimientos_chile2019 %>%
+  rename("codigo_comuna" = `as.integer(COD_COM_RBD)`) %>% 
+  rename("nombre_comuna" = NOM_COM_RBD)
+
+establecimientos_chile2020 <- tabla_rendimientos2020 %>%
+  group_by(as.integer(COD_COM_RBD), NOM_COM_RBD, TipoEstablecimiento) %>%
+  summarise(n_estudiantes = n(), 
+            promedio = round(mean(PROM_GRAL)) / 10,
+            .groups = "drop")
+
+establecimientos_chile2020 <- establecimientos_chile2020 %>%
+  rename("codigo_comuna" = `as.integer(COD_COM_RBD)`) %>% 
+  rename("nombre_comuna" = NOM_COM_RBD)
+
+establecimientos_chile2021 <- tabla_rendimientos2021 %>%
+  group_by(as.integer(COD_COM_RBD), NOM_COM_RBD, TipoEstablecimiento) %>%
+  summarise(n_estudiantes = n(), 
+            promedio = round(mean(PROM_GRAL)) / 10,
+            .groups = "drop")
+
+establecimientos_chile2021 <- establecimientos_chile2021 %>%
+  rename("codigo_comuna" = `as.integer(COD_COM_RBD)`) %>% 
+  rename("nombre_comuna" = NOM_COM_RBD)
+
+establecimientos_chile2022 <- tabla_rendimientos2022 %>%
+  group_by(as.integer(COD_COM_RBD), NOM_COM_RBD, TipoEstablecimiento) %>%
+  summarise(n_estudiantes = n(), 
+            promedio = round(mean(PROM_GRAL)) / 10,
+            .groups = "drop")
+
+establecimientos_chile2022 <- establecimientos_chile2022 %>%
+  rename("codigo_comuna" = `as.integer(COD_COM_RBD)`) %>% 
+  rename("nombre_comuna" = NOM_COM_RBD)
+
+establecimientos_chile2023 <- tabla_rendimientos2023 %>%
+  group_by(as.integer(COD_COM_RBD), NOM_COM_RBD, TipoEstablecimiento) %>%
+  summarise(n_estudiantes = n(), 
+            promedio = round(mean(PROM_GRAL)) / 10,
+            .groups = "drop")
+
+establecimientos_chile2023 <- establecimientos_chile2023 %>%
+  rename("codigo_comuna" = `as.integer(COD_COM_RBD)`) %>% 
+  rename("nombre_comuna" = NOM_COM_RBD)
+
+write.csv(establecimientos_chile2018, "establecimientos_chile2018.csv")
+write.csv(establecimientos_chile2019, "establecimientos_chile2019.csv")
+write.csv(establecimientos_chile2020, "establecimientos_chile2020.csv")
+write.csv(establecimientos_chile2021, "establecimientos_chile2021.csv")
+write.csv(establecimientos_chile2022, "establecimientos_chile2022.csv")
+write.csv(establecimientos_chile2023, "establecimientos_chile2023.csv")
+
+
+
+sfinal_chile2018 <- situacionfinal2018 %>% 
+  group_by(as.integer(COD_COM_RBD), NOM_COM_RBD, SituacionFinal) %>% 
+  summarise(n_estudiantes = n(), 
+            .groups = "drop")
+
+sfinal_chile2018 <- sfinal_chile2018 %>% 
+  rename("codigo_comuna" = `as.integer(COD_COM_RBD)`) %>% 
+  rename("nombre_comuna" = NOM_COM_RBD)
+
+sfinal_chile2019 <- situacionfinal2019 %>%
+  group_by(as.integer(COD_COM_RBD), NOM_COM_RBD, SituacionFinal) %>% 
+  summarise(n_estudiantes = n(), 
+            .groups = "drop")
+
+sfinal_chile2019 <- sfinal_chile2019 %>%
+  rename("codigo_comuna" = `as.integer(COD_COM_RBD)`) %>% 
+  rename("nombre_comuna" = NOM_COM_RBD)
+
+sfinal_chile2020 <- situacionfinal2020 %>%
+  group_by(as.integer(COD_COM_RBD), NOM_COM_RBD, SituacionFinal) %>% 
+  summarise(n_estudiantes = n(), 
+            .groups = "drop")
+
+sfinal_chile2020 <- sfinal_chile2020 %>%
+  rename("codigo_comuna" = `as.integer(COD_COM_RBD)`) %>% 
+  rename("nombre_comuna" = NOM_COM_RBD)
+
+sfinal_chile2021 <- situacionfinal2021 %>%
+  group_by(as.integer(COD_COM_RBD), NOM_COM_RBD, SituacionFinal) %>% 
+  summarise(n_estudiantes = n(), 
+            .groups = "drop")
+
+sfinal_chile2021 <- sfinal_chile2021 %>%
+  rename("codigo_comuna" = `as.integer(COD_COM_RBD)`) %>% 
+  rename("nombre_comuna" = NOM_COM_RBD)
+
+sfinal_chile2022 <- situacionfinal2022 %>%
+  group_by(as.integer(COD_COM_RBD), NOM_COM_RBD, SituacionFinal) %>% 
+  summarise(n_estudiantes = n(), 
+            .groups = "drop")
+
+sfinal_chile2022 <- sfinal_chile2022 %>%
+  rename("codigo_comuna" = `as.integer(COD_COM_RBD)`) %>% 
+  rename("nombre_comuna" = NOM_COM_RBD)
+
+sfinal_chile2023 <- situacionfinal2023 %>%
+  group_by(as.integer(COD_COM_RBD), NOM_COM_RBD, SituacionFinal) %>% 
+  summarise(n_estudiantes = n(), 
+            .groups = "drop")
+
+sfinal_chile2023 <- sfinal_chile2023 %>%
+  rename("codigo_comuna" = `as.integer(COD_COM_RBD)`) %>% 
+  rename("nombre_comuna" = NOM_COM_RBD)
+
+
 ##############################################################################

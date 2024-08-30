@@ -67,7 +67,8 @@ situacionfinal2018 <- rendimientos2018_final %>%
   mutate(SituacionFinal = case_when(SIT_FIN %in% c("P") ~ "Promovido",
                                     SIT_FIN %in% c("R") ~ "Reprobado",
                                     SIT_FIN %in% c("Y") ~ "Retirado")) %>% 
-  mutate(COD_COM_RBD = str_pad(COD_COM_RBD, width = 5, pad = "0"))
+  mutate(COD_COM_RBD = str_pad(COD_COM_RBD, width = 5, pad = "0")) %>% 
+  mutate(COD_REG_RBD = str_pad(COD_REG_RBD, width = 2, pad = "0"))
 
 ####2019####
 
@@ -113,7 +114,8 @@ situacionfinal2019 <- rendimientos2019_final %>%
   mutate(SituacionFinal = case_when(SIT_FIN %in% c("P") ~ "Promovido",
                                     SIT_FIN %in% c("R") ~ "Reprobado",
                                     SIT_FIN %in% c("Y") ~ "Retirado")) %>% 
-  mutate(COD_COM_RBD = str_pad(COD_COM_RBD, width = 5, pad = "0"))
+  mutate(COD_COM_RBD = str_pad(COD_COM_RBD, width = 5, pad = "0")) %>% 
+  mutate(COD_REG_RBD = str_pad(COD_REG_RBD, width = 2, pad = "0"))
 
 ####2020####
 
@@ -159,7 +161,8 @@ situacionfinal2020 <- rendimientos2020_final %>%
   mutate(SituacionFinal = case_when(SIT_FIN %in% c("P") ~ "Promovido",
                                     SIT_FIN %in% c("R") ~ "Reprobado",
                                     SIT_FIN %in% c("Y") ~ "Retirado")) %>% 
-  mutate(COD_COM_RBD = str_pad(COD_COM_RBD, width = 5, pad = "0"))
+  mutate(COD_COM_RBD = str_pad(COD_COM_RBD, width = 5, pad = "0")) %>% 
+  mutate(COD_REG_RBD = str_pad(COD_REG_RBD, width = 2, pad = "0"))
 
 ####2021####
 
@@ -204,7 +207,8 @@ situacionfinal2021 <- rendimientos2021_final %>%
   mutate(SituacionFinal = case_when(SIT_FIN %in% c("P") ~ "Promovido",
                                     SIT_FIN %in% c("R") ~ "Reprobado",
                                     SIT_FIN %in% c("Y") ~ "Retirado")) %>% 
-  mutate(COD_COM_RBD = str_pad(COD_COM_RBD, width = 5, pad = "0"))
+  mutate(COD_COM_RBD = str_pad(COD_COM_RBD, width = 5, pad = "0")) %>% 
+  mutate(COD_REG_RBD = str_pad(COD_REG_RBD, width = 2, pad = "0"))
 
 ####2022####
 
@@ -250,7 +254,8 @@ situacionfinal2022 <- rendimientos2022_final %>%
   mutate(SituacionFinal = case_when(SIT_FIN %in% c("P") ~ "Promovido",
                                     SIT_FIN %in% c("R") ~ "Reprobado",
                                     SIT_FIN %in% c("Y") ~ "Retirado")) %>% 
-  mutate(COD_COM_RBD = str_pad(COD_COM_RBD, width = 5, pad = "0"))
+  mutate(COD_COM_RBD = str_pad(COD_COM_RBD, width = 5, pad = "0")) %>% 
+  mutate(COD_REG_RBD = str_pad(COD_REG_RBD, width = 2, pad = "0"))
 
 ####2023####
 
@@ -296,7 +301,8 @@ situacionfinal2023 <- rendimientos2023_final %>%
   mutate(SituacionFinal = case_when(SIT_FIN %in% c("P") ~ "Promovido",
                                     SIT_FIN %in% c("R") ~ "Reprobado",
                                     SIT_FIN %in% c("Y") ~ "Retirado")) %>% 
-  mutate(COD_COM_RBD = str_pad(COD_COM_RBD, width = 5, pad = "0"))
+  mutate(COD_COM_RBD = str_pad(COD_COM_RBD, width = 5, pad = "0")) %>% 
+  mutate(COD_REG_RBD = str_pad(COD_REG_RBD, width = 2, pad = "0"))
 
 #########################3
 

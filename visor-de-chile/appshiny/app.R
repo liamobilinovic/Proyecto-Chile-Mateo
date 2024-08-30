@@ -108,6 +108,13 @@ comunas_chile2021 <- read_sf("Datos-proyecto/comunas_chile2021.gpkg")
 comunas_chile2022 <- read_sf("Datos-proyecto/comunas_chile2022.gpkg")
 comunas_chile2023 <- read_sf("Datos-proyecto/comunas_chile2023.gpkg")
 
+comunas_chile2018$codigo_comuna <- as.integer(comunas_chile2018$codigo_comuna)
+comunas_chile2019$codigo_comuna <- as.integer(comunas_chile2019$codigo_comuna)
+comunas_chile2020$codigo_comuna <- as.integer(comunas_chile2020$codigo_comuna)
+comunas_chile2021$codigo_comuna <- as.integer(comunas_chile2021$codigo_comuna)
+comunas_chile2022$codigo_comuna <- as.integer(comunas_chile2022$codigo_comuna)
+comunas_chile2023$codigo_comuna <- as.integer(comunas_chile2023$codigo_comuna)
+
 
 comunas_total <- list(comunas_chile2018, comunas_chile2019, comunas_chile2020, comunas_chile2021, comunas_chile2022, comunas_chile2023)
 
@@ -152,7 +159,206 @@ generar_mapa <- function(year_index, region){
     )
 }
 
-generar_mapa(1, "12")
+
+
+############
+
+#Particularidad Chile
+
+################# Funcion
+
+establecimientos_chile2018 <- read_csv("Datos-proyecto/establecimientos_chile2018.csv")
+establecimientos_chile2019 <- read_csv("Datos-proyecto/establecimientos_chile2019.csv")
+establecimientos_chile2020 <- read_csv("Datos-proyecto/establecimientos_chile2020.csv")
+establecimientos_chile2021 <- read_csv("Datos-proyecto/establecimientos_chile2021.csv")
+establecimientos_chile2022 <- read_csv("Datos-proyecto/establecimientos_chile2022.csv")
+establecimientos_chile2023 <- read_csv("Datos-proyecto/establecimientos_chile2023.csv")
+
+
+
+establecimientos_chile_total <- list(establecimientos_chile2018, establecimientos_chile2019, establecimientos_chile2020, establecimientos_chile2021, establecimientos_chile2022, establecimientos_chile2023)
+
+
+capitalize <- function(text) {
+  # Divide el texto en palabras
+  words <- unlist(strsplit(text, " "))
+  
+  # Capitaliza la primera letra de cada palabra y une las palabras
+  capitalize <- paste(toupper(substring(words, 1, 1)),
+                      tolower(substring(words, 2)),
+                      sep = "",
+                      collapse = " "
+  )
+  
+  return(capitalize)
+}
+
+comunas <- unique(establecimientos_chile_total[1]$codigo_comuna)
+
+establecimiento_chile <- function(comuna, year_index) {
+  df_comuna <- establecimientos_chile_total[[year_index]]
+  
+  df_comuna <- df_comuna %>%
+    filter(codigo_comuna == comuna)
+  
+  total_estudiantes <- sum(df_comuna$n_estudiantes)
+  
+  df_comuna <- df_comuna %>%
+    mutate(porcentaje = (n_estudiantes / total_estudiantes) * 100)
+  
+  
+  nombre_comuna <- unique(df_comuna$nombre_comuna)
+  
+  nombre_comuna <- capitalize(nombre_comuna)
+  
+  plot_ly(df_comuna,
+          labels = ~TipoEstablecimiento, values = ~n_estudiantes, type = "pie", hole = 0.6, width = 410, height = 260, # Aumentar tamaño para mayor control
+          hoverinfo = "label+text",
+          text = ~ paste("Promedio de notas:", as.integer(round(promedio, 1))),
+          textinfo = "percent",
+          marker = list(colors = c("#EC5A25", "#2B0E70", "#6B2757", "#AC413E", "#150578"))
+  ) %>%
+    layout(
+      showlegend = FALSE, # Mostrar la leyenda
+      paper_bgcolor = "rgba(0,0,0,0)", # Fondo del área del gráfico
+      plot_bgcolor = "rgba(0,0,0,0)", # Fondo del gráfico
+      font = list(color = "white"),
+      autosize = TRUE,
+      margin = list(l = 50, r = 50, t = 20, b = 70), # Ajustar márgenes para centrar el gráfico
+      legend = list(
+        x = 0.5, # Centrar la leyenda horizontalmente
+        y = 0.5, # Centrar la leyenda verticalmente
+        xanchor = "center", # Fijar la posición horizontal de la leyenda
+        yanchor = "middle",
+        font = list(size = 12, color = "white") # Tamaño y color de la leyenda
+      )
+    )
+}
+
+
+
+
+### Situacion final chile
+
+sfinal_chile2018 <- read_csv("Datos-proyecto/sfinal_chile2018.csv")
+sfinal_chile2019 <- read_csv("Datos-proyecto/sfinal_chile2019.csv")
+sfinal_chile2020 <- read_csv("Datos-proyecto/sfinal_chile2020.csv")
+sfinal_chile2021 <- read_csv("Datos-proyecto/sfinal_chile2021.csv")
+sfinal_chile2022 <- read_csv("Datos-proyecto/sfinal_chile2022.csv")
+sfinal_chile2023 <- read_csv("Datos-proyecto/sfinal_chile2023.csv")
+
+
+#### Funcion generadora de graficos
+
+capitalize <- function(text) {
+  # Divide el texto en palabras
+  words <- unlist(strsplit(text, " "))
+  
+  # Capitaliza la primera letra de cada palabra y une las palabras
+  capitalize <- paste(toupper(substring(words, 1, 1)), 
+                      tolower(substring(words, 2)), 
+                      sep = "", 
+                      collapse = " ")
+  
+  return(capitalize)
+}
+
+
+sfinal_chile_total <- list(sfinal_chile2018, sfinal_chile2019, sfinal_chile2020, sfinal_chile2021, sfinal_chile2022, sfinal_chile2023)
+
+
+comunas <- unique(sfinal_chile_total[1]$codigo_comuna)
+
+grafico_sfinal_chile <- function(comuna, year_index){
+  
+  df_comuna2 <- sfinal_chile_total[[year_index]]
+  
+  df_comuna2 <- df_comuna2 %>% 
+    filter(codigo_comuna == comuna)
+  
+  total_estudiantes <- sum(df_comuna2$n_estudiantes)
+  
+  df_comuna2 <- df_comuna2 %>%
+    mutate(porcentaje = (n_estudiantes / total_estudiantes) * 100)
+  
+  
+  nombre_comuna <- unique(df_comuna2$nombre_comuna)
+  
+  nombre_comuna <- capitalize(nombre_comuna)
+  
+  plot_ly(df_comuna2, labels = ~SituacionFinal, values = ~n_estudiantes, type = 'pie', hole = 0.6, width = 410, height = 260, # Aumentar tamaño para mayor control
+          hoverinfo = 'label+text',
+          text = ~paste(n_estudiantes),
+          textinfo = 'percent',
+          marker = list(colors = c("#EC5A25", "#2B0E70", "#6B2757", "#AC413E", "#150578"))
+  ) %>%
+    layout(
+      showlegend = FALSE, # Mostrar la leyenda
+      paper_bgcolor = 'rgba(0,0,0,0)', # Fondo del área del gráfico
+      plot_bgcolor = 'rgba(0,0,0,0)',  # Fondo del gráfico
+      font = list(color = "white"),
+      autosize = TRUE,
+      margin = list(l = 50, r = 50, t = 20, b = 70), # Ajustar márgenes para centrar el gráfico
+      legend = list(
+        x = 0.5,           # Centrar la leyenda horizontalmente
+        y = 0.5,           # Centrar la leyenda verticalmente
+        xanchor = 'center',# Fijar la posición horizontal de la leyenda
+        yanchor = 'middle',
+        font = list(size = 12, color = "white") # Tamaño y color de la leyenda
+      )
+    )
+  
+  
+}
+
+
+
+comunas_total_chile <- list(comunas_chile2018, comunas_chile2019, comunas_chile2020, comunas_chile2021, comunas_chile2022, comunas_chile2023)
+
+
+nombres_anios <- c("2018", "2019", "2020", "2021", "2022", "2023")
+
+grafico_evolucion_chile <- function(comuna, year_index) {
+  
+  df_total <- bind_rows(comunas_total_chile, .id = "year_index")
+  
+  df_total <- df_total %>%
+    mutate(anio = nombres_anios[as.numeric(year_index)]) %>%
+    filter(codigo_comuna == comuna)
+  
+  nombre_comuna <- unique(df_total$nombre_comuna)
+  nombre_comuna <- capitalize(nombre_comuna)
+  
+  df_total <- df_total %>%
+    mutate(anio = factor(anio, levels = nombres_anios))
+  
+  ggplot(df_total, aes(x = anio, y = promedio, group = 1)) +
+    geom_line(color = "#031163", size = 2) +
+    geom_point(color = "#AC413E") +
+    geom_text(aes(label = scales::comma(promedio)), vjust = -0.5, color = "#CACFEC", size = 6) +
+    labs(title = paste("Evolución del promedio en", nombre_comuna),
+         x = "Año",
+         y = "Promedio") +
+    scale_y_continuous(limits = c(4.0, 7.0),
+                       breaks = seq(4.0, 7.0, by = 0.5)) +
+    theme_minimal() +
+    theme(
+      plot.background = element_rect(fill = "#000005", color = "#000005"),
+      panel.background = element_rect(fill = "#000005", color = "#000005"),
+      axis.text = element_text(family = "Arial", color = "#CACFEC", size = 16),
+      panel.grid.major = element_line(color = "#0E1E38"),
+      panel.grid = element_blank(),
+      axis.title = element_text(family = "Arial", color = "#CACFEC", size = 18),
+      axis.ticks = element_blank(),
+      axis.line = element_line(color = "#CACFEC"),
+      plot.title = element_text(family = "Arial", color = "#CACFEC", hjust = 0.5, size = 22),
+      legend.position = "none"  # Ocultar la leyenda
+    )
+  
+}
+
+
+
 
 
 
@@ -341,7 +547,32 @@ ui <- fluidPage(
         8,
         uiOutput("map_title"),
         leafletOutput("mapa1", height = "500", width = "100%")
-      ))))
+      ),
+      column(
+        4,
+        div(
+          class = "card-final",
+          h4("Tipos de establecimientos", class = "card-title"),
+          plotlyOutput("grafico_interactivo_chile", height = "200px", width = "100%")
+        )
+      ),
+      column(
+        4,
+        div(
+          class = "card-final",
+          h4("Situación final por comuna", class = "card-title"),
+          plotlyOutput("grafico_sfinal_chile", height = "200px", width = "100%")
+        )
+      ),
+      column(
+        8,
+        div(
+          class = "card-final",
+          div(class = "evolucion" ,plotOutput("grafico_evolucion_chile", height = "500px", width = "100%")
+          ))
+      ))
+  )                
+)
 
 
 server <- function(input, output, session) {
@@ -420,8 +651,25 @@ server <- function(input, output, session) {
     }
   })
   
+  output$grafico_interactivo_chile <- renderPlotly({
+    req(selected_codigo_comuna())
+    year_index <- as.numeric(input$year) - 2017
+    establecimiento_chile(selected_codigo_comuna(), year_index)
+  })
   
-
+  output$grafico_sfinal_chile <- renderPlotly({
+    req(selected_codigo_comuna())
+    year_index <- as.numeric(input$year) - 2017
+    grafico_sfinal_chile(selected_codigo_comuna(), year_index)
+  })
+  
+  output$grafico_evolucion_chile <- renderPlot({
+    req(selected_codigo_comuna())
+    year_index <- as.numeric(input$year) - 2017
+    grafico_evolucion_chile(selected_codigo_comuna(), year_index)
+  })
+  
+  
   
   # Renderiza el contenido de las tarjetas basado en los valores reactivos
   output$selected_comuna <- renderText({

@@ -1,0 +1,702 @@
+"","codigo_comuna","nombre_comuna","TipoEstablecimiento","n_estudiantes","promedio"
+"1",1101,"IQUIQUE","Municipal",4774,5.5
+"2",1101,"IQUIQUE","Particular Pagado",1400,6.2
+"3",1101,"IQUIQUE","Particular Subvencionado",9511,5.8
+"4",1107,"ALTO HOSPICIO","Municipal",372,5.2
+"5",1107,"ALTO HOSPICIO","Particular Subvencionado",10018,5.5
+"6",1401,"POZO ALMONTE","Municipal",1213,5.6
+"7",1401,"POZO ALMONTE","Particular Subvencionado",165,5.7
+"8",1402,"CAMIÑA","Municipal",106,6
+"9",1403,"COLCHANE","Municipal",51,5.8
+"10",1404,"HUARA","Municipal",223,5.7
+"11",1405,"PICA","Municipal",493,5.6
+"12",2101,"ANTOFAGASTA","Municipal",14455,5.5
+"13",2101,"ANTOFAGASTA","Particular Pagado",3095,6.1
+"14",2101,"ANTOFAGASTA","Particular Subvencionado",11189,5.7
+"15",2102,"MEJILLONES","Municipal",1060,5.4
+"16",2103,"SIERRA GORDA","Municipal",132,5.6
+"17",2104,"TALTAL","Municipal",991,6
+"18",2201,"CALAMA","Municipal",7574,5.6
+"19",2201,"CALAMA","Particular Pagado",1244,6.1
+"20",2201,"CALAMA","Particular Subvencionado",5137,5.7
+"21",2202,"OLLAGÜE","Municipal",21,5.8
+"22",2203,"SAN PEDRO DE ATACAMA","Municipal",714,5.6
+"23",2301,"TOCOPILLA","Municipal",1848,5.6
+"24",2301,"TOCOPILLA","Particular Subvencionado",393,5.9
+"25",2302,"MARÍA ELENA","Municipal",381,5.4
+"26",3101,"COPIAPÓ","Municipal",8199,5.4
+"27",3101,"COPIAPÓ","Particular Pagado",1138,6
+"28",3101,"COPIAPÓ","Particular Subvencionado",4188,5.7
+"29",3102,"CALDERA","Municipal",924,5.6
+"30",3102,"CALDERA","Particular Subvencionado",645,5.6
+"31",3103,"TIERRA AMARILLA","Municipal",981,5.5
+"32",3103,"TIERRA AMARILLA","Particular Subvencionado",47,5.7
+"33",3201,"CHAÑARAL","Municipal",1043,5.7
+"34",3201,"CHAÑARAL","Particular Subvencionado",113,5.9
+"35",3202,"DIEGO DE ALMAGRO","Municipal",655,5.7
+"36",3202,"DIEGO DE ALMAGRO","Particular Subvencionado",652,5.9
+"37",3301,"VALLENAR","Particular Pagado",147,5.8
+"38",3301,"VALLENAR","Particular Subvencionado",844,6
+"39",3301,"VALLENAR","Servicio Local de Educación",3273,5.7
+"40",3302,"ALTO DEL CARMEN","Servicio Local de Educación",360,5.9
+"41",3303,"FREIRINA","Servicio Local de Educación",513,5.6
+"42",3304,"HUASCO","Particular Subvencionado",154,5.8
+"43",3304,"HUASCO","Servicio Local de Educación",684,5.8
+"44",4101,"LA SERENA","Municipal",4915,5.4
+"45",4101,"LA SERENA","Particular Pagado",3614,6
+"46",4101,"LA SERENA","Particular Subvencionado",11375,5.6
+"47",4102,"COQUIMBO","Particular Pagado",754,6
+"48",4102,"COQUIMBO","Particular Subvencionado",11057,5.6
+"49",4102,"COQUIMBO","Servicio Local de Educación",4602,5.4
+"50",4103,"ANDACOLLO","Particular Subvencionado",496,5.7
+"51",4103,"ANDACOLLO","Servicio Local de Educación",401,5.6
+"52",4104,"LA HIGUERA","Municipal",356,5.5
+"53",4105,"PAIGUANO","Municipal",321,5.5
+"54",4106,"VICUÑA","Municipal",1147,5.4
+"55",4106,"VICUÑA","Particular Subvencionado",1061,5.8
+"56",4201,"ILLAPEL","Municipal",1382,5.6
+"57",4201,"ILLAPEL","Particular Subvencionado",1016,5.7
+"58",4202,"CANELA","Municipal",561,5.9
+"59",4202,"CANELA","Particular Subvencionado",9,5.2
+"60",4203,"LOS VILOS","Municipal",837,5.8
+"61",4203,"LOS VILOS","Particular Subvencionado",850,5.7
+"62",4204,"SALAMANCA","Municipal",851,5.6
+"63",4204,"SALAMANCA","Particular Subvencionado",1279,5.7
+"64",4301,"OVALLE","Municipal",5091,5.4
+"65",4301,"OVALLE","Particular Pagado",453,6
+"66",4301,"OVALLE","Particular Subvencionado",3476,5.8
+"67",4302,"COMBARBALÁ","Municipal",690,5.9
+"68",4302,"COMBARBALÁ","Particular Subvencionado",151,5.8
+"69",4303,"MONTE PATRIA","Municipal",2106,5.5
+"70",4303,"MONTE PATRIA","Particular Subvencionado",316,5.6
+"71",4304,"PUNITAQUI","Municipal",421,5.6
+"72",4304,"PUNITAQUI","Particular Subvencionado",439,5.4
+"73",4305,"RÍO HURTADO","Municipal",264,5.5
+"74",5101,"VALPARAÍSO","Municipal",5895,5.4
+"75",5101,"VALPARAÍSO","Particular Pagado",1709,5.9
+"76",5101,"VALPARAÍSO","Particular Subvencionado",11013,5.6
+"77",5102,"CASABLANCA","Municipal",664,5.3
+"78",5102,"CASABLANCA","Particular Pagado",56,6
+"79",5102,"CASABLANCA","Particular Subvencionado",1224,5.8
+"80",5103,"CONCÓN","Municipal",623,5.5
+"81",5103,"CONCÓN","Particular Pagado",966,6.1
+"82",5103,"CONCÓN","Particular Subvencionado",1639,5.6
+"83",5104,"JUAN FERNÁNDEZ","Municipal",73,5.9
+"84",5105,"PUCHUNCAVÍ","Municipal",1028,5.5
+"85",5105,"PUCHUNCAVÍ","Particular Subvencionado",112,5.4
+"86",5107,"QUINTERO","Municipal",765,5.4
+"87",5107,"QUINTERO","Particular Subvencionado",1450,5.4
+"88",5109,"VIÑA DEL MAR","Municipal",5542,5.4
+"89",5109,"VIÑA DEL MAR","Particular Pagado",4208,6.1
+"90",5109,"VIÑA DEL MAR","Particular Subvencionado",11198,5.6
+"91",5201,"ISLA DE PASCUA","Municipal",308,5.7
+"92",5201,"ISLA DE PASCUA","Particular Subvencionado",289,5.7
+"93",5301,"LOS ANDES","Municipal",1498,5.3
+"94",5301,"LOS ANDES","Particular Pagado",875,6.1
+"95",5301,"LOS ANDES","Particular Subvencionado",3528,5.6
+"96",5302,"CALLE LARGA","Municipal",496,5.3
+"97",5302,"CALLE LARGA","Particular Pagado",144,6.3
+"98",5302,"CALLE LARGA","Particular Subvencionado",358,6
+"99",5303,"RINCONADA","Municipal",508,5.5
+"100",5303,"RINCONADA","Particular Subvencionado",192,5.3
+"101",5304,"SAN ESTEBAN","Municipal",726,5.6
+"102",5401,"LA LIGUA","Municipal",1266,5.6
+"103",5401,"LA LIGUA","Particular Subvencionado",1268,6
+"104",5402,"CABILDO","Municipal",1140,5.7
+"105",5402,"CABILDO","Particular Subvencionado",403,5.9
+"106",5403,"PAPUDO","Municipal",199,5.8
+"107",5403,"PAPUDO","Particular Subvencionado",93,5.6
+"108",5404,"PETORCA","Municipal",453,5.8
+"109",5404,"PETORCA","Particular Subvencionado",268,6.2
+"110",5405,"ZAPALLAR","Municipal",434,5.6
+"111",5405,"ZAPALLAR","Particular Subvencionado",153,6
+"112",5501,"QUILLOTA","Municipal",2212,5.4
+"113",5501,"QUILLOTA","Particular Pagado",1391,6.1
+"114",5501,"QUILLOTA","Particular Subvencionado",3782,5.5
+"115",5502,"CALERA","Municipal",848,5.4
+"116",5502,"CALERA","Particular Pagado",248,5.9
+"117",5502,"CALERA","Particular Subvencionado",3467,5.6
+"118",5503,"HIJUELAS","Municipal",665,5.5
+"119",5503,"HIJUELAS","Particular Subvencionado",483,5.7
+"120",5504,"LA CRUZ","Municipal",392,5.4
+"121",5504,"LA CRUZ","Particular Subvencionado",324,5.5
+"122",5506,"NOGALES","Municipal",619,5.4
+"123",5506,"NOGALES","Particular Subvencionado",799,5.5
+"124",5601,"SAN ANTONIO","Municipal",2237,5.5
+"125",5601,"SAN ANTONIO","Particular Subvencionado",4462,5.7
+"126",5602,"ALGARROBO","Municipal",389,5.6
+"127",5602,"ALGARROBO","Particular Subvencionado",528,5.8
+"128",5603,"CARTAGENA","Municipal",984,5.5
+"129",5603,"CARTAGENA","Particular Subvencionado",825,5.8
+"130",5604,"EL QUISCO","Municipal",615,5.7
+"131",5604,"EL QUISCO","Particular Subvencionado",334,5.4
+"132",5605,"EL TABO","Municipal",447,5.8
+"133",5606,"SANTO DOMINGO","Municipal",467,5.7
+"134",5606,"SANTO DOMINGO","Particular Subvencionado",430,5.8
+"135",5701,"SAN FELIPE","Municipal",3022,5.4
+"136",5701,"SAN FELIPE","Particular Pagado",616,5.8
+"137",5701,"SAN FELIPE","Particular Subvencionado",2607,5.6
+"138",5702,"CATEMU","Municipal",685,5.4
+"139",5702,"CATEMU","Particular Subvencionado",188,5.4
+"140",5703,"LLAILLAY","Municipal",1000,5.5
+"141",5703,"LLAILLAY","Particular Subvencionado",1047,5.5
+"142",5704,"PANQUEHUE","Municipal",431,5.5
+"143",5704,"PANQUEHUE","Particular Pagado",160,5.6
+"144",5705,"PUTAENDO","Municipal",565,5.5
+"145",5705,"PUTAENDO","Particular Subvencionado",449,5.5
+"146",5706,"SANTA MARÍA","Municipal",468,5.3
+"147",5706,"SANTA MARÍA","Particular Subvencionado",532,5.6
+"148",5801,"QUILPUÉ","Municipal",2005,5.5
+"149",5801,"QUILPUÉ","Particular Pagado",493,6
+"150",5801,"QUILPUÉ","Particular Subvencionado",9093,5.6
+"151",5802,"LIMACHE","Municipal",1215,5.5
+"152",5802,"LIMACHE","Particular Pagado",8,6.5
+"153",5802,"LIMACHE","Particular Subvencionado",2082,5.6
+"154",5803,"OLMUÉ","Municipal",666,5.4
+"155",5803,"OLMUÉ","Particular Subvencionado",293,5.5
+"156",5804,"VILLA ALEMANA","Municipal",2008,5.3
+"157",5804,"VILLA ALEMANA","Particular Pagado",973,6.1
+"158",5804,"VILLA ALEMANA","Particular Subvencionado",4931,5.7
+"159",6101,"RANCAGUA","Municipal",6486,5.4
+"160",6101,"RANCAGUA","Particular Pagado",2188,6.2
+"161",6101,"RANCAGUA","Particular Subvencionado",10302,5.6
+"162",6102,"CODEGUA","Municipal",640,5.5
+"163",6102,"CODEGUA","Particular Subvencionado",64,5.3
+"164",6103,"COINCO","Municipal",376,5.7
+"165",6103,"COINCO","Particular Subvencionado",88,5.4
+"166",6104,"COLTAUCO","Municipal",979,5.2
+"167",6104,"COLTAUCO","Particular Subvencionado",414,5.6
+"168",6105,"DOÑIHUE","Municipal",1024,5.5
+"169",6105,"DOÑIHUE","Particular Subvencionado",619,5.7
+"170",6106,"GRANEROS","Municipal",1061,5.4
+"171",6106,"GRANEROS","Particular Subvencionado",2197,5.5
+"172",6107,"LAS CABRAS","Municipal",1212,5.3
+"173",6107,"LAS CABRAS","Particular Subvencionado",631,5.8
+"174",6108,"MACHALÍ","Municipal",869,5.4
+"175",6108,"MACHALÍ","Particular Pagado",1656,6.1
+"176",6108,"MACHALÍ","Particular Subvencionado",2097,5.6
+"177",6109,"MALLOA","Municipal",697,5.3
+"178",6110,"MOSTAZAL","Municipal",1058,5.5
+"179",6110,"MOSTAZAL","Particular Subvencionado",714,5.9
+"180",6111,"OLIVAR","Municipal",588,5.4
+"181",6111,"OLIVAR","Particular Subvencionado",214,5.8
+"182",6112,"PEUMO","Municipal",433,5.1
+"183",6112,"PEUMO","Particular Subvencionado",538,5.5
+"184",6113,"PICHIDEGUA","Municipal",1027,5.6
+"185",6113,"PICHIDEGUA","Particular Subvencionado",142,5.8
+"186",6114,"QUINTA DE TILCOCO","Municipal",560,5.6
+"187",6114,"QUINTA DE TILCOCO","Particular Subvencionado",356,5.9
+"188",6115,"RENGO","Municipal",3338,5.6
+"189",6115,"RENGO","Particular Subvencionado",1247,5.7
+"190",6116,"REQUÍNOA","Municipal",1067,5.5
+"191",6116,"REQUÍNOA","Particular Pagado",77,6.1
+"192",6116,"REQUÍNOA","Particular Subvencionado",568,5.8
+"193",6117,"SAN VICENTE","Municipal",1623,5.4
+"194",6117,"SAN VICENTE","Particular Subvencionado",1964,5.7
+"195",6201,"PICHILEMU","Municipal",725,5.6
+"196",6201,"PICHILEMU","Particular Subvencionado",406,5.7
+"197",6202,"LA ESTRELLA","Municipal",165,5.7
+"198",6203,"LITUECHE","Municipal",443,5.5
+"199",6204,"MARCHIHUE","Municipal",391,5.7
+"200",6205,"NAVIDAD","Municipal",370,5.5
+"201",6206,"PAREDONES","Municipal",350,5.6
+"202",6301,"SAN FERNANDO","Municipal",2024,5.3
+"203",6301,"SAN FERNANDO","Particular Pagado",490,6.1
+"204",6301,"SAN FERNANDO","Particular Subvencionado",3643,5.6
+"205",6302,"CHÉPICA","Municipal",841,5.5
+"206",6303,"CHIMBARONGO","Municipal",1313,5.6
+"207",6303,"CHIMBARONGO","Particular Subvencionado",1242,5.6
+"208",6304,"LOLOL","Municipal",378,5.6
+"209",6305,"NANCAGUA","Municipal",538,5.6
+"210",6305,"NANCAGUA","Particular Subvencionado",713,5.7
+"211",6306,"PALMILLA","Municipal",536,5.5
+"212",6307,"PERALILLO","Municipal",624,5.9
+"213",6308,"PLACILLA","Municipal",426,5.4
+"214",6309,"PUMANQUE","Municipal",169,5.7
+"215",6310,"SANTA CRUZ","Municipal",1186,5.5
+"216",6310,"SANTA CRUZ","Particular Pagado",173,6.3
+"217",6310,"SANTA CRUZ","Particular Subvencionado",1954,5.6
+"218",7101,"TALCA","Municipal",7298,5.5
+"219",7101,"TALCA","Particular Pagado",2149,6.2
+"220",7101,"TALCA","Particular Subvencionado",8042,5.7
+"221",7102,"CONSTITUCIÓN","Municipal",1615,5.4
+"222",7102,"CONSTITUCIÓN","Particular Pagado",139,6.3
+"223",7102,"CONSTITUCIÓN","Particular Subvencionado",1788,5.6
+"224",7103,"CUREPTO","Municipal",543,5.4
+"225",7104,"EMPEDRADO","Municipal",316,5.6
+"226",7105,"MAULE","Municipal",939,5.5
+"227",7105,"MAULE","Particular Subvencionado",1207,5.7
+"228",7106,"PELARCO","Municipal",378,5.8
+"229",7106,"PELARCO","Particular Subvencionado",153,5.7
+"230",7107,"PENCAHUE","Municipal",425,5.7
+"231",7108,"RÍO CLARO","Municipal",961,5.4
+"232",7109,"SAN CLEMENTE","Municipal",2348,5.7
+"233",7109,"SAN CLEMENTE","Particular Subvencionado",772,5.7
+"234",7110,"SAN RAFAEL","Municipal",595,5.7
+"235",7110,"SAN RAFAEL","Particular Subvencionado",140,5.9
+"236",7201,"CAUQUENES","Municipal",1936,5.6
+"237",7201,"CAUQUENES","Particular Subvencionado",921,5.8
+"238",7202,"CHANCO","Municipal",545,5.6
+"239",7203,"PELLUHUE","Municipal",554,5.8
+"240",7301,"CURICÓ","Municipal",4691,5.4
+"241",7301,"CURICÓ","Particular Pagado",903,6
+"242",7301,"CURICÓ","Particular Subvencionado",6371,5.6
+"243",7302,"HUALAÑÉ","Municipal",620,5.9
+"244",7302,"HUALAÑÉ","Particular Subvencionado",23,5.5
+"245",7303,"LICANTÉN","Municipal",355,5.8
+"246",7303,"LICANTÉN","Particular Subvencionado",131,5.8
+"247",7304,"MOLINA","Municipal",1719,5.2
+"248",7304,"MOLINA","Particular Subvencionado",1419,5.6
+"249",7305,"RAUCO","Municipal",488,5.6
+"250",7306,"ROMERAL","Municipal",738,5.6
+"251",7306,"ROMERAL","Particular Subvencionado",230,5.6
+"252",7307,"SAGRADA FAMILIA","Municipal",1098,5.6
+"253",7308,"TENO","Municipal",1582,5.5
+"254",7308,"TENO","Particular Subvencionado",239,5.6
+"255",7309,"VICHUQUEN","Municipal",261,5.6
+"256",7401,"LINARES","Municipal",2865,5.4
+"257",7401,"LINARES","Particular Pagado",175,6
+"258",7401,"LINARES","Particular Subvencionado",4843,5.6
+"259",7402,"COLBÚN","Municipal",1388,5.4
+"260",7402,"COLBÚN","Particular Subvencionado",174,5.6
+"261",7403,"LONGAVÍ","Municipal",1521,5.5
+"262",7403,"LONGAVÍ","Particular Subvencionado",453,5.7
+"263",7404,"PARRAL","Municipal",1585,5.4
+"264",7404,"PARRAL","Particular Subvencionado",1533,5.8
+"265",7405,"RETIRO","Municipal",917,5.4
+"266",7405,"RETIRO","Particular Subvencionado",470,5.7
+"267",7406,"SAN JAVIER","Municipal",1531,5.3
+"268",7406,"SAN JAVIER","Particular Subvencionado",2224,5.5
+"269",7407,"VILLA ALEGRE","Municipal",1020,5.5
+"270",7408,"YERBAS BUENAS","Municipal",722,5.5
+"271",7408,"YERBAS BUENAS","Particular Subvencionado",51,5.4
+"272",8101,"CONCEPCIÓN","Municipal",3249,5.3
+"273",8101,"CONCEPCIÓN","Particular Pagado",2037,6.1
+"274",8101,"CONCEPCIÓN","Particular Subvencionado",9905,5.7
+"275",8102,"CORONEL","Municipal",3441,5.5
+"276",8102,"CORONEL","Particular Subvencionado",5585,5.7
+"277",8103,"CHIGUAYANTE","Municipal",847,5.4
+"278",8103,"CHIGUAYANTE","Particular Pagado",529,6.1
+"279",8103,"CHIGUAYANTE","Particular Subvencionado",4793,5.7
+"280",8104,"FLORIDA","Municipal",659,5.7
+"281",8104,"FLORIDA","Particular Subvencionado",21,6.2
+"282",8105,"HUALQUI","Municipal",1022,5.7
+"283",8105,"HUALQUI","Particular Subvencionado",702,6
+"284",8106,"LOTA","Municipal",1680,5.5
+"285",8106,"LOTA","Particular Subvencionado",1735,5.8
+"286",8107,"PENCO","Municipal",1750,5.5
+"287",8107,"PENCO","Particular Subvencionado",1266,5.7
+"288",8108,"SAN PEDRO DE LA PAZ","Municipal",1946,5.5
+"289",8108,"SAN PEDRO DE LA PAZ","Particular Pagado",1597,5.9
+"290",8108,"SAN PEDRO DE LA PAZ","Particular Subvencionado",6516,5.7
+"291",8109,"SANTA JUANA","Municipal",416,5.4
+"292",8109,"SANTA JUANA","Particular Subvencionado",645,5.7
+"293",8110,"TALCAHUANO","Municipal",4536,5.6
+"294",8110,"TALCAHUANO","Particular Pagado",567,6
+"295",8110,"TALCAHUANO","Particular Subvencionado",4203,5.7
+"296",8111,"TOMÉ","Municipal",2986,5.8
+"297",8111,"TOMÉ","Particular Subvencionado",706,5.8
+"298",8112,"HUALPÉN","Municipal",2125,5.5
+"299",8112,"HUALPÉN","Particular Pagado",791,5.7
+"300",8112,"HUALPÉN","Particular Subvencionado",2638,5.7
+"301",8201,"LEBU","Municipal",1846,5.5
+"302",8201,"LEBU","Particular Subvencionado",112,5.6
+"303",8202,"ARAUCO","Municipal",1813,5.5
+"304",8202,"ARAUCO","Particular Pagado",131,6.3
+"305",8202,"ARAUCO","Particular Subvencionado",842,5.8
+"306",8203,"CAÑETE","Municipal",1712,5.5
+"307",8203,"CAÑETE","Particular Subvencionado",1116,5.6
+"308",8204,"CONTULMO","Municipal",323,5.6
+"309",8204,"CONTULMO","Particular Subvencionado",153,5.2
+"310",8205,"CURANILAHUE","Municipal",1763,5.8
+"311",8205,"CURANILAHUE","Particular Subvencionado",694,5.8
+"312",8206,"LOS ÁLAMOS","Municipal",1045,5.4
+"313",8206,"LOS ÁLAMOS","Particular Subvencionado",775,5.7
+"314",8207,"TIRÚA","Municipal",679,5.5
+"315",8207,"TIRÚA","Particular Subvencionado",328,5.3
+"316",8301,"LOS ÁNGELES","Municipal",5904,5.5
+"317",8301,"LOS ÁNGELES","Particular Pagado",936,6.1
+"318",8301,"LOS ÁNGELES","Particular Subvencionado",9197,5.7
+"319",8302,"ANTUCO","Municipal",194,5.7
+"320",8302,"ANTUCO","Particular Subvencionado",70,5.8
+"321",8303,"CABRERO","Municipal",1033,5.5
+"322",8303,"CABRERO","Particular Subvencionado",1017,5.6
+"323",8304,"LAJA","Municipal",1385,5.6
+"324",8304,"LAJA","Particular Pagado",8,6.1
+"325",8304,"LAJA","Particular Subvencionado",435,5.7
+"326",8305,"MULCHÉN","Municipal",1595,5.6
+"327",8305,"MULCHÉN","Particular Subvencionado",607,5.7
+"328",8306,"NACIMIENTO","Municipal",1283,5.4
+"329",8306,"NACIMIENTO","Particular Subvencionado",831,5.9
+"330",8307,"NEGRETE","Municipal",686,5.5
+"331",8307,"NEGRETE","Particular Subvencionado",7,6
+"332",8308,"QUILACO","Municipal",209,5.4
+"333",8309,"QUILLECO","Municipal",509,5.5
+"334",8309,"QUILLECO","Particular Subvencionado",56,5.6
+"335",8310,"SAN ROSENDO","Municipal",151,5.7
+"336",8311,"SANTA BÁRBARA","Municipal",666,5.8
+"337",8311,"SANTA BÁRBARA","Particular Subvencionado",411,5.7
+"338",8312,"TUCAPEL","Municipal",727,5.7
+"339",8312,"TUCAPEL","Particular Subvencionado",224,5.9
+"340",8313,"YUMBEL","Municipal",611,5.5
+"341",8313,"YUMBEL","Particular Subvencionado",727,5.6
+"342",8314,"ALTO BIOBÍO","Municipal",414,5.3
+"343",8314,"ALTO BIOBÍO","Particular Subvencionado",214,5.8
+"344",9101,"TEMUCO","Municipal",5281,5.5
+"345",9101,"TEMUCO","Particular Pagado",2076,6.1
+"346",9101,"TEMUCO","Particular Subvencionado",13633,5.6
+"347",9102,"CARAHUE","Particular Subvencionado",945,5.6
+"348",9102,"CARAHUE","Servicio Local de Educación",1027,5.7
+"349",9103,"CUNCO","Municipal",531,5.5
+"350",9103,"CUNCO","Particular Subvencionado",613,5.6
+"351",9104,"CURARREHUE","Municipal",221,5.5
+"352",9104,"CURARREHUE","Particular Subvencionado",409,5.6
+"353",9105,"FREIRE","Municipal",571,5.4
+"354",9105,"FREIRE","Particular Subvencionado",1035,5.4
+"355",9106,"GALVARINO","Municipal",786,5.5
+"356",9106,"GALVARINO","Particular Subvencionado",203,5.4
+"357",9107,"GORBEA","Municipal",680,5.6
+"358",9107,"GORBEA","Particular Subvencionado",231,5.6
+"359",9108,"LAUTARO","Municipal",1736,5.6
+"360",9108,"LAUTARO","Particular Subvencionado",1297,5.6
+"361",9109,"LONCOCHE","Municipal",850,5.5
+"362",9109,"LONCOCHE","Particular Subvencionado",822,5.7
+"363",9110,"MELIPEUCO","Municipal",181,5.5
+"364",9110,"MELIPEUCO","Particular Subvencionado",278,5.7
+"365",9111,"NUEVA IMPERIAL","Particular Subvencionado",1894,5.5
+"366",9111,"NUEVA IMPERIAL","Servicio Local de Educación",702,5.5
+"367",9112,"PADRE LAS CASAS","Municipal",770,5.4
+"368",9112,"PADRE LAS CASAS","Particular Subvencionado",4544,5.5
+"369",9113,"PERQUENCO","Municipal",361,5.4
+"370",9113,"PERQUENCO","Particular Subvencionado",153,5.2
+"371",9114,"PITRUFQUÉN","Municipal",576,5.5
+"372",9114,"PITRUFQUÉN","Particular Subvencionado",1332,5.5
+"373",9115,"PUCÓN","Municipal",978,5.5
+"374",9115,"PUCÓN","Particular Subvencionado",1125,5.7
+"375",9116,"SAAVEDRA","Particular Subvencionado",594,5.5
+"376",9116,"SAAVEDRA","Servicio Local de Educación",390,5.6
+"377",9117,"TEODORO SCHMIDT","Particular Subvencionado",635,5.5
+"378",9117,"TEODORO SCHMIDT","Servicio Local de Educación",391,5.7
+"379",9118,"TOLTÉN","Particular Subvencionado",370,5.6
+"380",9118,"TOLTÉN","Servicio Local de Educación",419,5.7
+"381",9119,"VILCÚN","Municipal",809,5.5
+"382",9119,"VILCÚN","Particular Subvencionado",1500,5.5
+"383",9120,"VILLARRICA","Municipal",1145,5.7
+"384",9120,"VILLARRICA","Particular Pagado",215,6.3
+"385",9120,"VILLARRICA","Particular Subvencionado",3474,5.8
+"386",9121,"CHOLCHOL","Municipal",236,5.4
+"387",9121,"CHOLCHOL","Particular Subvencionado",771,5.4
+"388",9201,"ANGOL","Municipal",2123,5.5
+"389",9201,"ANGOL","Particular Pagado",135,6.3
+"390",9201,"ANGOL","Particular Subvencionado",1853,5.7
+"391",9202,"COLLIPULLI","Municipal",1365,5.5
+"392",9202,"COLLIPULLI","Particular Subvencionado",832,5.6
+"393",9203,"CURACAUTÍN","Municipal",809,5.6
+"394",9203,"CURACAUTÍN","Particular Subvencionado",404,5.6
+"395",9204,"ERCILLA","Municipal",454,5.3
+"396",9204,"ERCILLA","Particular Subvencionado",251,5.8
+"397",9205,"LONQUIMAY","Municipal",638,5.5
+"398",9205,"LONQUIMAY","Particular Subvencionado",203,5.6
+"399",9206,"LOS SAUCES","Municipal",404,5.6
+"400",9206,"LOS SAUCES","Particular Subvencionado",91,5.6
+"401",9207,"LUMACO","Municipal",534,5.4
+"402",9207,"LUMACO","Particular Subvencionado",154,5.4
+"403",9208,"PURÉN","Municipal",646,5.4
+"404",9208,"PURÉN","Particular Subvencionado",244,5.6
+"405",9209,"RENAICO","Municipal",385,5.3
+"406",9209,"RENAICO","Particular Subvencionado",324,5.7
+"407",9210,"TRAIGUÉN","Municipal",706,5.3
+"408",9210,"TRAIGUÉN","Particular Subvencionado",647,5.6
+"409",9211,"VICTORIA","Municipal",1077,5.5
+"410",9211,"VICTORIA","Particular Subvencionado",1333,5.6
+"411",10101,"PUERTO MONTT","Municipal",8507,5.4
+"412",10101,"PUERTO MONTT","Particular Pagado",1412,6.1
+"413",10101,"PUERTO MONTT","Particular Subvencionado",10411,5.6
+"414",10102,"CALBUCO","Municipal",1613,5.4
+"415",10102,"CALBUCO","Particular Subvencionado",1074,5.5
+"416",10103,"COCHAMÓ","Municipal",237,5.5
+"417",10104,"FRESIA","Municipal",423,5.6
+"418",10104,"FRESIA","Particular Subvencionado",394,5.3
+"419",10105,"FRUTILLAR","Municipal",897,5.6
+"420",10105,"FRUTILLAR","Particular Pagado",167,5.9
+"421",10105,"FRUTILLAR","Particular Subvencionado",489,5.6
+"422",10106,"LOS MUERMOS","Municipal",671,5.3
+"423",10106,"LOS MUERMOS","Particular Subvencionado",673,5.5
+"424",10107,"LLANQUIHUE","Municipal",813,5.6
+"425",10107,"LLANQUIHUE","Particular Subvencionado",348,5.9
+"426",10108,"MAULLIN","Municipal",708,5.8
+"427",10108,"MAULLIN","Particular Subvencionado",164,5.5
+"428",10109,"PUERTO VARAS","Municipal",1405,5.4
+"429",10109,"PUERTO VARAS","Particular Pagado",1078,6.2
+"430",10109,"PUERTO VARAS","Particular Subvencionado",1079,5.5
+"431",10201,"CASTRO","Municipal",2178,5.6
+"432",10201,"CASTRO","Particular Subvencionado",1458,5.9
+"433",10202,"ANCUD","Municipal",866,5.6
+"434",10202,"ANCUD","Particular Subvencionado",2187,5.7
+"435",10203,"CHONCHI","Municipal",928,5.7
+"436",10204,"CURACO DE VÉLEZ","Municipal",219,5.5
+"437",10205,"DALCAHUE","Municipal",498,5.6
+"438",10205,"DALCAHUE","Particular Subvencionado",677,5.6
+"439",10206,"PUQUELDÓN","Municipal",193,5.8
+"440",10206,"PUQUELDÓN","Particular Subvencionado",65,6.1
+"441",10207,"QUEILÉN","Municipal",287,5.8
+"442",10207,"QUEILÉN","Particular Subvencionado",77,5.7
+"443",10208,"QUELLÓN","Municipal",1238,5.6
+"444",10208,"QUELLÓN","Particular Subvencionado",1140,5.5
+"445",10209,"QUEMCHI","Municipal",453,5.6
+"446",10209,"QUEMCHI","Particular Subvencionado",146,5.7
+"447",10210,"QUINCHAO","Municipal",408,5.5
+"448",10210,"QUINCHAO","Particular Subvencionado",213,5.6
+"449",10301,"OSORNO","Municipal",4250,5.5
+"450",10301,"OSORNO","Particular Pagado",1303,6
+"451",10301,"OSORNO","Particular Subvencionado",6866,5.6
+"452",10302,"PUERTO OCTAY","Municipal",358,5.4
+"453",10302,"PUERTO OCTAY","Particular Subvencionado",231,5.6
+"454",10303,"PURRANQUE","Municipal",461,5.4
+"455",10303,"PURRANQUE","Particular Subvencionado",985,5.6
+"456",10304,"PUYEHUE","Municipal",749,5.6
+"457",10305,"RÍO NEGRO","Municipal",527,5.5
+"458",10305,"RÍO NEGRO","Particular Subvencionado",306,5.4
+"459",10306,"SAN JUAN DE LA COSTA","Municipal",264,5.5
+"460",10306,"SAN JUAN DE LA COSTA","Particular Subvencionado",295,5.5
+"461",10307,"SAN PABLO","Municipal",353,5.4
+"462",10307,"SAN PABLO","Particular Subvencionado",351,5.4
+"463",10401,"CHAITÉN","Municipal",297,5.5
+"464",10401,"CHAITÉN","Particular Subvencionado",11,5.4
+"465",10402,"FUTALEUFÚ","Municipal",189,6.1
+"466",10403,"HUALAIHUÉ","Municipal",528,5.6
+"467",10403,"HUALAIHUÉ","Particular Subvencionado",156,5.5
+"468",10404,"PALENA","Municipal",114,5.8
+"469",11101,"COYHAIQUE","Municipal",1216,5.5
+"470",11101,"COYHAIQUE","Particular Subvencionado",3745,5.7
+"471",11102,"LAGO VERDE","Municipal",55,5.9
+"472",11201,"AYSÉN","Municipal",1201,5.5
+"473",11201,"AYSÉN","Particular Subvencionado",959,5.7
+"474",11202,"CISNES","Municipal",442,5.7
+"475",11202,"CISNES","Particular Subvencionado",12,5.7
+"476",11203,"GUAITECAS","Municipal",131,5.8
+"477",11301,"COCHRANE","Municipal",270,5.4
+"478",11302,"O'HIGGINS","Municipal",57,5.7
+"479",11303,"TORTEL","Municipal",47,5.9
+"480",11401,"CHILE CHICO","Municipal",384,5.6
+"481",11402,"RÍO IBÁÑEZ","Municipal",153,5.8
+"482",12101,"PUNTA ARENAS","Municipal",4307,5.7
+"483",12101,"PUNTA ARENAS","Particular Pagado",1470,6.1
+"484",12101,"PUNTA ARENAS","Particular Subvencionado",3225,5.8
+"485",12102,"LAGUNA BLANCA","Municipal",20,6
+"486",12103,"RÍO VERDE","Municipal",9,6.4
+"487",12104,"SAN GREGORIO","Municipal",27,5.9
+"488",12201,"CABO DE HORNOS","Municipal",186,6
+"489",12202,"ANTÁRTICA","Municipal",3,6.9
+"490",12301,"PORVENIR","Municipal",310,5.6
+"491",12301,"PORVENIR","Particular Subvencionado",149,5.9
+"492",12302,"PRIMAVERA","Municipal",28,6.2
+"493",12303,"TIMAUKEL","Municipal",13,6.4
+"494",12401,"NATALES","Municipal",828,5.5
+"495",12401,"NATALES","Particular Subvencionado",759,5.9
+"496",12402,"TORRES DEL PAINE","Municipal",21,5.6
+"497",13101,"SANTIAGO","Municipal",7041,5.5
+"498",13101,"SANTIAGO","Particular Pagado",3492,6.1
+"499",13101,"SANTIAGO","Particular Subvencionado",11313,5.6
+"500",13102,"CERRILLOS","Municipal",1686,5.3
+"501",13102,"CERRILLOS","Particular Subvencionado",3136,5.5
+"502",13103,"CERRO NAVIA","Particular Subvencionado",4382,5.4
+"503",13103,"CERRO NAVIA","Servicio Local de Educación",2916,5.3
+"504",13104,"CONCHALÍ","Municipal",3544,5.3
+"505",13104,"CONCHALÍ","Particular Pagado",129,4.9
+"506",13104,"CONCHALÍ","Particular Subvencionado",5624,5.4
+"507",13105,"EL BOSQUE","Municipal",3001,5.2
+"508",13105,"EL BOSQUE","Particular Pagado",245,5.8
+"509",13105,"EL BOSQUE","Particular Subvencionado",11218,5.4
+"510",13106,"ESTACIÓN CENTRAL","Municipal",3578,5.4
+"511",13106,"ESTACIÓN CENTRAL","Particular Pagado",730,5.7
+"512",13106,"ESTACIÓN CENTRAL","Particular Subvencionado",5544,5.5
+"513",13107,"HUECHURABA","Municipal",1487,5.4
+"514",13107,"HUECHURABA","Particular Pagado",2797,6
+"515",13107,"HUECHURABA","Particular Subvencionado",1839,5.3
+"516",13108,"INDEPENDENCIA","Municipal",2242,5.5
+"517",13108,"INDEPENDENCIA","Particular Pagado",447,5.8
+"518",13108,"INDEPENDENCIA","Particular Subvencionado",4647,5.4
+"519",13109,"LA CISTERNA","Municipal",1100,5.4
+"520",13109,"LA CISTERNA","Particular Pagado",328,5.8
+"521",13109,"LA CISTERNA","Particular Subvencionado",7152,5.5
+"522",13110,"LA FLORIDA","Municipal",4426,5.2
+"523",13110,"LA FLORIDA","Particular Pagado",3253,6
+"524",13110,"LA FLORIDA","Particular Subvencionado",21411,5.5
+"525",13111,"LA GRANJA","Municipal",2458,5.2
+"526",13111,"LA GRANJA","Particular Subvencionado",5428,5.4
+"527",13112,"LA PINTANA","Municipal",2148,5.2
+"528",13112,"LA PINTANA","Particular Subvencionado",11794,5.3
+"529",13113,"LA REINA","Municipal",1351,5.3
+"530",13113,"LA REINA","Particular Pagado",4563,6.1
+"531",13113,"LA REINA","Particular Subvencionado",2699,5.5
+"532",13114,"LAS CONDES","Municipal",1640,5.5
+"533",13114,"LAS CONDES","Particular Pagado",10427,6.1
+"534",13114,"LAS CONDES","Particular Subvencionado",1987,5.5
+"535",13115,"LO BARNECHEA","Municipal",481,5.3
+"536",13115,"LO BARNECHEA","Particular Pagado",5884,6.2
+"537",13115,"LO BARNECHEA","Particular Subvencionado",1657,5.5
+"538",13116,"LO ESPEJO","Municipal",1979,5.3
+"539",13116,"LO ESPEJO","Particular Subvencionado",3022,5.3
+"540",13117,"LO PRADO","Particular Subvencionado",3133,5.5
+"541",13117,"LO PRADO","Servicio Local de Educación",2123,5.3
+"542",13118,"MACUL","Municipal",1759,5.5
+"543",13118,"MACUL","Particular Pagado",924,5.8
+"544",13118,"MACUL","Particular Subvencionado",3569,5.5
+"545",13119,"MAIPÚ","Corporación de Administración Delegada",150,5.6
+"546",13119,"MAIPÚ","Municipal",6506,5.4
+"547",13119,"MAIPÚ","Particular Pagado",1673,5.9
+"548",13119,"MAIPÚ","Particular Subvencionado",27158,5.5
+"549",13120,"ÑUÑOA","Municipal",3982,5.6
+"550",13120,"ÑUÑOA","Particular Pagado",5150,5.8
+"551",13120,"ÑUÑOA","Particular Subvencionado",2665,5.5
+"552",13121,"PEDRO AGUIRRE CERDA","Municipal",1773,5.3
+"553",13121,"PEDRO AGUIRRE CERDA","Particular Subvencionado",5171,5.4
+"554",13122,"PEÑALOLÉN","Municipal",3296,5.2
+"555",13122,"PEÑALOLÉN","Particular Pagado",4512,6.1
+"556",13122,"PEÑALOLÉN","Particular Subvencionado",6973,5.4
+"557",13123,"PROVIDENCIA","Municipal",2417,5.6
+"558",13123,"PROVIDENCIA","Particular Pagado",5771,6.1
+"559",13123,"PROVIDENCIA","Particular Subvencionado",1325,5.9
+"560",13124,"PUDAHUEL","Particular Pagado",528,5.5
+"561",13124,"PUDAHUEL","Particular Subvencionado",8438,5.5
+"562",13124,"PUDAHUEL","Servicio Local de Educación",4820,5.5
+"563",13125,"QUILICURA","Municipal",2982,5.2
+"564",13125,"QUILICURA","Particular Pagado",1019,5.8
+"565",13125,"QUILICURA","Particular Subvencionado",12474,5.4
+"566",13126,"QUINTA NORMAL","Municipal",3984,5.4
+"567",13126,"QUINTA NORMAL","Particular Subvencionado",5913,5.5
+"568",13127,"RECOLETA","Municipal",3493,5.5
+"569",13127,"RECOLETA","Particular Pagado",567,6
+"570",13127,"RECOLETA","Particular Subvencionado",7785,5.5
+"571",13128,"RENCA","Municipal",3262,5.3
+"572",13128,"RENCA","Particular Subvencionado",6653,5.4
+"573",13129,"SAN JOAQUÍN","Municipal",1683,5.4
+"574",13129,"SAN JOAQUÍN","Particular Subvencionado",2539,5.4
+"575",13130,"SAN MIGUEL","Municipal",1305,5.4
+"576",13130,"SAN MIGUEL","Particular Pagado",987,5.8
+"577",13130,"SAN MIGUEL","Particular Subvencionado",5431,5.6
+"578",13131,"SAN RAMÓN","Municipal",1222,5.3
+"579",13131,"SAN RAMÓN","Particular Subvencionado",4428,5.4
+"580",13132,"VITACURA","Municipal",942,5.6
+"581",13132,"VITACURA","Particular Pagado",6689,6
+"582",13132,"VITACURA","Particular Subvencionado",186,5.9
+"583",13201,"PUENTE ALTO","Municipal",6545,5.3
+"584",13201,"PUENTE ALTO","Particular Pagado",1607,5.8
+"585",13201,"PUENTE ALTO","Particular Subvencionado",30099,5.5
+"586",13202,"PIRQUE","Municipal",1137,5.7
+"587",13202,"PIRQUE","Particular Pagado",354,6.1
+"588",13203,"SAN JOSÉ DE MAIPO","Municipal",646,5.4
+"589",13203,"SAN JOSÉ DE MAIPO","Particular Subvencionado",328,5.5
+"590",13301,"COLINA","Municipal",2860,5.3
+"591",13301,"COLINA","Particular Pagado",5457,6
+"592",13301,"COLINA","Particular Subvencionado",5971,5.4
+"593",13302,"LAMPA","Municipal",2073,5.3
+"594",13302,"LAMPA","Particular Pagado",344,5.8
+"595",13302,"LAMPA","Particular Subvencionado",5719,5.5
+"596",13303,"TILTIL","Municipal",662,5.4
+"597",13303,"TILTIL","Particular Subvencionado",686,5.6
+"598",13401,"SAN BERNARDO","Municipal",7274,5.4
+"599",13401,"SAN BERNARDO","Particular Pagado",1376,5.9
+"600",13401,"SAN BERNARDO","Particular Subvencionado",14122,5.6
+"601",13402,"BUIN","Municipal",2947,5.4
+"602",13402,"BUIN","Particular Pagado",1641,5.9
+"603",13402,"BUIN","Particular Subvencionado",2821,5.4
+"604",13403,"CALERA DE TANGO","Municipal",873,5.7
+"605",13403,"CALERA DE TANGO","Particular Pagado",789,6.1
+"606",13403,"CALERA DE TANGO","Particular Subvencionado",393,5.5
+"607",13404,"PAINE","Municipal",2758,5.4
+"608",13404,"PAINE","Particular Pagado",149,6.4
+"609",13404,"PAINE","Particular Subvencionado",3089,5.7
+"610",13501,"MELIPILLA","Municipal",4017,5.5
+"611",13501,"MELIPILLA","Particular Pagado",854,6
+"612",13501,"MELIPILLA","Particular Subvencionado",4994,5.6
+"613",13502,"ALHUÉ","Municipal",504,5.5
+"614",13503,"CURACAVÍ","Municipal",1059,5.5
+"615",13503,"CURACAVÍ","Particular Pagado",131,5.8
+"616",13503,"CURACAVÍ","Particular Subvencionado",1390,5.6
+"617",13504,"MARÍA PINTO","Municipal",763,5.7
+"618",13505,"SAN PEDRO","Municipal",661,5.5
+"619",13601,"TALAGANTE","Municipal",2351,5.5
+"620",13601,"TALAGANTE","Particular Pagado",1167,5.9
+"621",13601,"TALAGANTE","Particular Subvencionado",3137,5.5
+"622",13602,"EL MONTE","Municipal",996,5.5
+"623",13602,"EL MONTE","Particular Subvencionado",1565,5.7
+"624",13603,"ISLA DE MAIPO","Municipal",1162,5.5
+"625",13603,"ISLA DE MAIPO","Particular Pagado",56,5.6
+"626",13603,"ISLA DE MAIPO","Particular Subvencionado",1357,5.4
+"627",13604,"PADRE HURTADO","Municipal",740,5.4
+"628",13604,"PADRE HURTADO","Particular Pagado",331,5.8
+"629",13604,"PADRE HURTADO","Particular Subvencionado",3896,5.4
+"630",13605,"PEÑAFLOR","Municipal",2125,5.4
+"631",13605,"PEÑAFLOR","Particular Pagado",240,6
+"632",13605,"PEÑAFLOR","Particular Subvencionado",4174,5.6
+"633",14101,"VALDIVIA","Municipal",4011,5.4
+"634",14101,"VALDIVIA","Particular Pagado",1134,6
+"635",14101,"VALDIVIA","Particular Subvencionado",5999,5.6
+"636",14102,"CORRAL","Municipal",316,5.6
+"637",14102,"CORRAL","Particular Subvencionado",14,5.1
+"638",14103,"LANCO","Municipal",458,5.5
+"639",14103,"LANCO","Particular Subvencionado",838,5.6
+"640",14104,"LOS LAGOS","Municipal",1158,5.8
+"641",14104,"LOS LAGOS","Particular Subvencionado",346,5.6
+"642",14105,"MÁFIL","Municipal",277,5.2
+"643",14105,"MÁFIL","Particular Subvencionado",253,5.3
+"644",14106,"MARIQUINA","Municipal",493,5.4
+"645",14106,"MARIQUINA","Particular Subvencionado",1425,5.4
+"646",14107,"PAILLACO","Municipal",884,5.8
+"647",14107,"PAILLACO","Particular Subvencionado",626,5.6
+"648",14108,"PANGUIPULLI","Municipal",1405,5.9
+"649",14108,"PANGUIPULLI","Particular Subvencionado",1311,5.8
+"650",14201,"LA UNIÓN","Municipal",1687,5.6
+"651",14201,"LA UNIÓN","Particular Pagado",118,5.5
+"652",14201,"LA UNIÓN","Particular Subvencionado",890,5.7
+"653",14202,"FUTRONO","Municipal",654,5.7
+"654",14202,"FUTRONO","Particular Subvencionado",587,5.5
+"655",14203,"LAGO RANCO","Municipal",618,5.4
+"656",14203,"LAGO RANCO","Particular Subvencionado",105,5.7
+"657",14204,"RÍO BUENO","Municipal",1275,5.6
+"658",14204,"RÍO BUENO","Particular Subvencionado",968,5.7
+"659",15101,"ARICA","Municipal",6159,5.7
+"660",15101,"ARICA","Particular Pagado",845,6.1
+"661",15101,"ARICA","Particular Subvencionado",11310,5.7
+"662",15102,"CAMARONES","Municipal",60,5.9
+"663",15201,"PUTRE","Municipal",97,5.6
+"664",15202,"GENERAL LAGOS","Municipal",32,5.4
+"665",16101,"CHILLÁN","Municipal",3591,5.5
+"666",16101,"CHILLÁN","Particular Pagado",350,6
+"667",16101,"CHILLÁN","Particular Subvencionado",10106,5.7
+"668",16102,"BULNES","Municipal",861,5.5
+"669",16102,"BULNES","Particular Subvencionado",663,5.8
+"670",16103,"CHILLÁN VIEJO","Municipal",472,5.5
+"671",16103,"CHILLÁN VIEJO","Particular Subvencionado",1215,5.5
+"672",16104,"EL CARMEN","Municipal",854,5.7
+"673",16104,"EL CARMEN","Particular Subvencionado",70,6.1
+"674",16105,"PEMUCO","Municipal",510,5.7
+"675",16106,"PINTO","Municipal",499,5.5
+"676",16106,"PINTO","Particular Subvencionado",216,6.1
+"677",16107,"QUILLÓN","Municipal",832,5.5
+"678",16107,"QUILLÓN","Particular Subvencionado",259,5.8
+"679",16108,"SAN IGNACIO","Municipal",633,5.6
+"680",16108,"SAN IGNACIO","Particular Subvencionado",246,5.7
+"681",16109,"YUNGAY","Municipal",622,5.5
+"682",16109,"YUNGAY","Particular Subvencionado",678,5.9
+"683",16201,"QUIRIHUE","Municipal",592,5.7
+"684",16201,"QUIRIHUE","Particular Subvencionado",177,5.8
+"685",16202,"COBQUECURA","Municipal",271,5.7
+"686",16203,"COELEMU","Municipal",1026,5.9
+"687",16203,"COELEMU","Particular Subvencionado",182,6.2
+"688",16204,"NINHUE","Municipal",240,5.6
+"689",16204,"NINHUE","Particular Subvencionado",48,6
+"690",16205,"PORTEZUELO","Municipal",198,5.7
+"691",16205,"PORTEZUELO","Particular Subvencionado",108,5.8
+"692",16206,"RANQUIL","Municipal",265,5.7
+"693",16206,"RANQUIL","Particular Subvencionado",100,6
+"694",16207,"TREHUACO","Municipal",205,5.8
+"695",16301,"SAN CARLOS","Municipal",1556,5.5
+"696",16301,"SAN CARLOS","Particular Subvencionado",2139,5.7
+"697",16302,"COIHUECO","Municipal",1178,5.6
+"698",16302,"COIHUECO","Particular Subvencionado",731,5.8
+"699",16303,"ÑIQUÉN","Municipal",668,5.6
+"700",16304,"SAN FABIÁN","Municipal",327,5.8
+"701",16305,"SAN NICOLÁS","Municipal",843,5.4

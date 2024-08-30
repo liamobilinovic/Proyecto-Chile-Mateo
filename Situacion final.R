@@ -1,10 +1,10 @@
 
-sfinal2018 <- read_csv("situacionfinal2018.csv")
-sfinal2019 <- read_csv("situacionfinal2019.csv")
-sfinal2020 <- read_csv("situacionfinal2020.csv")
-sfinal2021 <- read_csv("situacionfinal2021.csv")
-sfinal2022 <- read_csv("situacionfinal2022.csv")
-sfinal2023 <- read_csv("situacionfinal2023.csv")
+sfinal2018 <- read_csv("Datos-proyecto/situacionfinal2018.csv")
+sfinal2019 <- read_csv("Datos-proyecto/situacionfinal2019.csv")
+sfinal2020 <- read_csv("Datos-proyecto/situacionfinal2020.csv")
+sfinal2021 <- read_csv("Datos-proyecto/situacionfinal2021.csv")
+sfinal2022 <- read_csv("Datos-proyecto/situacionfinal2022.csv")
+sfinal2023 <- read_csv("Datos-proyecto/situacionfinal2023.csv")
 
 
 

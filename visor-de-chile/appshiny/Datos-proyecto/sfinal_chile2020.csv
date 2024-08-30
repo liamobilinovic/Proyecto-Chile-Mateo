@@ -1,0 +1,996 @@
+"","codigo_comuna","nombre_comuna","SituacionFinal","n_estudiantes"
+"1",1101,"IQUIQUE","Promovido",15613
+"2",1101,"IQUIQUE","Reprobado",88
+"3",1101,"IQUIQUE","Retirado",550
+"4",1107,"ALTO HOSPICIO","Promovido",10783
+"5",1107,"ALTO HOSPICIO","Reprobado",171
+"6",1107,"ALTO HOSPICIO","Retirado",337
+"7",1401,"POZO ALMONTE","Promovido",1373
+"8",1401,"POZO ALMONTE","Reprobado",1
+"9",1401,"POZO ALMONTE","Retirado",30
+"10",1402,"CAMIÑA","Promovido",117
+"11",1402,"CAMIÑA","Retirado",7
+"12",1403,"COLCHANE","Promovido",63
+"13",1403,"COLCHANE","Reprobado",1
+"14",1403,"COLCHANE","Retirado",2
+"15",1404,"HUARA","Promovido",239
+"16",1404,"HUARA","Reprobado",1
+"17",1404,"HUARA","Retirado",8
+"18",1405,"PICA","Promovido",537
+"19",1405,"PICA","Reprobado",2
+"20",1405,"PICA","Retirado",11
+"21",2101,"ANTOFAGASTA","Promovido",27926
+"22",2101,"ANTOFAGASTA","Reprobado",423
+"23",2101,"ANTOFAGASTA","Retirado",1006
+"24",2102,"MEJILLONES","Promovido",1121
+"25",2102,"MEJILLONES","Reprobado",29
+"26",2102,"MEJILLONES","Retirado",26
+"27",2103,"SIERRA GORDA","Promovido",142
+"28",2103,"SIERRA GORDA","Retirado",1
+"29",2104,"TALTAL","Promovido",919
+"30",2104,"TALTAL","Retirado",21
+"31",2201,"CALAMA","Promovido",13988
+"32",2201,"CALAMA","Reprobado",71
+"33",2201,"CALAMA","Retirado",374
+"34",2202,"OLLAGÜE","Promovido",24
+"35",2202,"OLLAGÜE","Retirado",1
+"36",2203,"SAN PEDRO DE ATACAMA","Promovido",708
+"37",2203,"SAN PEDRO DE ATACAMA","Reprobado",18
+"38",2203,"SAN PEDRO DE ATACAMA","Retirado",7
+"39",2301,"TOCOPILLA","Promovido",2076
+"40",2301,"TOCOPILLA","Reprobado",26
+"41",2301,"TOCOPILLA","Retirado",32
+"42",2302,"MARÍA ELENA","Promovido",341
+"43",2302,"MARÍA ELENA","Reprobado",3
+"44",2302,"MARÍA ELENA","Retirado",9
+"45",3101,"COPIAPÓ","Promovido",13338
+"46",3101,"COPIAPÓ","Reprobado",132
+"47",3101,"COPIAPÓ","Retirado",312
+"48",3102,"CALDERA","Promovido",1154
+"49",3102,"CALDERA","Reprobado",5
+"50",3102,"CALDERA","Retirado",48
+"51",3103,"TIERRA AMARILLA","Promovido",1256
+"52",3103,"TIERRA AMARILLA","Reprobado",11
+"53",3103,"TIERRA AMARILLA","Retirado",40
+"54",3201,"CHAÑARAL","Promovido",1100
+"55",3201,"CHAÑARAL","Reprobado",8
+"56",3201,"CHAÑARAL","Retirado",20
+"57",3202,"DIEGO DE ALMAGRO","Promovido",1212
+"58",3202,"DIEGO DE ALMAGRO","Reprobado",11
+"59",3202,"DIEGO DE ALMAGRO","Retirado",32
+"60",3301,"VALLENAR","Promovido",4226
+"61",3301,"VALLENAR","Reprobado",33
+"62",3301,"VALLENAR","Retirado",63
+"63",3302,"ALTO DEL CARMEN","Promovido",337
+"64",3302,"ALTO DEL CARMEN","Reprobado",1
+"65",3302,"ALTO DEL CARMEN","Retirado",11
+"66",3303,"FREIRINA","Promovido",564
+"67",3303,"FREIRINA","Reprobado",5
+"68",3303,"FREIRINA","Retirado",9
+"69",3304,"HUASCO","Promovido",855
+"70",3304,"HUASCO","Reprobado",3
+"71",3304,"HUASCO","Retirado",21
+"72",4101,"LA SERENA","Promovido",20480
+"73",4101,"LA SERENA","Reprobado",111
+"74",4101,"LA SERENA","Retirado",675
+"75",4101,"LA SERENA",NA,1
+"76",4102,"COQUIMBO","Promovido",17053
+"77",4102,"COQUIMBO","Reprobado",148
+"78",4102,"COQUIMBO","Retirado",426
+"79",4103,"ANDACOLLO","Promovido",882
+"80",4103,"ANDACOLLO","Reprobado",8
+"81",4103,"ANDACOLLO","Retirado",4
+"82",4104,"LA HIGUERA","Promovido",354
+"83",4104,"LA HIGUERA","Reprobado",6
+"84",4104,"LA HIGUERA","Retirado",5
+"85",4105,"PAIGUANO","Promovido",331
+"86",4105,"PAIGUANO","Retirado",5
+"87",4106,"VICUÑA","Promovido",2179
+"88",4106,"VICUÑA","Reprobado",9
+"89",4106,"VICUÑA","Retirado",56
+"90",4201,"ILLAPEL","Promovido",2376
+"91",4201,"ILLAPEL","Reprobado",6
+"92",4201,"ILLAPEL","Retirado",68
+"93",4202,"CANELA","Promovido",558
+"94",4202,"CANELA","Retirado",12
+"95",4203,"LOS VILOS","Promovido",1715
+"96",4203,"LOS VILOS","Reprobado",3
+"97",4203,"LOS VILOS","Retirado",54
+"98",4204,"SALAMANCA","Promovido",2150
+"99",4204,"SALAMANCA","Reprobado",10
+"100",4204,"SALAMANCA","Retirado",49
+"101",4301,"OVALLE","Promovido",9227
+"102",4301,"OVALLE","Reprobado",50
+"103",4301,"OVALLE","Retirado",177
+"104",4302,"COMBARBALÁ","Promovido",853
+"105",4302,"COMBARBALÁ","Retirado",20
+"106",4303,"MONTE PATRIA","Promovido",2333
+"107",4303,"MONTE PATRIA","Reprobado",13
+"108",4303,"MONTE PATRIA","Retirado",49
+"109",4304,"PUNITAQUI","Promovido",847
+"110",4304,"PUNITAQUI","Reprobado",3
+"111",4304,"PUNITAQUI","Retirado",23
+"112",4305,"RÍO HURTADO","Promovido",257
+"113",4305,"RÍO HURTADO","Reprobado",1
+"114",4305,"RÍO HURTADO","Retirado",7
+"115",5101,"VALPARAÍSO","Promovido",18069
+"116",5101,"VALPARAÍSO","Reprobado",259
+"117",5101,"VALPARAÍSO","Retirado",661
+"118",5102,"CASABLANCA","Promovido",2032
+"119",5102,"CASABLANCA","Reprobado",6
+"120",5102,"CASABLANCA","Retirado",55
+"121",5103,"CONCÓN","Promovido",3233
+"122",5103,"CONCÓN","Reprobado",12
+"123",5103,"CONCÓN","Retirado",98
+"124",5104,"JUAN FERNÁNDEZ","Promovido",83
+"125",5104,"JUAN FERNÁNDEZ","Retirado",3
+"126",5105,"PUCHUNCAVÍ","Promovido",1214
+"127",5105,"PUCHUNCAVÍ","Reprobado",10
+"128",5105,"PUCHUNCAVÍ","Retirado",24
+"129",5107,"QUINTERO","Promovido",2289
+"130",5107,"QUINTERO","Reprobado",41
+"131",5107,"QUINTERO","Retirado",57
+"132",5109,"VIÑA DEL MAR","Promovido",21080
+"133",5109,"VIÑA DEL MAR","Reprobado",158
+"134",5109,"VIÑA DEL MAR","Retirado",957
+"135",5201,"ISLA DE PASCUA","Promovido",594
+"136",5201,"ISLA DE PASCUA","Reprobado",5
+"137",5201,"ISLA DE PASCUA","Retirado",41
+"138",5301,"LOS ANDES","Promovido",5636
+"139",5301,"LOS ANDES","Reprobado",84
+"140",5301,"LOS ANDES","Retirado",186
+"141",5302,"CALLE LARGA","Promovido",1088
+"142",5302,"CALLE LARGA","Reprobado",10
+"143",5302,"CALLE LARGA","Retirado",44
+"144",5303,"RINCONADA","Promovido",688
+"145",5303,"RINCONADA","Reprobado",4
+"146",5303,"RINCONADA","Retirado",12
+"147",5304,"SAN ESTEBAN","Promovido",769
+"148",5304,"SAN ESTEBAN","Reprobado",3
+"149",5304,"SAN ESTEBAN","Retirado",21
+"150",5401,"LA LIGUA","Promovido",2587
+"151",5401,"LA LIGUA","Reprobado",10
+"152",5401,"LA LIGUA","Retirado",58
+"153",5402,"CABILDO","Promovido",1440
+"154",5402,"CABILDO","Reprobado",2
+"155",5402,"CABILDO","Retirado",20
+"156",5403,"PAPUDO","Promovido",332
+"157",5403,"PAPUDO","Reprobado",1
+"158",5403,"PAPUDO","Retirado",3
+"159",5404,"PETORCA","Promovido",659
+"160",5404,"PETORCA","Retirado",9
+"161",5405,"ZAPALLAR","Promovido",649
+"162",5405,"ZAPALLAR","Reprobado",3
+"163",5405,"ZAPALLAR","Retirado",18
+"164",5501,"QUILLOTA","Promovido",7500
+"165",5501,"QUILLOTA","Reprobado",53
+"166",5501,"QUILLOTA","Retirado",202
+"167",5502,"CALERA","Promovido",4461
+"168",5502,"CALERA","Reprobado",23
+"169",5502,"CALERA","Retirado",115
+"170",5503,"HIJUELAS","Promovido",1110
+"171",5503,"HIJUELAS","Retirado",30
+"172",5504,"LA CRUZ","Promovido",710
+"173",5504,"LA CRUZ","Reprobado",15
+"174",5504,"LA CRUZ","Retirado",23
+"175",5506,"NOGALES","Promovido",1344
+"176",5506,"NOGALES","Reprobado",8
+"177",5506,"NOGALES","Retirado",10
+"178",5601,"SAN ANTONIO","Promovido",6889
+"179",5601,"SAN ANTONIO","Reprobado",48
+"180",5601,"SAN ANTONIO","Retirado",180
+"181",5602,"ALGARROBO","Promovido",994
+"182",5602,"ALGARROBO","Reprobado",9
+"183",5602,"ALGARROBO","Retirado",31
+"184",5603,"CARTAGENA","Promovido",1815
+"185",5603,"CARTAGENA","Reprobado",19
+"186",5603,"CARTAGENA","Retirado",75
+"187",5604,"EL QUISCO","Promovido",951
+"188",5604,"EL QUISCO","Retirado",16
+"189",5605,"EL TABO","Promovido",461
+"190",5605,"EL TABO","Reprobado",2
+"191",5605,"EL TABO","Retirado",18
+"192",5606,"SANTO DOMINGO","Promovido",1008
+"193",5606,"SANTO DOMINGO","Reprobado",1
+"194",5606,"SANTO DOMINGO","Retirado",21
+"195",5701,"SAN FELIPE","Promovido",6069
+"196",5701,"SAN FELIPE","Reprobado",60
+"197",5701,"SAN FELIPE","Retirado",152
+"198",5702,"CATEMU","Promovido",837
+"199",5702,"CATEMU","Reprobado",13
+"200",5702,"CATEMU","Retirado",22
+"201",5703,"LLAILLAY","Promovido",2110
+"202",5703,"LLAILLAY","Reprobado",15
+"203",5703,"LLAILLAY","Retirado",70
+"204",5704,"PANQUEHUE","Promovido",557
+"205",5704,"PANQUEHUE","Reprobado",3
+"206",5704,"PANQUEHUE","Retirado",10
+"207",5705,"PUTAENDO","Promovido",1008
+"208",5705,"PUTAENDO","Reprobado",17
+"209",5705,"PUTAENDO","Retirado",22
+"210",5706,"SANTA MARÍA","Promovido",977
+"211",5706,"SANTA MARÍA","Reprobado",8
+"212",5706,"SANTA MARÍA","Retirado",16
+"213",5801,"QUILPUÉ","Promovido",10837
+"214",5801,"QUILPUÉ","Reprobado",151
+"215",5801,"QUILPUÉ","Retirado",404
+"216",5801,"QUILPUÉ",NA,1
+"217",5802,"LIMACHE","Promovido",3425
+"218",5802,"LIMACHE","Reprobado",25
+"219",5802,"LIMACHE","Retirado",186
+"220",5803,"OLMUÉ","Promovido",902
+"221",5803,"OLMUÉ","Reprobado",1
+"222",5803,"OLMUÉ","Retirado",14
+"223",5804,"VILLA ALEMANA","Promovido",8544
+"224",5804,"VILLA ALEMANA","Reprobado",153
+"225",5804,"VILLA ALEMANA","Retirado",249
+"226",6101,"RANCAGUA","Promovido",18548
+"227",6101,"RANCAGUA","Reprobado",207
+"228",6101,"RANCAGUA","Retirado",627
+"229",6102,"CODEGUA","Promovido",682
+"230",6102,"CODEGUA","Reprobado",15
+"231",6102,"CODEGUA","Retirado",24
+"232",6103,"COINCO","Promovido",432
+"233",6103,"COINCO","Reprobado",3
+"234",6103,"COINCO","Retirado",6
+"235",6104,"COLTAUCO","Promovido",1354
+"236",6104,"COLTAUCO","Reprobado",14
+"237",6104,"COLTAUCO","Retirado",27
+"238",6105,"DOÑIHUE","Promovido",1628
+"239",6105,"DOÑIHUE","Reprobado",10
+"240",6105,"DOÑIHUE","Retirado",28
+"241",6106,"GRANEROS","Promovido",3037
+"242",6106,"GRANEROS","Reprobado",64
+"243",6106,"GRANEROS","Retirado",75
+"244",6107,"LAS CABRAS","Promovido",1824
+"245",6107,"LAS CABRAS","Reprobado",4
+"246",6107,"LAS CABRAS","Retirado",31
+"247",6108,"MACHALÍ","Promovido",4582
+"248",6108,"MACHALÍ","Reprobado",42
+"249",6108,"MACHALÍ","Retirado",173
+"250",6109,"MALLOA","Promovido",665
+"251",6109,"MALLOA","Reprobado",1
+"252",6109,"MALLOA","Retirado",14
+"253",6110,"MOSTAZAL","Promovido",1832
+"254",6110,"MOSTAZAL","Reprobado",17
+"255",6110,"MOSTAZAL","Retirado",34
+"256",6111,"OLIVAR","Promovido",831
+"257",6111,"OLIVAR","Reprobado",6
+"258",6111,"OLIVAR","Retirado",26
+"259",6112,"PEUMO","Promovido",944
+"260",6112,"PEUMO","Reprobado",13
+"261",6112,"PEUMO","Retirado",17
+"262",6113,"PICHIDEGUA","Promovido",1119
+"263",6113,"PICHIDEGUA","Reprobado",1
+"264",6113,"PICHIDEGUA","Retirado",20
+"265",6114,"QUINTA DE TILCOCO","Promovido",879
+"266",6114,"QUINTA DE TILCOCO","Reprobado",5
+"267",6114,"QUINTA DE TILCOCO","Retirado",12
+"268",6115,"RENGO","Promovido",4557
+"269",6115,"RENGO","Reprobado",22
+"270",6115,"RENGO","Retirado",80
+"271",6116,"REQUÍNOA","Promovido",1742
+"272",6116,"REQUÍNOA","Reprobado",3
+"273",6116,"REQUÍNOA","Retirado",22
+"274",6117,"SAN VICENTE","Promovido",3469
+"275",6117,"SAN VICENTE","Reprobado",7
+"276",6117,"SAN VICENTE","Retirado",99
+"277",6201,"PICHILEMU","Promovido",1220
+"278",6201,"PICHILEMU","Reprobado",1
+"279",6201,"PICHILEMU","Retirado",27
+"280",6202,"LA ESTRELLA","Promovido",162
+"281",6202,"LA ESTRELLA","Reprobado",1
+"282",6203,"LITUECHE","Promovido",426
+"283",6203,"LITUECHE","Reprobado",2
+"284",6203,"LITUECHE","Retirado",8
+"285",6204,"MARCHIHUE","Promovido",386
+"286",6204,"MARCHIHUE","Reprobado",8
+"287",6204,"MARCHIHUE","Retirado",9
+"288",6205,"NAVIDAD","Promovido",414
+"289",6205,"NAVIDAD","Reprobado",3
+"290",6205,"NAVIDAD","Retirado",14
+"291",6206,"PAREDONES","Promovido",326
+"292",6206,"PAREDONES","Retirado",13
+"293",6301,"SAN FERNANDO","Promovido",6131
+"294",6301,"SAN FERNANDO","Reprobado",43
+"295",6301,"SAN FERNANDO","Retirado",115
+"296",6302,"CHÉPICA","Promovido",775
+"297",6302,"CHÉPICA","Reprobado",11
+"298",6302,"CHÉPICA","Retirado",19
+"299",6303,"CHIMBARONGO","Promovido",2457
+"300",6303,"CHIMBARONGO","Reprobado",28
+"301",6303,"CHIMBARONGO","Retirado",44
+"302",6304,"LOLOL","Promovido",363
+"303",6304,"LOLOL","Reprobado",6
+"304",6304,"LOLOL","Retirado",4
+"305",6305,"NANCAGUA","Promovido",1232
+"306",6305,"NANCAGUA","Reprobado",14
+"307",6305,"NANCAGUA","Retirado",11
+"308",6306,"PALMILLA","Promovido",538
+"309",6306,"PALMILLA","Reprobado",1
+"310",6306,"PALMILLA","Retirado",19
+"311",6307,"PERALILLO","Promovido",571
+"312",6307,"PERALILLO","Retirado",23
+"313",6308,"PLACILLA","Promovido",447
+"314",6308,"PLACILLA","Reprobado",7
+"315",6308,"PLACILLA","Retirado",11
+"316",6309,"PUMANQUE","Promovido",190
+"317",6309,"PUMANQUE","Retirado",1
+"318",6310,"SANTA CRUZ","Promovido",3329
+"319",6310,"SANTA CRUZ","Reprobado",23
+"320",6310,"SANTA CRUZ","Retirado",69
+"321",7101,"TALCA","Promovido",17496
+"322",7101,"TALCA","Reprobado",133
+"323",7101,"TALCA","Retirado",402
+"324",7102,"CONSTITUCIÓN","Promovido",3575
+"325",7102,"CONSTITUCIÓN","Reprobado",16
+"326",7102,"CONSTITUCIÓN","Retirado",50
+"327",7103,"CUREPTO","Promovido",500
+"328",7103,"CUREPTO","Reprobado",2
+"329",7103,"CUREPTO","Retirado",6
+"330",7104,"EMPEDRADO","Promovido",270
+"331",7104,"EMPEDRADO","Reprobado",2
+"332",7104,"EMPEDRADO","Retirado",7
+"333",7105,"MAULE","Promovido",2072
+"334",7105,"MAULE","Reprobado",6
+"335",7105,"MAULE","Retirado",58
+"336",7106,"PELARCO","Promovido",533
+"337",7106,"PELARCO","Reprobado",10
+"338",7106,"PELARCO","Retirado",17
+"339",7107,"PENCAHUE","Promovido",396
+"340",7107,"PENCAHUE","Retirado",5
+"341",7108,"RÍO CLARO","Promovido",928
+"342",7108,"RÍO CLARO","Reprobado",9
+"343",7108,"RÍO CLARO","Retirado",20
+"344",7109,"SAN CLEMENTE","Promovido",3090
+"345",7109,"SAN CLEMENTE","Reprobado",10
+"346",7109,"SAN CLEMENTE","Retirado",56
+"347",7110,"SAN RAFAEL","Promovido",728
+"348",7110,"SAN RAFAEL","Reprobado",4
+"349",7110,"SAN RAFAEL","Retirado",13
+"350",7201,"CAUQUENES","Promovido",2839
+"351",7201,"CAUQUENES","Reprobado",7
+"352",7201,"CAUQUENES","Retirado",61
+"353",7202,"CHANCO","Promovido",528
+"354",7202,"CHANCO","Reprobado",9
+"355",7202,"CHANCO","Retirado",10
+"356",7203,"PELLUHUE","Promovido",596
+"357",7203,"PELLUHUE","Reprobado",3
+"358",7203,"PELLUHUE","Retirado",9
+"359",7301,"CURICÓ","Promovido",11977
+"360",7301,"CURICÓ","Reprobado",84
+"361",7301,"CURICÓ","Retirado",249
+"362",7302,"HUALAÑÉ","Promovido",613
+"363",7302,"HUALAÑÉ","Reprobado",5
+"364",7302,"HUALAÑÉ","Retirado",9
+"365",7303,"LICANTÉN","Promovido",450
+"366",7303,"LICANTÉN","Retirado",4
+"367",7304,"MOLINA","Promovido",3069
+"368",7304,"MOLINA","Reprobado",38
+"369",7304,"MOLINA","Retirado",67
+"370",7305,"RAUCO","Promovido",474
+"371",7305,"RAUCO","Reprobado",1
+"372",7305,"RAUCO","Retirado",4
+"373",7306,"ROMERAL","Promovido",1005
+"374",7306,"ROMERAL","Reprobado",2
+"375",7306,"ROMERAL","Retirado",12
+"376",7307,"SAGRADA FAMILIA","Promovido",1034
+"377",7307,"SAGRADA FAMILIA","Retirado",23
+"378",7308,"TENO","Promovido",1740
+"379",7308,"TENO","Reprobado",4
+"380",7308,"TENO","Retirado",17
+"381",7309,"VICHUQUEN","Promovido",206
+"382",7309,"VICHUQUEN","Retirado",3
+"383",7401,"LINARES","Promovido",7854
+"384",7401,"LINARES","Reprobado",55
+"385",7401,"LINARES","Retirado",155
+"386",7402,"COLBÚN","Promovido",1486
+"387",7402,"COLBÚN","Reprobado",25
+"388",7402,"COLBÚN","Retirado",28
+"389",7403,"LONGAVÍ","Promovido",1970
+"390",7403,"LONGAVÍ","Reprobado",15
+"391",7403,"LONGAVÍ","Retirado",45
+"392",7404,"PARRAL","Promovido",3115
+"393",7404,"PARRAL","Reprobado",23
+"394",7404,"PARRAL","Retirado",58
+"395",7405,"RETIRO","Promovido",1440
+"396",7405,"RETIRO","Reprobado",4
+"397",7405,"RETIRO","Retirado",31
+"398",7406,"SAN JAVIER","Promovido",3758
+"399",7406,"SAN JAVIER","Reprobado",49
+"400",7406,"SAN JAVIER","Retirado",57
+"401",7407,"VILLA ALEGRE","Promovido",1021
+"402",7407,"VILLA ALEGRE","Reprobado",14
+"403",7407,"VILLA ALEGRE","Retirado",54
+"404",7408,"YERBAS BUENAS","Promovido",790
+"405",7408,"YERBAS BUENAS","Reprobado",7
+"406",7408,"YERBAS BUENAS","Retirado",18
+"407",8101,"CONCEPCIÓN","Promovido",15029
+"408",8101,"CONCEPCIÓN","Reprobado",87
+"409",8101,"CONCEPCIÓN","Retirado",533
+"410",8102,"CORONEL","Promovido",8991
+"411",8102,"CORONEL","Reprobado",9
+"412",8102,"CORONEL","Retirado",164
+"413",8103,"CHIGUAYANTE","Promovido",5862
+"414",8103,"CHIGUAYANTE","Reprobado",86
+"415",8103,"CHIGUAYANTE","Retirado",211
+"416",8104,"FLORIDA","Promovido",677
+"417",8104,"FLORIDA","Retirado",9
+"418",8105,"HUALQUI","Promovido",1708
+"419",8105,"HUALQUI","Reprobado",5
+"420",8105,"HUALQUI","Retirado",24
+"421",8106,"LOTA","Promovido",3277
+"422",8106,"LOTA","Reprobado",43
+"423",8106,"LOTA","Retirado",67
+"424",8107,"PENCO","Promovido",3041
+"425",8107,"PENCO","Reprobado",31
+"426",8107,"PENCO","Retirado",57
+"427",8108,"SAN PEDRO DE LA PAZ","Promovido",9903
+"428",8108,"SAN PEDRO DE LA PAZ","Reprobado",73
+"429",8108,"SAN PEDRO DE LA PAZ","Retirado",751
+"430",8109,"SANTA JUANA","Promovido",1035
+"431",8109,"SANTA JUANA","Reprobado",4
+"432",8109,"SANTA JUANA","Retirado",20
+"433",8110,"TALCAHUANO","Promovido",8842
+"434",8110,"TALCAHUANO","Reprobado",81
+"435",8110,"TALCAHUANO","Retirado",377
+"436",8111,"TOMÉ","Promovido",3619
+"437",8111,"TOMÉ","Reprobado",2
+"438",8111,"TOMÉ","Retirado",73
+"439",8112,"HUALPÉN","Promovido",5337
+"440",8112,"HUALPÉN","Reprobado",22
+"441",8112,"HUALPÉN","Retirado",163
+"442",8201,"LEBU","Promovido",1921
+"443",8201,"LEBU","Reprobado",8
+"444",8201,"LEBU","Retirado",24
+"445",8202,"ARAUCO","Promovido",2782
+"446",8202,"ARAUCO","Reprobado",19
+"447",8202,"ARAUCO","Retirado",33
+"448",8203,"CAÑETE","Promovido",2790
+"449",8203,"CAÑETE","Reprobado",15
+"450",8203,"CAÑETE","Retirado",55
+"451",8204,"CONTULMO","Promovido",456
+"452",8204,"CONTULMO","Reprobado",5
+"453",8204,"CONTULMO","Retirado",31
+"454",8205,"CURANILAHUE","Promovido",2410
+"455",8205,"CURANILAHUE","Reprobado",6
+"456",8205,"CURANILAHUE","Retirado",26
+"457",8206,"LOS ÁLAMOS","Promovido",1864
+"458",8206,"LOS ÁLAMOS","Reprobado",1
+"459",8206,"LOS ÁLAMOS","Retirado",37
+"460",8207,"TIRÚA","Promovido",952
+"461",8207,"TIRÚA","Retirado",35
+"462",8301,"LOS ÁNGELES","Promovido",15872
+"463",8301,"LOS ÁNGELES","Reprobado",46
+"464",8301,"LOS ÁNGELES","Retirado",543
+"465",8302,"ANTUCO","Promovido",232
+"466",8302,"ANTUCO","Retirado",12
+"467",8303,"CABRERO","Promovido",1973
+"468",8303,"CABRERO","Reprobado",1
+"469",8303,"CABRERO","Retirado",67
+"470",8304,"LAJA","Promovido",1724
+"471",8304,"LAJA","Reprobado",1
+"472",8304,"LAJA","Retirado",24
+"473",8305,"MULCHÉN","Promovido",2083
+"474",8305,"MULCHÉN","Reprobado",7
+"475",8305,"MULCHÉN","Retirado",47
+"476",8306,"NACIMIENTO","Promovido",2044
+"477",8306,"NACIMIENTO","Retirado",35
+"478",8307,"NEGRETE","Promovido",651
+"479",8307,"NEGRETE","Reprobado",4
+"480",8307,"NEGRETE","Retirado",17
+"481",8308,"QUILACO","Promovido",193
+"482",8308,"QUILACO","Reprobado",1
+"483",8308,"QUILACO","Retirado",7
+"484",8309,"QUILLECO","Promovido",458
+"485",8309,"QUILLECO","Reprobado",1
+"486",8309,"QUILLECO","Retirado",7
+"487",8310,"SAN ROSENDO","Promovido",135
+"488",8311,"SANTA BÁRBARA","Promovido",1024
+"489",8311,"SANTA BÁRBARA","Reprobado",4
+"490",8311,"SANTA BÁRBARA","Retirado",44
+"491",8312,"TUCAPEL","Promovido",864
+"492",8312,"TUCAPEL","Reprobado",4
+"493",8312,"TUCAPEL","Retirado",20
+"494",8313,"YUMBEL","Promovido",1344
+"495",8313,"YUMBEL","Reprobado",2
+"496",8313,"YUMBEL","Retirado",22
+"497",8314,"ALTO BIOBÍO","Promovido",600
+"498",8314,"ALTO BIOBÍO","Reprobado",20
+"499",8314,"ALTO BIOBÍO","Retirado",17
+"500",9101,"TEMUCO","Promovido",20869
+"501",9101,"TEMUCO","Reprobado",152
+"502",9101,"TEMUCO","Retirado",760
+"503",9102,"CARAHUE","Promovido",1869
+"504",9102,"CARAHUE","Reprobado",12
+"505",9102,"CARAHUE","Retirado",57
+"506",9103,"CUNCO","Promovido",1186
+"507",9103,"CUNCO","Reprobado",8
+"508",9103,"CUNCO","Retirado",23
+"509",9104,"CURARREHUE","Promovido",612
+"510",9104,"CURARREHUE","Reprobado",1
+"511",9104,"CURARREHUE","Retirado",24
+"512",9105,"FREIRE","Promovido",1431
+"513",9105,"FREIRE","Reprobado",6
+"514",9105,"FREIRE","Retirado",50
+"515",9106,"GALVARINO","Promovido",999
+"516",9106,"GALVARINO","Reprobado",13
+"517",9106,"GALVARINO","Retirado",45
+"518",9107,"GORBEA","Promovido",886
+"519",9107,"GORBEA","Reprobado",1
+"520",9107,"GORBEA","Retirado",22
+"521",9108,"LAUTARO","Promovido",2958
+"522",9108,"LAUTARO","Reprobado",8
+"523",9108,"LAUTARO","Retirado",91
+"524",9109,"LONCOCHE","Promovido",1645
+"525",9109,"LONCOCHE","Reprobado",13
+"526",9109,"LONCOCHE","Retirado",34
+"527",9110,"MELIPEUCO","Promovido",442
+"528",9110,"MELIPEUCO","Retirado",14
+"529",9111,"NUEVA IMPERIAL","Promovido",2472
+"530",9111,"NUEVA IMPERIAL","Reprobado",6
+"531",9111,"NUEVA IMPERIAL","Retirado",71
+"532",9112,"PADRE LAS CASAS","Promovido",5125
+"533",9112,"PADRE LAS CASAS","Reprobado",24
+"534",9112,"PADRE LAS CASAS","Retirado",174
+"535",9113,"PERQUENCO","Promovido",530
+"536",9113,"PERQUENCO","Reprobado",10
+"537",9113,"PERQUENCO","Retirado",16
+"538",9114,"PITRUFQUÉN","Promovido",1953
+"539",9114,"PITRUFQUÉN","Reprobado",17
+"540",9114,"PITRUFQUÉN","Retirado",42
+"541",9115,"PUCÓN","Promovido",2176
+"542",9115,"PUCÓN","Reprobado",8
+"543",9115,"PUCÓN","Retirado",125
+"544",9116,"SAAVEDRA","Promovido",961
+"545",9116,"SAAVEDRA","Reprobado",2
+"546",9116,"SAAVEDRA","Retirado",51
+"547",9117,"TEODORO SCHMIDT","Promovido",1017
+"548",9117,"TEODORO SCHMIDT","Reprobado",4
+"549",9117,"TEODORO SCHMIDT","Retirado",29
+"550",9117,"TEODORO SCHMIDT",NA,1
+"551",9118,"TOLTÉN","Promovido",749
+"552",9118,"TOLTÉN","Reprobado",6
+"553",9118,"TOLTÉN","Retirado",29
+"554",9119,"VILCÚN","Promovido",2237
+"555",9119,"VILCÚN","Reprobado",8
+"556",9119,"VILCÚN","Retirado",61
+"557",9120,"VILLARRICA","Promovido",4954
+"558",9120,"VILLARRICA","Reprobado",39
+"559",9120,"VILLARRICA","Retirado",162
+"560",9121,"CHOLCHOL","Promovido",1007
+"561",9121,"CHOLCHOL","Reprobado",4
+"562",9121,"CHOLCHOL","Retirado",52
+"563",9201,"ANGOL","Promovido",3924
+"564",9201,"ANGOL","Reprobado",23
+"565",9201,"ANGOL","Retirado",97
+"566",9202,"COLLIPULLI","Promovido",2074
+"567",9202,"COLLIPULLI","Reprobado",19
+"568",9202,"COLLIPULLI","Retirado",45
+"569",9203,"CURACAUTÍN","Promovido",1181
+"570",9203,"CURACAUTÍN","Reprobado",4
+"571",9203,"CURACAUTÍN","Retirado",34
+"572",9204,"ERCILLA","Promovido",652
+"573",9204,"ERCILLA","Reprobado",7
+"574",9204,"ERCILLA","Retirado",15
+"575",9205,"LONQUIMAY","Promovido",812
+"576",9205,"LONQUIMAY","Reprobado",8
+"577",9205,"LONQUIMAY","Retirado",39
+"578",9206,"LOS SAUCES","Promovido",453
+"579",9206,"LOS SAUCES","Reprobado",2
+"580",9206,"LOS SAUCES","Retirado",6
+"581",9207,"LUMACO","Promovido",663
+"582",9207,"LUMACO","Reprobado",1
+"583",9207,"LUMACO","Retirado",8
+"584",9208,"PURÉN","Promovido",818
+"585",9208,"PURÉN","Reprobado",6
+"586",9208,"PURÉN","Retirado",31
+"587",9209,"RENAICO","Promovido",719
+"588",9209,"RENAICO","Reprobado",1
+"589",9209,"RENAICO","Retirado",12
+"590",9210,"TRAIGUÉN","Promovido",1347
+"591",9210,"TRAIGUÉN","Reprobado",1
+"592",9210,"TRAIGUÉN","Retirado",28
+"593",9211,"VICTORIA","Promovido",2417
+"594",9211,"VICTORIA","Reprobado",16
+"595",9211,"VICTORIA","Retirado",57
+"596",10101,"PUERTO MONTT","Promovido",19724
+"597",10101,"PUERTO MONTT","Reprobado",140
+"598",10101,"PUERTO MONTT","Retirado",634
+"599",10102,"CALBUCO","Promovido",2497
+"600",10102,"CALBUCO","Reprobado",20
+"601",10102,"CALBUCO","Retirado",55
+"602",10103,"COCHAMÓ","Promovido",216
+"603",10103,"COCHAMÓ","Reprobado",1
+"604",10103,"COCHAMÓ","Retirado",6
+"605",10104,"FRESIA","Promovido",756
+"606",10104,"FRESIA","Reprobado",12
+"607",10104,"FRESIA","Retirado",30
+"608",10105,"FRUTILLAR","Promovido",1602
+"609",10105,"FRUTILLAR","Reprobado",4
+"610",10105,"FRUTILLAR","Retirado",70
+"611",10106,"LOS MUERMOS","Promovido",1286
+"612",10106,"LOS MUERMOS","Reprobado",4
+"613",10106,"LOS MUERMOS","Retirado",37
+"614",10107,"LLANQUIHUE","Promovido",1068
+"615",10107,"LLANQUIHUE","Reprobado",30
+"616",10107,"LLANQUIHUE","Retirado",26
+"617",10108,"MAULLIN","Promovido",830
+"618",10108,"MAULLIN","Reprobado",4
+"619",10108,"MAULLIN","Retirado",16
+"620",10109,"PUERTO VARAS","Promovido",3735
+"621",10109,"PUERTO VARAS","Reprobado",6
+"622",10109,"PUERTO VARAS","Retirado",96
+"623",10201,"CASTRO","Promovido",3578
+"624",10201,"CASTRO","Reprobado",17
+"625",10201,"CASTRO","Retirado",80
+"626",10202,"ANCUD","Promovido",2846
+"627",10202,"ANCUD","Reprobado",35
+"628",10202,"ANCUD","Retirado",72
+"629",10203,"CHONCHI","Promovido",898
+"630",10203,"CHONCHI","Reprobado",10
+"631",10203,"CHONCHI","Retirado",17
+"632",10204,"CURACO DE VÉLEZ","Promovido",181
+"633",10204,"CURACO DE VÉLEZ","Reprobado",1
+"634",10204,"CURACO DE VÉLEZ","Retirado",3
+"635",10205,"DALCAHUE","Promovido",1093
+"636",10205,"DALCAHUE","Reprobado",6
+"637",10205,"DALCAHUE","Retirado",16
+"638",10206,"PUQUELDÓN","Promovido",249
+"639",10206,"PUQUELDÓN","Reprobado",2
+"640",10206,"PUQUELDÓN","Retirado",1
+"641",10207,"QUEILÉN","Promovido",351
+"642",10207,"QUEILÉN","Retirado",12
+"643",10208,"QUELLÓN","Promovido",2170
+"644",10208,"QUELLÓN","Reprobado",13
+"645",10208,"QUELLÓN","Retirado",39
+"646",10209,"QUEMCHI","Promovido",503
+"647",10209,"QUEMCHI","Reprobado",3
+"648",10209,"QUEMCHI","Retirado",13
+"649",10210,"QUINCHAO","Promovido",563
+"650",10210,"QUINCHAO","Reprobado",6
+"651",10210,"QUINCHAO","Retirado",6
+"652",10301,"OSORNO","Promovido",11801
+"653",10301,"OSORNO","Reprobado",114
+"654",10301,"OSORNO","Retirado",508
+"655",10302,"PUERTO OCTAY","Promovido",563
+"656",10302,"PUERTO OCTAY","Reprobado",7
+"657",10302,"PUERTO OCTAY","Retirado",29
+"658",10303,"PURRANQUE","Promovido",1385
+"659",10303,"PURRANQUE","Reprobado",10
+"660",10303,"PURRANQUE","Retirado",48
+"661",10304,"PUYEHUE","Promovido",709
+"662",10304,"PUYEHUE","Retirado",18
+"663",10305,"RÍO NEGRO","Promovido",811
+"664",10305,"RÍO NEGRO","Reprobado",7
+"665",10305,"RÍO NEGRO","Retirado",30
+"666",10306,"SAN JUAN DE LA COSTA","Promovido",515
+"667",10306,"SAN JUAN DE LA COSTA","Reprobado",11
+"668",10306,"SAN JUAN DE LA COSTA","Retirado",39
+"669",10307,"SAN PABLO","Promovido",648
+"670",10307,"SAN PABLO","Reprobado",3
+"671",10307,"SAN PABLO","Retirado",28
+"672",10401,"CHAITÉN","Promovido",288
+"673",10401,"CHAITÉN","Reprobado",1
+"674",10401,"CHAITÉN","Retirado",12
+"675",10402,"FUTALEUFÚ","Promovido",195
+"676",10402,"FUTALEUFÚ","Reprobado",2
+"677",10402,"FUTALEUFÚ","Retirado",4
+"678",10403,"HUALAIHUÉ","Promovido",653
+"679",10403,"HUALAIHUÉ","Reprobado",6
+"680",10403,"HUALAIHUÉ","Retirado",13
+"681",10404,"PALENA","Promovido",100
+"682",10404,"PALENA","Retirado",14
+"683",11101,"COYHAIQUE","Promovido",4614
+"684",11101,"COYHAIQUE","Reprobado",34
+"685",11101,"COYHAIQUE","Retirado",114
+"686",11101,"COYHAIQUE",NA,1
+"687",11102,"LAGO VERDE","Promovido",37
+"688",11102,"LAGO VERDE","Retirado",3
+"689",11201,"AYSÉN","Promovido",1962
+"690",11201,"AYSÉN","Reprobado",35
+"691",11201,"AYSÉN","Retirado",69
+"692",11202,"CISNES","Promovido",420
+"693",11202,"CISNES","Reprobado",5
+"694",11202,"CISNES","Retirado",15
+"695",11203,"GUAITECAS","Promovido",107
+"696",11203,"GUAITECAS","Reprobado",1
+"697",11203,"GUAITECAS","Retirado",6
+"698",11301,"COCHRANE","Promovido",267
+"699",11301,"COCHRANE","Retirado",3
+"700",11302,"O'HIGGINS","Promovido",48
+"701",11302,"O'HIGGINS","Retirado",4
+"702",11303,"TORTEL","Promovido",42
+"703",11303,"TORTEL","Reprobado",3
+"704",11401,"CHILE CHICO","Promovido",342
+"705",11401,"CHILE CHICO","Retirado",12
+"706",11402,"RÍO IBÁÑEZ","Promovido",157
+"707",11402,"RÍO IBÁÑEZ","Reprobado",1
+"708",11402,"RÍO IBÁÑEZ","Retirado",7
+"709",12101,"PUNTA ARENAS","Promovido",8774
+"710",12101,"PUNTA ARENAS","Reprobado",34
+"711",12101,"PUNTA ARENAS","Retirado",251
+"712",12102,"LAGUNA BLANCA","Promovido",14
+"713",12103,"RÍO VERDE","Promovido",7
+"714",12104,"SAN GREGORIO","Promovido",23
+"715",12104,"SAN GREGORIO","Retirado",1
+"716",12201,"CABO DE HORNOS","Promovido",185
+"717",12301,"PORVENIR","Promovido",463
+"718",12301,"PORVENIR","Retirado",18
+"719",12302,"PRIMAVERA","Promovido",34
+"720",12302,"PRIMAVERA","Retirado",1
+"721",12303,"TIMAUKEL","Promovido",12
+"722",12303,"TIMAUKEL","Retirado",1
+"723",12401,"NATALES","Promovido",1594
+"724",12401,"NATALES","Reprobado",21
+"725",12401,"NATALES","Retirado",31
+"726",12402,"TORRES DEL PAINE","Promovido",18
+"727",12402,"TORRES DEL PAINE","Retirado",1
+"728",13101,"SANTIAGO","Promovido",22067
+"729",13101,"SANTIAGO","Reprobado",197
+"730",13101,"SANTIAGO","Retirado",817
+"731",13102,"CERRILLOS","Promovido",4747
+"732",13102,"CERRILLOS","Reprobado",36
+"733",13102,"CERRILLOS","Retirado",169
+"734",13103,"CERRO NAVIA","Promovido",7137
+"735",13103,"CERRO NAVIA","Reprobado",96
+"736",13103,"CERRO NAVIA","Retirado",254
+"737",13104,"CONCHALÍ","Promovido",9261
+"738",13104,"CONCHALÍ","Reprobado",78
+"739",13104,"CONCHALÍ","Retirado",328
+"740",13105,"EL BOSQUE","Promovido",13682
+"741",13105,"EL BOSQUE","Reprobado",161
+"742",13105,"EL BOSQUE","Retirado",471
+"743",13106,"ESTACIÓN CENTRAL","Promovido",9995
+"744",13106,"ESTACIÓN CENTRAL","Reprobado",51
+"745",13106,"ESTACIÓN CENTRAL","Retirado",372
+"746",13107,"HUECHURABA","Promovido",5899
+"747",13107,"HUECHURABA","Reprobado",17
+"748",13107,"HUECHURABA","Retirado",230
+"749",13108,"INDEPENDENCIA","Promovido",7356
+"750",13108,"INDEPENDENCIA","Reprobado",54
+"751",13108,"INDEPENDENCIA","Retirado",308
+"752",13108,"INDEPENDENCIA",NA,1
+"753",13109,"LA CISTERNA","Promovido",8642
+"754",13109,"LA CISTERNA","Reprobado",58
+"755",13109,"LA CISTERNA","Retirado",267
+"756",13110,"LA FLORIDA","Promovido",27446
+"757",13110,"LA FLORIDA","Reprobado",475
+"758",13110,"LA FLORIDA","Retirado",1424
+"759",13110,"LA FLORIDA",NA,1
+"760",13111,"LA GRANJA","Promovido",7755
+"761",13111,"LA GRANJA","Reprobado",74
+"762",13111,"LA GRANJA","Retirado",302
+"763",13112,"LA PINTANA","Promovido",13333
+"764",13112,"LA PINTANA","Reprobado",243
+"765",13112,"LA PINTANA","Retirado",533
+"766",13113,"LA REINA","Promovido",8800
+"767",13113,"LA REINA","Reprobado",41
+"768",13113,"LA REINA","Retirado",442
+"769",13114,"LAS CONDES","Promovido",13993
+"770",13114,"LAS CONDES","Reprobado",56
+"771",13114,"LAS CONDES","Retirado",653
+"772",13114,"LAS CONDES",NA,55
+"773",13115,"LO BARNECHEA","Promovido",8126
+"774",13115,"LO BARNECHEA","Reprobado",33
+"775",13115,"LO BARNECHEA","Retirado",247
+"776",13116,"LO ESPEJO","Promovido",4681
+"777",13116,"LO ESPEJO","Reprobado",119
+"778",13116,"LO ESPEJO","Retirado",201
+"779",13117,"LO PRADO","Promovido",5381
+"780",13117,"LO PRADO","Reprobado",76
+"781",13117,"LO PRADO","Retirado",153
+"782",13118,"MACUL","Promovido",6239
+"783",13118,"MACUL","Reprobado",47
+"784",13118,"MACUL","Retirado",274
+"785",13119,"MAIPÚ","Promovido",34016
+"786",13119,"MAIPÚ","Reprobado",298
+"787",13119,"MAIPÚ","Retirado",1334
+"788",13120,"ÑUÑOA","Promovido",11855
+"789",13120,"ÑUÑOA","Reprobado",78
+"790",13120,"ÑUÑOA","Retirado",751
+"791",13121,"PEDRO AGUIRRE CERDA","Promovido",6924
+"792",13121,"PEDRO AGUIRRE CERDA","Reprobado",58
+"793",13121,"PEDRO AGUIRRE CERDA","Retirado",263
+"794",13122,"PEÑALOLÉN","Promovido",14428
+"795",13122,"PEÑALOLÉN","Reprobado",189
+"796",13122,"PEÑALOLÉN","Retirado",685
+"797",13123,"PROVIDENCIA","Promovido",9315
+"798",13123,"PROVIDENCIA","Reprobado",38
+"799",13123,"PROVIDENCIA","Retirado",590
+"800",13124,"PUDAHUEL","Promovido",13302
+"801",13124,"PUDAHUEL","Reprobado",135
+"802",13124,"PUDAHUEL","Retirado",315
+"803",13125,"QUILICURA","Promovido",15873
+"804",13125,"QUILICURA","Reprobado",119
+"805",13125,"QUILICURA","Retirado",456
+"806",13126,"QUINTA NORMAL","Promovido",9870
+"807",13126,"QUINTA NORMAL","Reprobado",88
+"808",13126,"QUINTA NORMAL","Retirado",418
+"809",13127,"RECOLETA","Promovido",11943
+"810",13127,"RECOLETA","Reprobado",94
+"811",13127,"RECOLETA","Retirado",340
+"812",13128,"RENCA","Promovido",9654
+"813",13128,"RENCA","Reprobado",105
+"814",13128,"RENCA","Retirado",293
+"815",13129,"SAN JOAQUÍN","Promovido",4243
+"816",13129,"SAN JOAQUÍN","Reprobado",107
+"817",13129,"SAN JOAQUÍN","Retirado",222
+"818",13129,"SAN JOAQUÍN",NA,2
+"819",13130,"SAN MIGUEL","Promovido",8054
+"820",13130,"SAN MIGUEL","Reprobado",80
+"821",13130,"SAN MIGUEL","Retirado",358
+"822",13131,"SAN RAMÓN","Promovido",5433
+"823",13131,"SAN RAMÓN","Reprobado",82
+"824",13131,"SAN RAMÓN","Retirado",171
+"825",13132,"VITACURA","Promovido",7940
+"826",13132,"VITACURA","Reprobado",14
+"827",13132,"VITACURA","Retirado",165
+"828",13201,"PUENTE ALTO","Promovido",37033
+"829",13201,"PUENTE ALTO","Reprobado",557
+"830",13201,"PUENTE ALTO","Retirado",1340
+"831",13202,"PIRQUE","Promovido",1461
+"832",13202,"PIRQUE","Reprobado",7
+"833",13202,"PIRQUE","Retirado",44
+"834",13203,"SAN JOSÉ DE MAIPO","Promovido",990
+"835",13203,"SAN JOSÉ DE MAIPO","Reprobado",15
+"836",13203,"SAN JOSÉ DE MAIPO","Retirado",20
+"837",13301,"COLINA","Promovido",14783
+"838",13301,"COLINA","Reprobado",123
+"839",13301,"COLINA","Retirado",461
+"840",13302,"LAMPA","Promovido",8404
+"841",13302,"LAMPA","Reprobado",59
+"842",13302,"LAMPA","Retirado",241
+"843",13303,"TILTIL","Promovido",1323
+"844",13303,"TILTIL","Reprobado",3
+"845",13303,"TILTIL","Retirado",75
+"846",13401,"SAN BERNARDO","Promovido",22059
+"847",13401,"SAN BERNARDO","Reprobado",250
+"848",13401,"SAN BERNARDO","Retirado",935
+"849",13402,"BUIN","Promovido",7643
+"850",13402,"BUIN","Reprobado",65
+"851",13402,"BUIN","Retirado",332
+"852",13403,"CALERA DE TANGO","Promovido",1965
+"853",13403,"CALERA DE TANGO","Reprobado",5
+"854",13403,"CALERA DE TANGO","Retirado",86
+"855",13403,"CALERA DE TANGO",NA,64
+"856",13404,"PAINE","Promovido",6093
+"857",13404,"PAINE","Reprobado",38
+"858",13404,"PAINE","Retirado",190
+"859",13501,"MELIPILLA","Promovido",9698
+"860",13501,"MELIPILLA","Reprobado",46
+"861",13501,"MELIPILLA","Retirado",342
+"862",13502,"ALHUÉ","Promovido",541
+"863",13502,"ALHUÉ","Retirado",15
+"864",13503,"CURACAVÍ","Promovido",2587
+"865",13503,"CURACAVÍ","Reprobado",23
+"866",13503,"CURACAVÍ","Retirado",78
+"867",13504,"MARÍA PINTO","Promovido",803
+"868",13504,"MARÍA PINTO","Reprobado",2
+"869",13504,"MARÍA PINTO","Retirado",15
+"870",13505,"SAN PEDRO","Promovido",687
+"871",13505,"SAN PEDRO","Reprobado",1
+"872",13505,"SAN PEDRO","Retirado",13
+"873",13601,"TALAGANTE","Promovido",6737
+"874",13601,"TALAGANTE","Reprobado",52
+"875",13601,"TALAGANTE","Retirado",214
+"876",13602,"EL MONTE","Promovido",2689
+"877",13602,"EL MONTE","Reprobado",5
+"878",13602,"EL MONTE","Retirado",78
+"879",13603,"ISLA DE MAIPO","Promovido",2530
+"880",13603,"ISLA DE MAIPO","Reprobado",29
+"881",13603,"ISLA DE MAIPO","Retirado",68
+"882",13604,"PADRE HURTADO","Promovido",5358
+"883",13604,"PADRE HURTADO","Reprobado",38
+"884",13604,"PADRE HURTADO","Retirado",171
+"885",13605,"PEÑAFLOR","Promovido",6426
+"886",13605,"PEÑAFLOR","Reprobado",40
+"887",13605,"PEÑAFLOR","Retirado",294
+"888",14101,"VALDIVIA","Promovido",11029
+"889",14101,"VALDIVIA","Reprobado",124
+"890",14101,"VALDIVIA","Retirado",342
+"891",14102,"CORRAL","Promovido",349
+"892",14102,"CORRAL","Reprobado",2
+"893",14102,"CORRAL","Retirado",11
+"894",14103,"LANCO","Promovido",1217
+"895",14103,"LANCO","Reprobado",7
+"896",14103,"LANCO","Retirado",34
+"897",14104,"LOS LAGOS","Promovido",1497
+"898",14104,"LOS LAGOS","Reprobado",9
+"899",14104,"LOS LAGOS","Retirado",47
+"900",14105,"MÁFIL","Promovido",492
+"901",14105,"MÁFIL","Reprobado",3
+"902",14105,"MÁFIL","Retirado",14
+"903",14106,"MARIQUINA","Promovido",1854
+"904",14106,"MARIQUINA","Reprobado",28
+"905",14106,"MARIQUINA","Retirado",58
+"906",14107,"PAILLACO","Promovido",1457
+"907",14107,"PAILLACO","Reprobado",12
+"908",14107,"PAILLACO","Retirado",58
+"909",14107,"PAILLACO",NA,1
+"910",14108,"PANGUIPULLI","Promovido",2739
+"911",14108,"PANGUIPULLI","Reprobado",4
+"912",14108,"PANGUIPULLI","Retirado",103
+"913",14201,"LA UNIÓN","Promovido",2635
+"914",14201,"LA UNIÓN","Reprobado",13
+"915",14201,"LA UNIÓN","Retirado",71
+"916",14202,"FUTRONO","Promovido",1277
+"917",14202,"FUTRONO","Reprobado",10
+"918",14202,"FUTRONO","Retirado",64
+"919",14203,"LAGO RANCO","Promovido",703
+"920",14203,"LAGO RANCO","Reprobado",13
+"921",14203,"LAGO RANCO","Retirado",16
+"922",14204,"RÍO BUENO","Promovido",2231
+"923",14204,"RÍO BUENO","Reprobado",15
+"924",14204,"RÍO BUENO","Retirado",61
+"925",15101,"ARICA","Promovido",18407
+"926",15101,"ARICA","Reprobado",91
+"927",15101,"ARICA","Retirado",549
+"928",15102,"CAMARONES","Promovido",61
+"929",15102,"CAMARONES","Retirado",6
+"930",15201,"PUTRE","Promovido",103
+"931",15201,"PUTRE","Reprobado",1
+"932",15201,"PUTRE","Retirado",5
+"933",15202,"GENERAL LAGOS","Promovido",42
+"934",15202,"GENERAL LAGOS","Reprobado",1
+"935",15202,"GENERAL LAGOS","Retirado",3
+"936",16101,"CHILLÁN","Promovido",13291
+"937",16101,"CHILLÁN","Reprobado",43
+"938",16101,"CHILLÁN","Retirado",521
+"939",16101,"CHILLÁN",NA,450
+"940",16102,"BULNES","Promovido",1500
+"941",16102,"BULNES","Reprobado",9
+"942",16102,"BULNES","Retirado",48
+"943",16102,"BULNES",NA,1
+"944",16103,"CHILLÁN VIEJO","Promovido",1498
+"945",16103,"CHILLÁN VIEJO","Reprobado",20
+"946",16103,"CHILLÁN VIEJO","Retirado",62
+"947",16104,"EL CARMEN","Promovido",871
+"948",16104,"EL CARMEN","Retirado",16
+"949",16105,"PEMUCO","Promovido",464
+"950",16105,"PEMUCO","Retirado",3
+"951",16106,"PINTO","Promovido",645
+"952",16106,"PINTO","Reprobado",1
+"953",16106,"PINTO","Retirado",13
+"954",16107,"QUILLÓN","Promovido",1119
+"955",16107,"QUILLÓN","Reprobado",2
+"956",16107,"QUILLÓN","Retirado",40
+"957",16108,"SAN IGNACIO","Promovido",809
+"958",16108,"SAN IGNACIO","Reprobado",1
+"959",16108,"SAN IGNACIO","Retirado",12
+"960",16109,"YUNGAY","Promovido",1278
+"961",16109,"YUNGAY","Reprobado",8
+"962",16109,"YUNGAY","Retirado",34
+"963",16201,"QUIRIHUE","Promovido",710
+"964",16201,"QUIRIHUE","Reprobado",2
+"965",16201,"QUIRIHUE","Retirado",12
+"966",16202,"COBQUECURA","Promovido",262
+"967",16202,"COBQUECURA","Retirado",8
+"968",16203,"COELEMU","Promovido",1189
+"969",16203,"COELEMU","Reprobado",2
+"970",16203,"COELEMU","Retirado",11
+"971",16204,"NINHUE","Promovido",274
+"972",16204,"NINHUE","Reprobado",1
+"973",16205,"PORTEZUELO","Promovido",289
+"974",16205,"PORTEZUELO","Retirado",4
+"975",16206,"RANQUIL","Promovido",394
+"976",16206,"RANQUIL","Reprobado",2
+"977",16206,"RANQUIL","Retirado",13
+"978",16207,"TREHUACO","Promovido",183
+"979",16207,"TREHUACO","Reprobado",1
+"980",16207,"TREHUACO","Retirado",1
+"981",16301,"SAN CARLOS","Promovido",3599
+"982",16301,"SAN CARLOS","Reprobado",14
+"983",16301,"SAN CARLOS","Retirado",60
+"984",16302,"COIHUECO","Promovido",1822
+"985",16302,"COIHUECO","Reprobado",12
+"986",16302,"COIHUECO","Retirado",37
+"987",16303,"ÑIQUÉN","Promovido",632
+"988",16303,"ÑIQUÉN","Reprobado",3
+"989",16303,"ÑIQUÉN","Retirado",5
+"990",16304,"SAN FABIÁN","Promovido",346
+"991",16304,"SAN FABIÁN","Reprobado",1
+"992",16304,"SAN FABIÁN","Retirado",9
+"993",16305,"SAN NICOLÁS","Promovido",959
+"994",16305,"SAN NICOLÁS","Reprobado",3
+"995",16305,"SAN NICOLÁS","Retirado",26
