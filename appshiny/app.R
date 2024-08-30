@@ -21,6 +21,9 @@ if (!require("chilemapas")) install.packages("chilemapas")
 if (!require("shinydashboard")) install.packages("shinydashboard")
 if (!require("plotly")) install.packages("plotly")
 if (!require("shinyWidgets")) install.packages("shinyWidgets")
+if (!require("scales")) install.packages("scales")
+if (!require("extrafont")) install.packages("extrafont")
+if (!require("showtext")) install.packages("showtext")
 
 
 library(summarytools)
@@ -44,11 +47,26 @@ library(chilemapas)
 library(shinydashboard)
 library(plotly)
 library(shinyWidgets)
+library(scales)
+library(extrafont)
+library(showtext)
 
 
-###paleta###
+###Miscelaneos###
 
-
+nombres_regiones <- c("Región de Arica y Parinacota",
+  "Región de Tarapacá",
+  "Región de Antofagasta",
+  "Región de Atacama",
+  "Región de Coquimbo",
+  "Región de Valparaíso",
+  "Región Metropolitana de Santiago",
+  "Región del Libertador General Bernardo O'Higgins",
+  "Región del Maule", "Región de Ñuble",
+  "Región del Biobío", "Región de La Araucanía",
+  "Región de Los Ríos", "Región de Los Lagos",
+  "Región de Aysén del General Carlos Ibáñez del Campo",
+  "Región de Magallanes y de la Antártica Chilena")
 
 
 
@@ -143,24 +161,6 @@ establecimiento2022 <- read_csv("Datos-proyecto/establecimiento2022.csv")
 establecimiento2023 <- read_csv("Datos-proyecto/establecimiento2023.csv")
 
 establecimientos_total <- list(establecimiento2018, establecimiento2019, establecimiento2020, establecimiento2021, establecimiento2022, establecimiento2023)
-
-### Función para hacer que las comunas estén bien#####
-
-capitalize <- function(text) {
-  # Divide el texto en palabras
-  words <- unlist(strsplit(text, " "))
-
-  # Capitaliza la primera letra de cada palabra y une las palabras
-  capitalize <- paste(toupper(substring(words, 1, 1)),
-    tolower(substring(words, 2)),
-    sep = "",
-    collapse = " "
-  )
-
-  return(capitalize)
-}
-
-
 
 
 # Función para hacer graficos interactivos##
@@ -437,10 +437,114 @@ mapa_santiago2023 <- leaflet(comunas_santiago2023) %>%
   )
 
 
+#####################################
 
+
+comunas_total <- list(comunas_santiago2018, comunas_santiago2019, comunas_santiago2020, comunas_santiago2021, comunas_santiago2022, comunas_santiago2023)
+
+
+nombres_anios <- c("2018", "2019", "2020", "2021", "2022", "2023")
+
+grafico_evolucion <- function(comuna, year_index) {
+  
+  df_total <- bind_rows(comunas_total, .id = "year_index")
+  
+  df_total <- df_total %>%
+    mutate(anio = nombres_anios[as.numeric(year_index)]) %>%
+    filter(codigo_comuna == comuna)
+  
+  nombre_comuna <- unique(df_total$nombre_comuna)
+  nombre_comuna <- capitalize(nombre_comuna)
+  
+  df_total <- df_total %>%
+    mutate(anio = factor(anio, levels = nombres_anios))
+  
+  ggplot(df_total, aes(x = anio, y = promedio, group = 1)) +
+    geom_line(color = "#031163", size = 2) +
+    geom_point(color = "#AC413E") +
+    geom_text(aes(label = scales::comma(promedio)), vjust = -0.5, color = "#CACFEC", size = 6) +
+    labs(title = paste("Evolución del promedio en", nombre_comuna),
+         x = "Año",
+         y = "Promedio") +
+    scale_y_continuous(limits = c(4.0, 7.0),
+                       breaks = seq(4.0, 7.0, by = 0.5)) +
+    theme_minimal() +
+    theme(
+      plot.background = element_rect(fill = "#000005", color = "#000005"),
+      panel.background = element_rect(fill = "#000005", color = "#000005"),
+      axis.text = element_text(family = "Arial", color = "#CACFEC", size = 16),
+      panel.grid.major = element_line(color = "#0E1E38"),
+      panel.grid = element_blank(),
+      axis.title = element_text(family = "Arial", color = "#CACFEC", size = 18),
+      axis.ticks = element_blank(),
+      axis.line = element_line(color = "#CACFEC"),
+      plot.title = element_text(family = "Arial", color = "#CACFEC", hjust = 0.5, size = 22),
+      legend.position = "none"  # Ocultar la leyenda
+    )
+  
+}
 
 
 ######################################
+
+## Funcion para mapa de todas las comunas
+
+comunas_chile2018 <- read_sf("Datos-proyecto/comunas_chile2018.gpkg")
+comunas_chile2019 <- read_sf("Datos-proyecto/comunas_chile2019.gpkg")
+comunas_chile2020 <- read_sf("Datos-proyecto/comunas_chile2020.gpkg")
+comunas_chile2021 <- read_sf("Datos-proyecto/comunas_chile2021.gpkg")
+comunas_chile2022 <- read_sf("Datos-proyecto/comunas_chile2022.gpkg")
+comunas_chile2023 <- read_sf("Datos-proyecto/comunas_chile2023.gpkg")
+
+
+comunas_total <- list(comunas_chile2018, comunas_chile2019, comunas_chile2020, comunas_chile2021, comunas_chile2022, comunas_chile2023)
+
+
+comunas <- unique(comunas_total[1]$codigo_comuna)
+
+generar_mapa <- function(year_index, region){
+  
+  df_total <- comunas_total[[year_index]]
+  
+  df_total <- df_total %>% 
+    filter(codigo_region == region)
+  
+  leaflet(df_total) %>%
+    addTiles(
+      urlTemplate = "",
+      options = tileOptions(background = "white")
+    ) %>%
+    addPolygons(
+      fillColor = ~ pal(df_total$promedio),
+      weight = 1,
+      opacity = 1,
+      color = "white",
+      dashArray = "3",
+      fillOpacity = 0.7,
+      layerId = ~nombre_comuna,
+      highlightOptions = highlightOptions(
+        weight = 5,
+        color = "#666",
+        dashArray = "",
+        fillOpacity = 0.7,
+        bringToFront = TRUE
+      ),
+      label = ~ paste("Comuna: ", nombre_comuna, "", "Promedio: ", promedio)
+    ) %>% 
+    addLegend(
+      pal = pal,
+      values = ~ promedio,
+      opacity = 0.5,
+      title = "Promedio",
+      position = "topright"
+    )
+}
+
+generar_mapa(1, "12")
+
+
+
+#######################################
 
 
 ### app shiny más abajo###
@@ -580,6 +684,13 @@ ui <- fluidPage(
       choices = 2018:2023,
       selected = 2018
     )))),
+    fluidRow(
+      div(class = "plot-container", div(class = "custom-selector", selectInput(
+        "Region",
+        "Seleccione la región: ",
+        choices = nombres_regiones,
+        selected = "Región Metropolitana de Santiago"
+    )))),
     div(
       class = "text2",
       p("Haga clic en el selector de años para seleccionar el año de interés"),
@@ -637,13 +748,13 @@ ui <- fluidPage(
         )
       ),
       column(
-        4,
+        8,
         div(
           class = "card-final",
-          div(class = "evolucion" ,plotlyOutput("grafico_evolucion", height = "200px", width = "100%")
+          div(class = "evolucion" ,plotOutput("grafico_evolucion", height = "500px", width = "100%")
         ))
     ))
-  )
+  )                
 )
 
 
@@ -695,6 +806,7 @@ server <- function(input, output, session) {
     click <- input$mapa1_shape_click
     if (!is.null(click)) {
       comuna <- click$id
+      
 
       # Encuentra el promedio de la comuna seleccionada según el año
       promedio <- switch(as.character(input$year),
@@ -745,7 +857,7 @@ server <- function(input, output, session) {
     grafico_sfinal(selected_codigo_comuna(), year_index)
   })
   
-  output$grafico_evolucion <- renderPlotly({
+  output$grafico_evolucion <- renderPlot({
     req(selected_codigo_comuna())
     year_index <- as.numeric(input$year) - 2017
     grafico_evolucion(selected_codigo_comuna(), year_index)

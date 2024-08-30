@@ -105,7 +105,8 @@ tabla_rendimientos2018 <- tabla_rendimientos2018 %>%
                                          COD_DEPE2 %in% c(3) ~ "Particular Pagado",
                                          COD_DEPE2 %in% c(4) ~ "Corporación de Administración Delegada",
                                          COD_DEPE2 %in% c(5) ~ "Servicio Local de Educación",)) %>% 
-  mutate(COD_COM_RBD = str_pad(COD_COM_RBD, width = 5, pad = "0"))
+  mutate(COD_COM_RBD = str_pad(COD_COM_RBD, width = 5, pad = "0")) %>% 
+  mutate(COD_REG_RBD = str_pad(COD_REG_RBD, width = 2, pad = "0"))
   
   
 
@@ -184,7 +185,8 @@ tabla_rendimientos2019 <- tabla_rendimientos2019 %>%
                                          COD_DEPE2 %in% c(3) ~ "Particular Pagado",
                                          COD_DEPE2 %in% c(4) ~ "Corporación de Administración Delegada",
                                          COD_DEPE2 %in% c(5) ~ "Servicio Local de Educación",)) %>% 
-  mutate(COD_COM_RBD = str_pad(COD_COM_RBD, width = 5, pad = "0"))
+  mutate(COD_COM_RBD = str_pad(COD_COM_RBD, width = 5, pad = "0")) %>% 
+  mutate(COD_REG_RBD = str_pad(COD_REG_RBD, width = 2, pad = "0"))
 
 ###Total notas 2020###
 
@@ -256,7 +258,8 @@ tabla_rendimientos2020 <- tabla_rendimientos2020 %>%
                                          COD_DEPE2 %in% c(3) ~ "Particular Pagado",
                                          COD_DEPE2 %in% c(4) ~ "Corporación de Administración Delegada",
                                          COD_DEPE2 %in% c(5) ~ "Servicio Local de Educación",)) %>% 
-  mutate(COD_COM_RBD = str_pad(COD_COM_RBD, width = 5, pad = "0"))
+  mutate(COD_COM_RBD = str_pad(COD_COM_RBD, width = 5, pad = "0")) %>% 
+  mutate(COD_REG_RBD = str_pad(COD_REG_RBD, width = 2, pad = "0"))
 
 ###Total notas 2020###
 
@@ -328,7 +331,8 @@ tabla_rendimientos2021 <- tabla_rendimientos2021 %>%
                                          COD_DEPE2 %in% c(3) ~ "Particular Pagado",
                                          COD_DEPE2 %in% c(4) ~ "Corporación de Administración Delegada",
                                          COD_DEPE2 %in% c(5) ~ "Servicio Local de Educación",)) %>% 
-  mutate(COD_COM_RBD = str_pad(COD_COM_RBD, width = 5, pad = "0"))
+  mutate(COD_COM_RBD = str_pad(COD_COM_RBD, width = 5, pad = "0")) %>% 
+  mutate(COD_REG_RBD = str_pad(COD_REG_RBD, width = 2, pad = "0"))
 
 ###Total notas 2021###
 
@@ -400,7 +404,8 @@ tabla_rendimientos2022 <- tabla_rendimientos2022 %>%
                                          COD_DEPE2 %in% c(3) ~ "Particular Pagado",
                                          COD_DEPE2 %in% c(4) ~ "Corporación de Administración Delegada",
                                          COD_DEPE2 %in% c(5) ~ "Servicio Local de Educación",)) %>% 
-  mutate(COD_COM_RBD = str_pad(COD_COM_RBD, width = 5, pad = "0"))
+  mutate(COD_COM_RBD = str_pad(COD_COM_RBD, width = 5, pad = "0")) %>% 
+  mutate(COD_REG_RBD = str_pad(COD_REG_RBD, width = 2, pad = "0"))
 
 
 
@@ -476,7 +481,8 @@ tabla_rendimientos2023 <- tabla_rendimientos2023 %>%
                                          COD_DEPE2 %in% c(3) ~ "Particular Pagado",
                                          COD_DEPE2 %in% c(4) ~ "Corporación de Administración Delegada",
                                          COD_DEPE2 %in% c(5) ~ "Servicio Local de Educación",)) %>% 
-  mutate(COD_COM_RBD = str_pad(COD_COM_RBD, width = 5, pad = "0"))
+  mutate(COD_COM_RBD = str_pad(COD_COM_RBD, width = 5, pad = "0")) %>% 
+  mutate(COD_REG_RBD = str_pad(COD_REG_RBD, width = 2, pad = "0"))
 
 
 ###Total notas 2023###
