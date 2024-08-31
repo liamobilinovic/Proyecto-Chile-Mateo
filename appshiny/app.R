@@ -54,19 +54,6 @@ library(showtext)
 
 ###Miscelaneos###
 
-nombres_regiones <- c("Región de Arica y Parinacota",
-  "Región de Tarapacá",
-  "Región de Antofagasta",
-  "Región de Atacama",
-  "Región de Coquimbo",
-  "Región de Valparaíso",
-  "Región Metropolitana de Santiago",
-  "Región del Libertador General Bernardo O'Higgins",
-  "Región del Maule", "Región de Ñuble",
-  "Región del Biobío", "Región de La Araucanía",
-  "Región de Los Ríos", "Región de Los Lagos",
-  "Región de Aysén del General Carlos Ibáñez del Campo",
-  "Región de Magallanes y de la Antártica Chilena")
 
 
 
@@ -186,7 +173,7 @@ grafico_interactivo <- function(comuna, year_index) {
   plot_ly(df_comuna,
     labels = ~TipoEstablecimiento, values = ~n_estudiantes, type = "pie", hole = 0.6, width = 410, height = 260, # Aumentar tamaño para mayor control
     hoverinfo = "label+text",
-    text = ~ paste("Promedio de notas:", promedio),
+    text = ~ paste("Promedio:", promedio, "<br>Estudiantes:", n_estudiantes),
     textinfo = "percent",
     marker = list(colors = c("#EC5A25", "#2B0E70", "#6B2757", "#AC413E", "#150578"))
   ) %>% 

@@ -5,228 +5,145 @@
 
 ###2018###
 
-promedio_rural2018 <- tabla_rendimientos2018 %>% 
-  group_by(as.character(TipoRural)) %>% 
-  summarise(promedio = mean(PROM_GRAL))
-
-
-promedio_rural2018 <- promedio_rural2018 %>%
-  mutate(prop = promedio / sum(promedio) * 100,
-         ypos = cumsum(prop) - 0.5 * prop)
+promedio_rural2018 <- tabla_rendimientos2018 %>%
+  group_by(as.integer(COD_COM_RBD), NOM_COM_RBD, TipoRural) %>%
+  summarise(n_estudiantes = n(), 
+            promedio = round(mean(PROM_GRAL)) / 10,
+            .groups = "drop")
 
 promedio_rural2018 <- promedio_rural2018 %>% 
-  rename("Tipo de zona" = `as.character(TipoRural)`)
+  rename("Tipo de zona" = TipoRural,
+         "nombre_comuna" = NOM_COM_RBD,
+         "codigo_comuna" = `as.integer(COD_COM_RBD)`)
 
 
-
-###2019##
-
-promedio_rural2019 <- tabla_rendimientos2019 %>% 
-  group_by(as.character(TipoRural)) %>% 
-  summarise(promedio = mean(PROM_GRAL))
+promedio_rural2019 <- tabla_rendimientos2019 %>%
+  group_by(as.integer(COD_COM_RBD), NOM_COM_RBD, TipoRural) %>%
+  summarise(n_estudiantes = n(), 
+            promedio = round(mean(PROM_GRAL)) / 10,
+            .groups = "drop")
 
 promedio_rural2019 <- promedio_rural2019 %>%
-  mutate(prop = promedio / sum(promedio) * 100,
-         ypos = cumsum(prop) - 0.5 * prop)
+  rename("Tipo de zona" = TipoRural,
+         "nombre_comuna" = NOM_COM_RBD,
+         "codigo_comuna" = `as.integer(COD_COM_RBD)`)
 
-promedio_rural2019 <- promedio_rural2019 %>% 
-  rename("Tipo de zona" = `as.character(TipoRural)`)
-
-###2020###
-
-
-promedio_rural2020 <- tabla_rendimientos2020 %>% 
-  group_by(as.character(TipoRural)) %>% 
-  summarise(promedio = mean(PROM_GRAL))
+promedio_rural2020 <- tabla_rendimientos2020 %>%
+  group_by(as.integer(COD_COM_RBD), NOM_COM_RBD, TipoRural) %>%
+  summarise(n_estudiantes = n(), 
+            promedio = round(mean(PROM_GRAL)) / 10,
+            .groups = "drop")
 
 promedio_rural2020 <- promedio_rural2020 %>%
-  mutate(prop = promedio / sum(promedio) * 100,
-         ypos = cumsum(prop) - 0.5 * prop)
+  rename("Tipo de zona" = TipoRural,
+         "nombre_comuna" = NOM_COM_RBD,
+         "codigo_comuna" = `as.integer(COD_COM_RBD)`)
 
-promedio_rural2020 <- promedio_rural2020 %>% 
-  rename("Tipo de zona" = `as.character(TipoRural)`)
-
-###2021##
-
-promedio_rural2021 <- tabla_rendimientos2021 %>% 
-  group_by(as.character(TipoRural)) %>% 
-  summarise(promedio = mean(PROM_GRAL))
+promedio_rural2021 <- tabla_rendimientos2021 %>%
+  group_by(as.integer(COD_COM_RBD), NOM_COM_RBD, TipoRural) %>%
+  summarise(n_estudiantes = n(), 
+            promedio = round(mean(PROM_GRAL)) / 10,
+            .groups = "drop")
 
 promedio_rural2021 <- promedio_rural2021 %>%
-  mutate(prop = promedio / sum(promedio) * 100,
-         ypos = cumsum(prop) - 0.5 * prop)
+  rename("Tipo de zona" = TipoRural,
+         "nombre_comuna" = NOM_COM_RBD,
+         "codigo_comuna" = `as.integer(COD_COM_RBD)`)
 
-promedio_rural2021 <- promedio_rural2021 %>% 
-  rename("Tipo de zona" = `as.character(TipoRural)`)
-
-###2022##
-
-promedio_rural2022 <- tabla_rendimientos2022 %>% 
-  group_by(as.character(TipoRural)) %>% 
-  summarise(promedio = mean(PROM_GRAL))
+promedio_rural2022 <- tabla_rendimientos2022 %>%
+  group_by(as.integer(COD_COM_RBD), NOM_COM_RBD, TipoRural) %>%
+  summarise(n_estudiantes = n(), 
+            promedio = round(mean(PROM_GRAL)) / 10,
+            .groups = "drop")
 
 promedio_rural2022 <- promedio_rural2022 %>%
-  mutate(prop = promedio / sum(promedio) * 100,
-         ypos = cumsum(prop) - 0.5 * prop)
+  rename("Tipo de zona" = TipoRural,
+         "nombre_comuna" = NOM_COM_RBD,
+         "codigo_comuna" = `as.integer(COD_COM_RBD)`)
 
-promedio_rural2022 <- promedio_rural2022 %>% 
-  rename("Tipo de zona" = `as.character(TipoRural)`)
-
-###2023##
-
-promedio_rural2023 <- tabla_rendimientos2023 %>% 
-  group_by(as.character(TipoRural)) %>% 
-  summarise(promedio = mean(PROM_GRAL))
+promedio_rural2023 <- tabla_rendimientos2023 %>%
+  group_by(as.integer(COD_COM_RBD), NOM_COM_RBD, TipoRural) %>%
+  summarise(n_estudiantes = n(), 
+            promedio = round(mean(PROM_GRAL)) / 10,
+            .groups = "drop")
 
 promedio_rural2023 <- promedio_rural2023 %>%
-  mutate(prop = promedio / sum(promedio) * 100,
-         ypos = cumsum(prop) - 0.5 * prop)
+  rename("Tipo de zona" = TipoRural,
+         "nombre_comuna" = NOM_COM_RBD,
+         "codigo_comuna" = `as.integer(COD_COM_RBD)`)
 
-promedio_rural2023 <- promedio_rural2023 %>% 
-  rename("Tipo de zona" = `as.character(TipoRural)`)
+promedio_rural2018 <- read_csv("Datos-proyecto/promedio_rural2018.csv")
+promedio_rural2019 <- read_csv("Datos-proyecto/promedio_rural2019.csv")
+promedio_rural2020 <- read_csv("Datos-proyecto/promedio_rural2020.csv")
+promedio_rural2021 <- read_csv("Datos-proyecto/promedio_rural2021.csv")
+promedio_rural2022 <- read_csv("Datos-proyecto/promedio_rural2022.csv")
+promedio_rural2023 <- read_csv("Datos-proyecto/promedio_rural2023.csv")
 
-
-
-
-
-
-
-
-
-##Graficos##
+######################
+#Funcion para generar ruralidad
 
 
-###2018###
+capitalize <- function(text) {
+  # Divide el texto en palabras
+  words <- unlist(strsplit(text, " "))
+  
+  # Capitaliza la primera letra de cada palabra y une las palabras
+  capitalize <- paste(toupper(substring(words, 1, 1)), 
+                      tolower(substring(words, 2)), 
+                      sep = "", 
+                      collapse = " ")
+  
+  return(capitalize)
+}
 
-ggplot(promedio_rural2018, aes(x = "", y = prop, fill = `Tipo de zona`)) +
-  geom_bar(width = 1, stat = "identity") +
-  coord_polar(theta = "y") +
-  theme_void() +
-  labs(title = "Promedio por tipo de zona 2018") +
-  theme(legend.position = "right",
-        text = element_text(family = "poppins"),
-        plot.background = element_rect(fill = "white")) +
-  geom_text(aes(y = ypos, label = paste0(round(prop, 1), "%")), color = "white", size = 5, family = "poppins") +
-  scale_fill_manual(values = c("Rural" = "#B80428", "Urbano" = "#250EC3"))
-
-###2019###
-
-ggplot(promedio_rural2019, aes(x = "", y = prop, fill = `Tipo de zona`)) +
-  geom_bar(width = 1, stat = "identity") +
-  coord_polar(theta = "y") +
-  theme_void() +
-  labs(title = "Promedio por tipo de zona 2019") +
-  theme(legend.position = "right",
-        text = element_text(family = "poppins")) +
-  geom_text(aes(y = ypos, label = paste0(round(prop, 1), "%")), color = "white", size = 5, family = "poppins")
-
-###2020###
-
-ggplot(promedio_rural2020, aes(x = "", y = prop, fill = `Tipo de zona`)) +
-  geom_bar(width = 1, stat = "identity") +
-  coord_polar(theta = "y") +
-  theme_void() +
-  labs(title = "Promedio por tipo de zona 2020") +
-  theme(legend.position = "right",
-        text = element_text(family = "poppins")) +
-  geom_text(aes(y = ypos, label = paste0(round(prop, 1), "%")), color = "white", size = 5, family = "poppins")
-
-###2021###
-
-ggplot(promedio_rural2021, aes(x = "", y = prop, fill = `Tipo de zona`)) +
-  geom_bar(width = 1, stat = "identity") +
-  coord_polar(theta = "y") +
-  theme_void() +
-  labs(title = "Promedio por tipo de zona 2021") +
-  theme(legend.position = "right",
-        text = element_text(family = "poppins")) +
-  geom_text(aes(y = ypos, label = paste0(round(prop, 1), "%")), color = "white", size = 5, family = "poppins")
-
-###2022###
+ruralidad_total <- list(promedio_rural2018, promedio_rural2019, promedio_rural2020, promedio_rural2021, promedio_rural2022, promedio_rural2023)
 
 
-ggplot(promedio_rural2022, aes(x = "", y = prop, fill = `Tipo de zona`)) +
-  geom_bar(width = 1, stat = "identity") +
-  coord_polar(theta = "y") +
-  theme_void() +
-  labs(title = "Promedio por tipo de zona 2022") +
-  theme(legend.position = "right",
-        text = element_text(family = "poppins")) +
-  geom_text(aes(y = ypos, label = paste0(round(prop, 1), "%")), color = "white", size = 5, family = "poppins")
+comunas <- unique(ruralidad_total[1]$codigo_comuna)
+
+grafico_ruralidad <- function(comuna, year_index){
+  
+  df_comuna2 <- ruralidad_total[[year_index]]
+  
+  df_comuna2 <- df_comuna2 %>% 
+    filter(codigo_comuna == comuna)
+  
+  total_estudiantes <- sum(df_comuna2$n_estudiantes)
+  
+  df_comuna2 <- df_comuna2 %>%
+    mutate(porcentaje = (n_estudiantes / total_estudiantes) * 100)
+  
+  
+  nombre_comuna <- unique(df_comuna2$nombre_comuna)
+  
+  nombre_comuna <- capitalize(nombre_comuna)
+  
+  plot_ly(df_comuna2, labels = ~`Tipo de zona`, values = ~n_estudiantes, type = 'pie', hole = 0.6, width = 410, height = 260, # Aumentar tamaño para mayor control
+          hoverinfo = 'label+text',
+          text = ~paste(n_estudiantes),
+          textinfo = 'percent',
+          marker = list(colors = c("#EC5A25", "#2B0E70", "#6B2757", "#AC413E", "#150578"))
+  ) %>%
+    layout(
+      showlegend = FALSE, # Mostrar la leyenda
+      paper_bgcolor = 'rgba(0,0,0,0)', # Fondo del área del gráfico
+      plot_bgcolor = 'rgba(0,0,0,0)',  # Fondo del gráfico
+      font = list(color = "white"),
+      autosize = TRUE,
+      margin = list(l = 50, r = 50, t = 20, b = 70), # Ajustar márgenes para centrar el gráfico
+      legend = list(
+        x = 0.5,           # Centrar la leyenda horizontalmente
+        y = 0.5,           # Centrar la leyenda verticalmente
+        xanchor = 'center',# Fijar la posición horizontal de la leyenda
+        yanchor = 'middle',
+        font = list(size = 12, color = "white") # Tamaño y color de la leyenda
+      )
+    )
+  
+  
+}
 
 
 
-###2023##
 
 
-ggplot(promedio_rural2023, aes(x = "", y = prop, fill = `Tipo de zona`)) +
-  geom_bar(width = 1, stat = "identity") +
-  coord_polar(theta = "y") +
-  theme_void() +
-  labs(title = "Promedio por tipo de zona 2023") +
-  theme(legend.position = "right",
-        text = element_text(family = "poppins")) +
-  geom_text(aes(y = ypos, label = paste0(round(prop, 1), "%")), color = "white", size = 5, family = "poppins")
-
-
-##########################
-
-####2018#### 
-
-Nt_rural2018 <- tabla_rendimientos2018 %>% 
-  tabyl(PROM_GRAL2, TipoRural) %>% 
-  adorn_percentages("col") %>% 
-  adorn_totals("row") %>% 
-  adorn_pct_formatting(digits = 2) %>% 
-  adorn_ns()
-
-kable(Nt_rural2018) %>% 
-  kable_classic(html_font = "Tahoma") %>%
-  kable_styling(bootstrap_options = kablevectores, full_width = FALSE) %>% 
-  add_header_above(c("Promedios entre colegios rurales y urbanos 2018" = 3), bold = TRUE, font_size = 15)
-
-####2019####
-
-Nt_rural2019 <- tabla_rendimientos2019 %>% 
-  tabyl(PROM_GRAL2, TipoRural) %>% 
-  adorn_percentages("col") %>% 
-  adorn_totals("row") %>% 
-  adorn_pct_formatting(digits = 2) %>% 
-  adorn_ns()
-
-kable(Nt_rural2019) %>% 
-  kable_classic(html_font = "Tahoma") %>%
-  kable_styling(bootstrap_options = kablevectores, full_width = FALSE) %>% 
-  add_header_above(c("Promedios entre colegios rurales y urbanos 2019" = 3), bold = TRUE, font_size = 15)
-
-####2020####
-
-Nt_rural2020 <- tabla_rendimientos2020 %>% 
-  tabyl(PROM_GRAL2, TipoRural) %>% 
-  adorn_percentages("col") %>% 
-  adorn_totals("row") %>% 
-  adorn_pct_formatting(digits = 2) %>% 
-  adorn_ns()
-
-kable(Nt_rural2020) %>% 
-  kable_classic(html_font = "Tahoma") %>%
-  kable_styling(bootstrap_options = kablevectores, full_width = FALSE) %>% 
-  add_header_above(c("Promedios entre colegios rurales y urbanos 2020" = 3), bold = TRUE, font_size = 15)
-
-
-ggplot(Nt_rural2020, mapping = aes(x = Rural, y = PROM_GRAL2)) +
-  geom_bar()
-
-##2021##
-
-Nt_rural2021 <- tabla_rendimientos2021 %>% 
-  tabyl(PROM_GRAL2, TipoRural) %>% 
-  adorn_percentages("col") %>% 
-  adorn_totals("row") %>% 
-  adorn_pct_formatting(digits = 2) %>% 
-  adorn_ns()
-
-kable(Nt_rural2021) %>% 
-  kable_classic(html_font = "Tahoma") %>%
-  kable_styling(bootstrap_options = kablevectores, full_width = FALSE) %>% 
-  add_header_above(c("Promedios entre colegios rurales y urbanos 2020" = 3), bold = TRUE, font_size = 15)

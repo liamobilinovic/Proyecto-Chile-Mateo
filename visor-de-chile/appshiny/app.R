@@ -214,7 +214,7 @@ establecimiento_chile <- function(comuna, year_index) {
   plot_ly(df_comuna,
           labels = ~TipoEstablecimiento, values = ~n_estudiantes, type = "pie", hole = 0.6, width = 410, height = 260, # Aumentar tamaño para mayor control
           hoverinfo = "label+text",
-          text = ~ paste("Promedio de notas:", as.integer(round(promedio, 1))),
+          text = ~ paste("Promedio:", promedio, "<br>Estudiantes:", n_estudiantes),
           textinfo = "percent",
           marker = list(colors = c("#EC5A25", "#2B0E70", "#6B2757", "#AC413E", "#150578"))
   ) %>%
@@ -288,7 +288,7 @@ grafico_sfinal_chile <- function(comuna, year_index){
   
   plot_ly(df_comuna2, labels = ~SituacionFinal, values = ~n_estudiantes, type = 'pie', hole = 0.6, width = 410, height = 260, # Aumentar tamaño para mayor control
           hoverinfo = 'label+text',
-          text = ~paste(n_estudiantes),
+          text = ~paste("Estudiantes:", n_estudiantes),
           textinfo = 'percent',
           marker = list(colors = c("#EC5A25", "#2B0E70", "#6B2757", "#AC413E", "#150578"))
   ) %>%
@@ -338,9 +338,10 @@ grafico_evolucion_chile <- function(comuna, year_index) {
     geom_text(aes(label = scales::comma(promedio)), vjust = -0.5, color = "#CACFEC", size = 6) +
     labs(title = paste("Evolución del promedio en", nombre_comuna),
          x = "Año",
+         
          y = "Promedio") +
-    scale_y_continuous(limits = c(4.0, 7.0),
-                       breaks = seq(4.0, 7.0, by = 0.5)) +
+    scale_y_continuous(limits = c(1.0, 7.0),
+                       breaks = seq(1.0, 7.0, by = 1)) +
     theme_minimal() +
     theme(
       plot.background = element_rect(fill = "#000005", color = "#000005"),
@@ -352,12 +353,83 @@ grafico_evolucion_chile <- function(comuna, year_index) {
       axis.ticks = element_blank(),
       axis.line = element_line(color = "#CACFEC"),
       plot.title = element_text(family = "Arial", color = "#CACFEC", hjust = 0.5, size = 22),
-      legend.position = "none"  # Ocultar la leyenda
+      legend.position = "none" 
     )
   
 }
 
+#####
 
+promedio_rural2018 <- read_csv("Datos-proyecto/promedio_rural2018.csv")
+promedio_rural2019 <- read_csv("Datos-proyecto/promedio_rural2019.csv")
+promedio_rural2020 <- read_csv("Datos-proyecto/promedio_rural2020.csv")
+promedio_rural2021 <- read_csv("Datos-proyecto/promedio_rural2021.csv")
+promedio_rural2022 <- read_csv("Datos-proyecto/promedio_rural2022.csv")
+promedio_rural2023 <- read_csv("Datos-proyecto/promedio_rural2023.csv")
+
+######################
+#Funcion para generar ruralidad
+
+
+capitalize <- function(text) {
+  # Divide el texto en palabras
+  words <- unlist(strsplit(text, " "))
+  
+  # Capitaliza la primera letra de cada palabra y une las palabras
+  capitalize <- paste(toupper(substring(words, 1, 1)), 
+                      tolower(substring(words, 2)), 
+                      sep = "", 
+                      collapse = " ")
+  
+  return(capitalize)
+}
+
+ruralidad_total <- list(promedio_rural2018, promedio_rural2019, promedio_rural2020, promedio_rural2021, promedio_rural2022, promedio_rural2023)
+
+
+comunas <- unique(ruralidad_total[1]$codigo_comuna)
+
+grafico_ruralidad <- function(comuna, year_index){
+  
+  df_comuna2 <- ruralidad_total[[year_index]]
+  
+  df_comuna2 <- df_comuna2 %>% 
+    filter(codigo_comuna == comuna)
+  
+  total_estudiantes <- sum(df_comuna2$n_estudiantes)
+  
+  df_comuna2 <- df_comuna2 %>%
+    mutate(porcentaje = (n_estudiantes / total_estudiantes) * 100)
+  
+  
+  nombre_comuna <- unique(df_comuna2$nombre_comuna)
+  
+  nombre_comuna <- capitalize(nombre_comuna)
+  
+  plot_ly(df_comuna2, labels = ~`Tipo de zona`, values = ~n_estudiantes, type = 'pie', hole = 0.6, width = 410, height = 260, # Aumentar tamaño para mayor control
+          hoverinfo = 'label+text',
+          text = ~paste("Promedio:", promedio, "<br>Estudiantes:", n_estudiantes),
+          textinfo = 'percent',
+          marker = list(colors = c("#EC5A25", "#2B0E70", "#6B2757", "#AC413E", "#150578"))
+  ) %>%
+    layout(
+      showlegend = FALSE, # Mostrar la leyenda
+      paper_bgcolor = 'rgba(0,0,0,0)', # Fondo del área del gráfico
+      plot_bgcolor = 'rgba(0,0,0,0)',  # Fondo del gráfico
+      font = list(color = "white"),
+      autosize = TRUE,
+      margin = list(l = 50, r = 50, t = 20, b = 70), # Ajustar márgenes para centrar el gráfico
+      legend = list(
+        x = 0.5,           # Centrar la leyenda horizontalmente
+        y = 0.5,           # Centrar la leyenda verticalmente
+        xanchor = 'center',# Fijar la posición horizontal de la leyenda
+        yanchor = 'middle',
+        font = list(size = 12, color = "white") # Tamaño y color de la leyenda
+      )
+    )
+  
+  
+}
 
 
 
@@ -369,6 +441,7 @@ grafico_evolucion_chile <- function(comuna, year_index) {
 
 ui <- fluidPage(
   tags$head(
+    tags$title("Visualizador Chile"),
     tags$link(rel = "stylesheet", href = "https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"),
     tags$style(
       HTML(
@@ -570,6 +643,14 @@ ui <- fluidPage(
           class = "card-final",
           div(class = "evolucion" ,plotOutput("grafico_evolucion_chile", height = "500px", width = "100%")
           ))
+      ),
+      column(
+        4,
+        div(
+          class = "card-final",
+          h4("Tipo de zona", class = "card-title"),
+          plotlyOutput("grafico_ruralidad", height = "200px", width = "100%")
+        )
       ))
   )                
 )
@@ -667,6 +748,12 @@ server <- function(input, output, session) {
     req(selected_codigo_comuna())
     year_index <- as.numeric(input$year) - 2017
     grafico_evolucion_chile(selected_codigo_comuna(), year_index)
+  })
+  
+  output$grafico_ruralidad <- renderPlotly({
+    req(selected_codigo_comuna())
+    year_index <- as.numeric(input$year) - 2017
+    grafico_ruralidad(selected_codigo_comuna(), year_index)
   })
   
   
