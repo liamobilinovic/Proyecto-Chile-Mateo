@@ -46,7 +46,7 @@ grafico_evolucion <- function(comuna, year_index) {
   
 }
 
-grafico_evolucion(13101)
+grafico_evolucion(13103)
 
 
 
