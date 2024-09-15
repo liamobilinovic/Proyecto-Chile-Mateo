@@ -14,7 +14,6 @@ capitalize <- function(text) {
   # Divide el texto en palabras
   words <- unlist(strsplit(text, " "))
   
-  # Capitaliza la primera letra de cada palabra y une las palabras
   capitalize <- paste(toupper(substring(words, 1, 1)), 
                       tolower(substring(words, 2)), 
                       sep = "", 
