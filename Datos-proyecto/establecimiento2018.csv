@@ -1,87 +1,97 @@
 codigo_comuna,nombre_comuna,TipoEstablecimiento,n_estudiantes,promedio
-13101,SANTIAGO,Municipal,7041,5.5
-13101,SANTIAGO,Particular Pagado,3492,6.1
-13101,SANTIAGO,Particular Subvencionado,11313,5.6
-13102,CERRILLOS,Municipal,1686,5.3
-13102,CERRILLOS,Particular Subvencionado,3136,5.5
-13103,CERRO NAVIA,Particular Subvencionado,4382,5.4
-13103,CERRO NAVIA,Servicio Local de Educación,2916,5.3
-13104,CONCHALÍ,Municipal,3544,5.3
-13104,CONCHALÍ,Particular Pagado,129,4.9
-13104,CONCHALÍ,Particular Subvencionado,5624,5.4
-13105,EL BOSQUE,Municipal,3001,5.2
-13105,EL BOSQUE,Particular Pagado,245,5.8
-13105,EL BOSQUE,Particular Subvencionado,11218,5.4
-13106,ESTACIÓN CENTRAL,Municipal,3578,5.4
-13106,ESTACIÓN CENTRAL,Particular Pagado,730,5.7
-13106,ESTACIÓN CENTRAL,Particular Subvencionado,5544,5.5
-13107,HUECHURABA,Municipal,1487,5.4
-13107,HUECHURABA,Particular Pagado,2797,6
-13107,HUECHURABA,Particular Subvencionado,1839,5.3
-13108,INDEPENDENCIA,Municipal,2242,5.5
-13108,INDEPENDENCIA,Particular Pagado,447,5.8
-13108,INDEPENDENCIA,Particular Subvencionado,4647,5.4
-13109,LA CISTERNA,Municipal,1100,5.4
-13109,LA CISTERNA,Particular Pagado,328,5.8
-13109,LA CISTERNA,Particular Subvencionado,7152,5.5
-13110,LA FLORIDA,Municipal,4426,5.2
-13110,LA FLORIDA,Particular Pagado,3253,6
-13110,LA FLORIDA,Particular Subvencionado,21411,5.5
-13111,LA GRANJA,Municipal,2458,5.2
-13111,LA GRANJA,Particular Subvencionado,5428,5.4
-13112,LA PINTANA,Municipal,2148,5.2
-13112,LA PINTANA,Particular Subvencionado,11794,5.3
-13113,LA REINA,Municipal,1351,5.3
-13113,LA REINA,Particular Pagado,4563,6.1
-13113,LA REINA,Particular Subvencionado,2699,5.5
-13114,LAS CONDES,Municipal,1640,5.5
-13114,LAS CONDES,Particular Pagado,10427,6.1
-13114,LAS CONDES,Particular Subvencionado,1987,5.5
-13115,LO BARNECHEA,Municipal,481,5.3
-13115,LO BARNECHEA,Particular Pagado,5884,6.2
-13115,LO BARNECHEA,Particular Subvencionado,1657,5.5
-13116,LO ESPEJO,Municipal,1979,5.3
-13116,LO ESPEJO,Particular Subvencionado,3022,5.3
-13117,LO PRADO,Particular Subvencionado,3133,5.5
-13117,LO PRADO,Servicio Local de Educación,2123,5.3
-13118,MACUL,Municipal,1759,5.5
-13118,MACUL,Particular Pagado,924,5.8
-13118,MACUL,Particular Subvencionado,3569,5.5
-13119,MAIPÚ,Corporación de Administración Delegada,150,5.6
-13119,MAIPÚ,Municipal,6506,5.4
-13119,MAIPÚ,Particular Pagado,1673,5.9
-13119,MAIPÚ,Particular Subvencionado,27158,5.5
-13120,ÑUÑOA,Municipal,3982,5.6
-13120,ÑUÑOA,Particular Pagado,5150,5.8
-13120,ÑUÑOA,Particular Subvencionado,2665,5.5
-13121,PEDRO AGUIRRE CERDA,Municipal,1773,5.3
-13121,PEDRO AGUIRRE CERDA,Particular Subvencionado,5171,5.4
-13122,PEÑALOLÉN,Municipal,3296,5.2
-13122,PEÑALOLÉN,Particular Pagado,4512,6.1
-13122,PEÑALOLÉN,Particular Subvencionado,6973,5.4
-13123,PROVIDENCIA,Municipal,2417,5.6
-13123,PROVIDENCIA,Particular Pagado,5771,6.1
-13123,PROVIDENCIA,Particular Subvencionado,1325,5.9
-13124,PUDAHUEL,Particular Pagado,528,5.5
-13124,PUDAHUEL,Particular Subvencionado,8438,5.5
-13124,PUDAHUEL,Servicio Local de Educación,4820,5.5
-13125,QUILICURA,Municipal,2982,5.2
-13125,QUILICURA,Particular Pagado,1019,5.8
-13125,QUILICURA,Particular Subvencionado,12474,5.4
-13126,QUINTA NORMAL,Municipal,3984,5.4
-13126,QUINTA NORMAL,Particular Subvencionado,5913,5.5
-13127,RECOLETA,Municipal,3493,5.5
-13127,RECOLETA,Particular Pagado,567,6
-13127,RECOLETA,Particular Subvencionado,7785,5.5
-13128,RENCA,Municipal,3262,5.3
-13128,RENCA,Particular Subvencionado,6653,5.4
-13129,SAN JOAQUÍN,Municipal,1683,5.4
-13129,SAN JOAQUÍN,Particular Subvencionado,2539,5.4
-13130,SAN MIGUEL,Municipal,1305,5.4
-13130,SAN MIGUEL,Particular Pagado,987,5.8
-13130,SAN MIGUEL,Particular Subvencionado,5431,5.6
-13131,SAN RAMÓN,Municipal,1222,5.3
-13131,SAN RAMÓN,Particular Subvencionado,4428,5.4
-13132,VITACURA,Municipal,942,5.6
-13132,VITACURA,Particular Pagado,6689,6
-13132,VITACURA,Particular Subvencionado,186,5.9
+13101,SANTIAGO,Corporación de Administración Delegada,2152,4.9
+13101,SANTIAGO,Municipal,6840,5.1
+13101,SANTIAGO,Particular Pagado,1319,5.7
+13101,SANTIAGO,Particular Subvencionado,6178,5.1
+13102,CERRILLOS,Municipal,84,4.8
+13102,CERRILLOS,Particular Subvencionado,1292,4.9
+13103,CERRO NAVIA,Particular Subvencionado,637,4.9
+13103,CERRO NAVIA,Servicio Local de Educación,321,4.8
+13104,CONCHALÍ,Municipal,505,4.8
+13104,CONCHALÍ,Particular Subvencionado,769,5
+13105,EL BOSQUE,Municipal,368,4.9
+13105,EL BOSQUE,Particular Pagado,103,5.6
+13105,EL BOSQUE,Particular Subvencionado,3003,5
+13106,ESTACIÓN CENTRAL,Corporación de Administración Delegada,257,4.9
+13106,ESTACIÓN CENTRAL,Municipal,528,5
+13106,ESTACIÓN CENTRAL,Particular Pagado,142,5.5
+13106,ESTACIÓN CENTRAL,Particular Subvencionado,1653,5
+13107,HUECHURABA,Municipal,88,5.2
+13107,HUECHURABA,Particular Pagado,825,5.6
+13107,HUECHURABA,Particular Subvencionado,323,5
+13108,INDEPENDENCIA,Municipal,573,5.1
+13108,INDEPENDENCIA,Particular Pagado,155,5.2
+13108,INDEPENDENCIA,Particular Subvencionado,1842,5
+13109,LA CISTERNA,Corporación de Administración Delegada,369,4.8
+13109,LA CISTERNA,Municipal,671,4.7
+13109,LA CISTERNA,Particular Pagado,67,5.3
+13109,LA CISTERNA,Particular Subvencionado,3997,5
+13110,LA FLORIDA,Municipal,1292,4.8
+13110,LA FLORIDA,Particular Pagado,1059,5.5
+13110,LA FLORIDA,Particular Subvencionado,7076,5.1
+13111,LA GRANJA,Municipal,316,4.7
+13111,LA GRANJA,Particular Subvencionado,1087,5.1
+13112,LA PINTANA,Municipal,257,4.8
+13112,LA PINTANA,Particular Subvencionado,2948,5
+13113,LA REINA,Municipal,423,5
+13113,LA REINA,Particular Pagado,1644,5.7
+13113,LA REINA,Particular Subvencionado,599,5.1
+13114,LAS CONDES,Municipal,728,5.2
+13114,LAS CONDES,Particular Pagado,4722,5.7
+13114,LAS CONDES,Particular Subvencionado,1042,5.2
+13115,LO BARNECHEA,Municipal,276,4.8
+13115,LO BARNECHEA,Particular Pagado,2129,5.9
+13115,LO BARNECHEA,Particular Subvencionado,430,5
+13116,LO ESPEJO,Municipal,167,4.9
+13116,LO ESPEJO,Particular Subvencionado,571,5
+13117,LO PRADO,Particular Subvencionado,229,5.5
+13117,LO PRADO,Servicio Local de Educación,412,5
+13118,MACUL,Municipal,325,5.2
+13118,MACUL,Particular Pagado,198,5.5
+13118,MACUL,Particular Subvencionado,1001,5.3
+13119,MAIPÚ,Corporación de Administración Delegada,374,5
+13119,MAIPÚ,Municipal,2222,5.1
+13119,MAIPÚ,Particular Pagado,465,5.4
+13119,MAIPÚ,Particular Subvencionado,9988,5.1
+13120,ÑUÑOA,Corporación de Administración Delegada,1501,4.9
+13120,ÑUÑOA,Municipal,1891,5
+13120,ÑUÑOA,Particular Pagado,1956,5.5
+13120,ÑUÑOA,Particular Subvencionado,2014,4.9
+13121,PEDRO AGUIRRE CERDA,Corporación de Administración Delegada,293,4.8
+13121,PEDRO AGUIRRE CERDA,Municipal,149,5
+13121,PEDRO AGUIRRE CERDA,Particular Subvencionado,535,5.1
+13122,PEÑALOLÉN,Municipal,823,4.9
+13122,PEÑALOLÉN,Particular Pagado,1526,5.5
+13122,PEÑALOLÉN,Particular Subvencionado,1618,5
+13123,PROVIDENCIA,Municipal,2730,5.4
+13123,PROVIDENCIA,Particular Pagado,2030,5.7
+13123,PROVIDENCIA,Particular Subvencionado,1108,5.1
+13124,PUDAHUEL,Particular Pagado,120,5.5
+13124,PUDAHUEL,Particular Subvencionado,2225,5
+13124,PUDAHUEL,Servicio Local de Educación,419,4.9
+13125,QUILICURA,Municipal,749,5
+13125,QUILICURA,Particular Pagado,280,5.4
+13125,QUILICURA,Particular Subvencionado,4022,5.1
+13126,QUINTA NORMAL,Corporación de Administración Delegada,713,4.7
+13126,QUINTA NORMAL,Municipal,896,4.7
+13126,QUINTA NORMAL,Particular Subvencionado,1650,5
+13127,RECOLETA,Corporación de Administración Delegada,1451,4.7
+13127,RECOLETA,Municipal,870,5.1
+13127,RECOLETA,Particular Pagado,174,5.3
+13127,RECOLETA,Particular Subvencionado,1744,5.2
+13128,RENCA,Corporación de Administración Delegada,390,4.9
+13128,RENCA,Municipal,629,5.2
+13128,RENCA,Particular Subvencionado,1840,4.9
+13129,SAN JOAQUÍN,Corporación de Administración Delegada,459,5
+13129,SAN JOAQUÍN,Municipal,105,4.7
+13129,SAN JOAQUÍN,Particular Subvencionado,356,5.2
+13130,SAN MIGUEL,Corporación de Administración Delegada,1070,5.2
+13130,SAN MIGUEL,Municipal,398,5
+13130,SAN MIGUEL,Particular Pagado,305,5.2
+13130,SAN MIGUEL,Particular Subvencionado,3083,5
+13131,SAN RAMÓN,Corporación de Administración Delegada,136,4.9
+13131,SAN RAMÓN,Municipal,339,4.9
+13131,SAN RAMÓN,Particular Subvencionado,866,4.9
+13132,VITACURA,Municipal,362,5.2
+13132,VITACURA,Particular Pagado,2420,5.6
+13132,VITACURA,Particular Subvencionado,65,5.5

@@ -606,7 +606,7 @@ ui <- fluidPage(
     12,
     p(div(
       class = "highlighted-subtitle",
-      "Los siguientes mapas muestran el promedio final de estudiantes entre primer básico y quinto básico del Gran Santiago entre los años 2018 y 2023. Fuente: Sistema de Información General de Estudiantes (SIGE)"
+      "Los siguientes mapas muestran el promedio final de estudiantes entre primero medio y cuarto medio del Gran Santiago entre los años 2018 y 2023. Fuente: Sistema de Información General de Estudiantes (SIGE)"
     ))
   ),
   sidebarPanel(

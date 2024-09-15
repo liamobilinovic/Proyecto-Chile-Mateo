@@ -1,0 +1,67 @@
+---
+title: "Entrega intermedia 1 de Transparenta 2024"
+subtitle: "Proyecto Chile-Mateo"
+author: "Liam Obilinovic e Ignacio Serrano"
+output:
+  pdf_document: default
+  html_document: default
+  latex_engine: xelatex
+
+---
+<style>
+  .texto1 {
+    font-size: 16px;
+    text-align: justify;
+  }
+  .texto2 {
+    text-align: center;
+  }
+</style>
+
+<div class = "texto1">
+
+### 1)	Temática Elegida. (Educación)
+La temática elegida para el proyecto fueron los datos encontrados dentro del Ministerio de Educación que se refieren al rendimiento académico a nivel nacional de establecimientos de enseñanza básica y media. Dentro de todos estos establecimientos y cursos hemos escogido un tramo especifico dentro de los años de escolaridad que refieren a los años que van desde 1°ro Básico hasta 5to Básico. La razón de este filtro es debido a que consideramos estos años como los más importante en torno a la formación de los niños que después entraran a su etapa de escolaridad tardía, la enseñanza media y posteriormente la educación superior. De la misma manera en la que hemos aplicado un filtro dentro de los años de escolaridad escogidos para la visualización hemos también puesto un tramo de años para poder ver el pasado más reciente dentro del rendimiento escolar de estas generaciones de la enseñanza básica, siendo este el tramo escogido que se extiende desde el año 2018 hasta el año 2023. 
+
+<br>
+
+Los años escogidos también responden a hechos recientes dentro de la historia mundial y corresponde a la ocurrencia de la pandemia durante los primeros años de la década más reciente. Esto nos llamó la atención debido a ser personas que fueron estudiantes durante este periodo o vivían con personas cursando años de enseñanza básica dentro del periodo mencionado. Tener en consideración a la pandemia ha sido un eje fundamental dentro del mismo proyecto por razones que daremos a conocer en los apartados posteriores, pero de manera preliminar podemos indicar que la hipótesis que manejamos es que la pandemia tuvo un efecto negativo dentro los niños que cursaron estos años nos impulsa para poder visualizar los efectos que la pandemia tuvo dentro de estos años formativos, pero también para poder generar herramientas necesarias si es que el día de mañana volviese a suceder algo similar. 
+
+### 2)	Sets de Datos Elegidos
+
+Los datos escogidos, como dijimos anteriormente, se encontraban dentro del set de datos abiertos encontrados en la página web del Ministerio de Educación (MINEDUC) en donde encontramos los rendimientos de estudiantes de los años 2023 hasta el 2002. Aplicamos el filtro de año para un manejo más contingente dentro de la visualización de los datos escogidos, siguiendo esta línea hemos depositado los datos dentro del programa RStudio en donde hemos podido procesar de mejor manera los documentos que escogimos. Estos datos nos fueron de gran utilidad puesto que incluyen diversas variables muy importantes en una sola base de datos. 
+
+### 3)	Método de visualización
+
+El método de visualización que hemos elegido para los datos encontrados es a través de un mapa geográfico en donde nos apoyaremos por región del país y sus comunas, los mapas serán del estilo de mapa de calor en donde una escala de colores indicará el rango de promedios que se alcanzaron dentro de las comunas de las regiones en cuestión. El lugar en el que hemos decidido poder tener un contenedor de los datos fue el de una página web, esta página será interactiva con el usuario y será de gran ayuda para visualizar el año, comuna, región, que porcentaje de establecimiento hay en las comunas, el promedio general de la comuna, el número de estudiantes y como los estudiantes terminaron dicho año. 
+Todo lo mencionado anteriormente se hará con ayuda del software ya mencionado y el paquete de R Shiny para poder manejar la página web desde R. Así mismo es como también nos nutriremos de ayuda de un repositorio en [GitHub](https://github.com/liamobilinovic/Proyecto-Chile-Mateo) en donde tendremos los borradores de nuestras ideas en conjunto con los scripts que ayudarán a mantener el funcionamiento de los datos procesados y la página web. Para visitar la página web, puedes hacer en los siguientes links: [Visualizador de Gran Santiago](https://chile-mateo.shinyapps.io/gran-santiago/) [Visualizador de Chile](https://chile-mateo.shinyapps.io/rendimientos/)
+
+![*Página de Shiny*](/Users/liam/Desktop/Proyecto DARA/pagina1.png)
+
+### 4)	Hallazgos preliminares 
+
+Los hallazgos que encontramos son referentes a los rendimientos académicos dentro del año 2018 a 2023 dentro de la RM, como parte en desarrollo la implementación de las regiones se hará en la versión final del proyecto (sin embargo, también puede visitar el visualizador de datos para todo Chile). Encontramos dentro del Gran Santiago una distribución de promedios que se ve altamente concentrada desde el sector oriente de la capital con los promedios más altos, hasta el sector poniente y sur con los promedios más bajos. Dentro de los años podemos destacar con especialidad curiosidad el año 2020, año de inicio de la pandemia, en donde los promedios de la región sufren una caída de hasta casi 1 punto dentro del rendimiento académico que se constató el año anterior. Esta baja radical dentro de los promedios generales en los establecimientos del gran Santiago se vio en contraposición lo ocurrido un año despues en donde los promedios se normalizaron a como estaban antes de la pandemia, esto igual nos parece curioso debido a que todavía se seguía teniendo condiciones parecidas a las de cuarentenas totales como se vio el 2020. 
+
+```{r, echo=FALSE, fig.align='center', out.width='49%'}
+knitr::include_graphics(c("/Users/liam/Desktop/Proyecto DARA/grafico1.png", 
+                          "/Users/liam/Desktop/Proyecto DARA/grafico2.png"))
+```
+
+<br>
+
+Otra cosa que destacamos es que también hubo un emparejamiento dentro de las comunas del gran Santiago con respecto al periodo prepandemia y el post pandemia. Las comunas que indicamos como las más bajas en rendimiento académico, después de la baja total de promedios del 2020, vieron un alza en los años posteriores viendo así una diferencia de pocas décimas en las comunas de altos recursos con las de bajo recursos.  Esta subida de los rendimientos nos llama la atención debido a que puede darse por diversos factores que debemos buscar para comprender de mejor manera este fenómeno, cuestión que nos pondremos como meta para la versión final del proyecto. 
+
+
+```{r, echo=FALSE, fig.align='center', out.width='49%'}
+knitr::include_graphics("/Users/liam/Desktop/Proyecto DARA/grafico3.png")
+```
+
+<br> 
+
+El rendimiento académico se ve acompañado con la situación final de los alumnos a final del año 2020, cosa que nos hizo dar cuenta el poco porcentaje de los alumnos reprobados dentro de ese año y el año siguiente. Este porcentaje de alumnos reprobados en comparación con los alumnos aprobados (Cuestión que en algunas comunas llega a ser más del 90% de alumnos aprobados y un pequeño porcentaje de reprobados), nos hace tener una hipótesis de que los promedios generales de los estudiantes son uniformes, de baja satisfacción con respecto a años anteriores, pero lo suficiente para que el estudiante pueda aprobar el curso al final del año escolar. 
+
+<br> 
+
+Los tipos de establecimientos es algo que aparece dentro de las variables a observar dentro de la comuna. Es observable que hay una diferencia significativa dentro de lo que son los tipos de establecimientos, siendo una gran mayoría los establecimientos particulares dentro de la ciudad a los que son municipales o públicos. Este porcentaje se puede ver reflejado en varias comunas, en donde los porcentajes pueden ir variando en si hay más o menos establecimientos de ciertos tipos, pero la predominancia de la educación privada tiene una primacía dentro del gran Santiago en correspondencia a los establecimientos públicos en la ciudad. 
+
+</div>

@@ -50,13 +50,11 @@ rendimientos2018_final <- rendimientos2018_final %>% select(COD_REG_RBD,
 situacionfinal2018 <- rendimientos2018_final %>% 
   mutate(GEN = case_when(GEN_ALU %in% c(1) ~ "Masculino",
                          GEN_ALU %in% c(2) ~ "Femenino")) %>%  
-  filter(COD_ENSE2 ==2) %>% 
-  filter(COD_GRADO %in% c(1:5)) %>% 
-  mutate(Curso = case_when(COD_GRADO %in% c(1) ~ "1ero Básico",
-                           COD_GRADO %in% c(2) ~ "2ndo Básico", 
-                           COD_GRADO %in% c(3) ~ "3ro Básico",
-                           COD_GRADO %in% c(4) ~ "4to Básico", 
-                           COD_GRADO %in% c(5) ~ "5to Básico")) %>% 
+  filter(COD_ENSE2 == c(5, 7)) %>% 
+  mutate(Curso = case_when(COD_GRADO %in% c(1) ~ "1ro Medio",
+                           COD_GRADO %in% c(2) ~ "2do Medio",
+                           COD_GRADO %in% c(3) ~ "3ro Medio",
+                           COD_GRADO %in% c(4) ~ "4to Medio")) %>% 
   mutate(TipoRural = case_when(RURAL_RBD %in% c(0) ~ "Urbano",
                                RURAL_RBD %in% c(1) ~ "Rural")) %>% 
   mutate(TipoEstablecimiento = case_when(COD_DEPE2 %in% c(1) ~ "Municipal",
@@ -94,16 +92,14 @@ rendimientos2019_final <- rendimientos2019_final %>% select(COD_REG_RBD,
                                                       PROM_GRAL,
                                                       SIT_FIN)
 
-situacionfinal2019 <- rendimientos2019_final %>%
+situacionfinal2019 <- rendimientos2019_final %>% 
   mutate(GEN = case_when(GEN_ALU %in% c(1) ~ "Masculino",
                          GEN_ALU %in% c(2) ~ "Femenino")) %>%  
-  filter(COD_ENSE2 ==2) %>% 
-  filter(COD_GRADO %in% c(1:5)) %>% 
-  mutate(Curso = case_when(COD_GRADO %in% c(1) ~ "1ero Básico",
-                           COD_GRADO %in% c(2) ~ "2ndo Básico", 
-                           COD_GRADO %in% c(3) ~ "3ro Básico",
-                           COD_GRADO %in% c(4) ~ "4to Básico", 
-                           COD_GRADO %in% c(5) ~ "5to Básico")) %>% 
+  filter(COD_ENSE2 == c(5, 7)) %>% 
+  mutate(Curso = case_when(COD_GRADO %in% c(1) ~ "1ro Medio",
+                           COD_GRADO %in% c(2) ~ "2do Medio",
+                           COD_GRADO %in% c(3) ~ "3ro Medio",
+                           COD_GRADO %in% c(4) ~ "4to Medio")) %>% 
   mutate(TipoRural = case_when(RURAL_RBD %in% c(0) ~ "Urbano",
                                RURAL_RBD %in% c(1) ~ "Rural")) %>% 
   mutate(TipoEstablecimiento = case_when(COD_DEPE2 %in% c(1) ~ "Municipal",
@@ -141,16 +137,14 @@ rendimientos2020_final <- rendimientos2020_final %>% select(COD_REG_RBD,
                                                       PROM_GRAL,
                                                       SIT_FIN)
 
-situacionfinal2020 <- rendimientos2020_final %>%
+situacionfinal2020 <- rendimientos2020_final %>% 
   mutate(GEN = case_when(GEN_ALU %in% c(1) ~ "Masculino",
                          GEN_ALU %in% c(2) ~ "Femenino")) %>%  
-  filter(COD_ENSE2 ==2) %>% 
-  filter(COD_GRADO %in% c(1:5)) %>% 
-  mutate(Curso = case_when(COD_GRADO %in% c(1) ~ "1ero Básico",
-                           COD_GRADO %in% c(2) ~ "2ndo Básico", 
-                           COD_GRADO %in% c(3) ~ "3ro Básico",
-                           COD_GRADO %in% c(4) ~ "4to Básico", 
-                           COD_GRADO %in% c(5) ~ "5to Básico")) %>% 
+  filter(COD_ENSE2 == c(5, 7)) %>% 
+  mutate(Curso = case_when(COD_GRADO %in% c(1) ~ "1ro Medio",
+                           COD_GRADO %in% c(2) ~ "2do Medio",
+                           COD_GRADO %in% c(3) ~ "3ro Medio",
+                           COD_GRADO %in% c(4) ~ "4to Medio")) %>% 
   mutate(TipoRural = case_when(RURAL_RBD %in% c(0) ~ "Urbano",
                                RURAL_RBD %in% c(1) ~ "Rural")) %>% 
   mutate(TipoEstablecimiento = case_when(COD_DEPE2 %in% c(1) ~ "Municipal",
@@ -187,16 +181,14 @@ rendimientos2021_final <- rendimientos2021_final %>% select(COD_REG_RBD,
                                                       PROM_GRAL,
                                                       SIT_FIN)
 
-situacionfinal2021 <- rendimientos2021_final %>%
+situacionfinal2021 <- rendimientos2021_final %>% 
   mutate(GEN = case_when(GEN_ALU %in% c(1) ~ "Masculino",
                          GEN_ALU %in% c(2) ~ "Femenino")) %>%  
-  filter(COD_ENSE2 ==2) %>% 
-  filter(COD_GRADO %in% c(1:5)) %>% 
-  mutate(Curso = case_when(COD_GRADO %in% c(1) ~ "1ero Básico",
-                           COD_GRADO %in% c(2) ~ "2ndo Básico", 
-                           COD_GRADO %in% c(3) ~ "3ro Básico",
-                           COD_GRADO %in% c(4) ~ "4to Básico", 
-                           COD_GRADO %in% c(5) ~ "5to Básico")) %>% 
+  filter(COD_ENSE2 == c(5, 7)) %>% 
+  mutate(Curso = case_when(COD_GRADO %in% c(1) ~ "1ro Medio",
+                           COD_GRADO %in% c(2) ~ "2do Medio",
+                           COD_GRADO %in% c(3) ~ "3ro Medio",
+                           COD_GRADO %in% c(4) ~ "4to Medio")) %>% 
   mutate(TipoRural = case_when(RURAL_RBD %in% c(0) ~ "Urbano",
                                RURAL_RBD %in% c(1) ~ "Rural")) %>% 
   mutate(TipoEstablecimiento = case_when(COD_DEPE2 %in% c(1) ~ "Municipal",
@@ -234,16 +226,14 @@ rendimientos2022_final <- rendimientos2022_final %>% select(COD_REG_RBD,
                                                       PROM_GRAL,
                                                       SIT_FIN)
 
-situacionfinal2022 <- rendimientos2022_final %>%
+situacionfinal2022 <- rendimientos2022_final %>% 
   mutate(GEN = case_when(GEN_ALU %in% c(1) ~ "Masculino",
                          GEN_ALU %in% c(2) ~ "Femenino")) %>%  
-  filter(COD_ENSE2 ==2) %>% 
-  filter(COD_GRADO %in% c(1:5)) %>% 
-  mutate(Curso = case_when(COD_GRADO %in% c(1) ~ "1ero Básico",
-                           COD_GRADO %in% c(2) ~ "2ndo Básico", 
-                           COD_GRADO %in% c(3) ~ "3ro Básico",
-                           COD_GRADO %in% c(4) ~ "4to Básico", 
-                           COD_GRADO %in% c(5) ~ "5to Básico")) %>% 
+  filter(COD_ENSE2 == c(5, 7)) %>% 
+  mutate(Curso = case_when(COD_GRADO %in% c(1) ~ "1ro Medio",
+                           COD_GRADO %in% c(2) ~ "2do Medio",
+                           COD_GRADO %in% c(3) ~ "3ro Medio",
+                           COD_GRADO %in% c(4) ~ "4to Medio")) %>% 
   mutate(TipoRural = case_when(RURAL_RBD %in% c(0) ~ "Urbano",
                                RURAL_RBD %in% c(1) ~ "Rural")) %>% 
   mutate(TipoEstablecimiento = case_when(COD_DEPE2 %in% c(1) ~ "Municipal",
@@ -281,16 +271,14 @@ rendimientos2023_final <- rendimientos2023_final %>% select(COD_REG_RBD,
                                                       PROM_GRAL,
                                                       SIT_FIN)
 
-situacionfinal2023 <- rendimientos2023_final %>%
+situacionfinal2023 <- rendimientos2023_final %>% 
   mutate(GEN = case_when(GEN_ALU %in% c(1) ~ "Masculino",
                          GEN_ALU %in% c(2) ~ "Femenino")) %>%  
-  filter(COD_ENSE2 ==2) %>% 
-  filter(COD_GRADO %in% c(1:5)) %>% 
-  mutate(Curso = case_when(COD_GRADO %in% c(1) ~ "1ero Básico",
-                           COD_GRADO %in% c(2) ~ "2ndo Básico", 
-                           COD_GRADO %in% c(3) ~ "3ro Básico",
-                           COD_GRADO %in% c(4) ~ "4to Básico", 
-                           COD_GRADO %in% c(5) ~ "5to Básico")) %>% 
+  filter(COD_ENSE2 == c(5, 7)) %>% 
+  mutate(Curso = case_when(COD_GRADO %in% c(1) ~ "1ro Medio",
+                           COD_GRADO %in% c(2) ~ "2do Medio",
+                           COD_GRADO %in% c(3) ~ "3ro Medio",
+                           COD_GRADO %in% c(4) ~ "4to Medio")) %>% 
   mutate(TipoRural = case_when(RURAL_RBD %in% c(0) ~ "Urbano",
                                RURAL_RBD %in% c(1) ~ "Rural")) %>% 
   mutate(TipoEstablecimiento = case_when(COD_DEPE2 %in% c(1) ~ "Municipal",
