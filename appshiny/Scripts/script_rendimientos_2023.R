@@ -24,7 +24,6 @@ if (!require("stringr")) install.packages("stringr")
 if (!require("sf")) install.packages("sf")
 if (!require("chilemapas")) install.packages("chilemapas")
 if (!require("shinydashboard")) install.packages("shinydashboard")
-if (!require("plotly")) install.packages("plotly")
 
 
 library(summarytools)
@@ -46,10 +45,9 @@ library(leaflet)
 library(sf)
 library(chilemapas)
 library(shinydashboard)
-library(plotly)
 
 
-####2018#####
+####2018####
 
 kablevectores <- c("striped", "bordered", "responsive")
 
@@ -62,7 +60,7 @@ tabla_rendimientos2018 <- rendimientos2018 %>% select(COD_REG_RBD,
                                                 COD_PRO_RBD, 
                                                 COD_DEPE2, 
                                                 GEN_ALU, 
-                                                COD_REG_ALU,
+                                                COD_REG_ALU, 
                                                 COD_COM_ALU,
                                                 COD_COM_RBD,
                                                 NOM_COM_RBD,
@@ -79,27 +77,52 @@ tabla_rendimientos2018 <- rendimientos2018 %>% select(COD_REG_RBD,
 
 tabla_rendimientos2018 <- tabla_rendimientos2018 %>% 
   filter(PROM_GRAL != -0) %>% 
+  mutate(PROM_GRAL2 = case_when(PROM_GRAL %in% c(7, 70) ~ "Excelente (7,0)",
+                                PROM_GRAL %in% c(6, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69) ~ "Satisfactorio (6,0-6,9)", 
+                                PROM_GRAL %in% c(5, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59) ~ "Bueno (5,0-5,9)",
+                                PROM_GRAL %in% c(4, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49) ~ "Suficiente (4,0-4,9)", 
+                                PROM_GRAL %in% c(3, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39) ~ "Insuficiente (3,0-3,9)", 
+                                PROM_GRAL %in% c(2, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29) ~ "Malo (2,0-2,9)", 
+                                PROM_GRAL %in% c(1, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19) ~ "Muy malo (1,0-1,9)")) %>%
   mutate(GEN = case_when(GEN_ALU %in% c(1) ~ "Masculino",
                          GEN_ALU %in% c(2) ~ "Femenino")) %>%  
   mutate(Zona = case_when(COD_REG_RBD %in% c(1, 2, 3, 4, 15) ~ "Norte", 
                           COD_REG_RBD %in% c(5, 6, 13) ~ "Centro", 
                           COD_REG_RBD %in% c(7, 8, 9, 10, 11, 12, 14, 16) ~ "Sur")) %>% 
-  filter(COD_ENSE2 == c(5, 7)) %>% 
-  mutate(Curso = case_when(COD_GRADO %in% c(1) ~ "1ro Medio",
-                           COD_GRADO %in% c(2) ~ "2do Medio", 
-                           COD_GRADO %in% c(3) ~ "3ro Medio",
-                           COD_GRADO %in% c(4) ~ "4to Medio"))%>% 
+  filter(COD_ENSE2 ==2) %>% 
+  filter(COD_GRADO %in% c(1:5)) %>% 
+  mutate(Curso = case_when(COD_GRADO %in% c(1) ~ "1ero Básico",
+                           COD_GRADO %in% c(2) ~ "2ndo Básico", 
+                           COD_GRADO %in% c(3) ~ "3ro Básico",
+                           COD_GRADO %in% c(4) ~ "4to Básico", 
+                           COD_GRADO %in% c(5) ~ "5to Básico")) %>% 
   mutate(TipoRural = case_when(RURAL_RBD %in% c(0) ~ "Urbano",
                                RURAL_RBD %in% c(1) ~ "Rural")) %>% 
-  mutate(TipoEstablecimiento = case_when(COD_DEPE2 %in% c(1) ~ "Municipal",
-                                         COD_DEPE2 %in% c(2) ~ "Particular Subvencionado",
-                                         COD_DEPE2 %in% c(3) ~ "Particular Pagado",
-                                         COD_DEPE2 %in% c(4) ~ "Corporación de Administración Delegada",
-                                         COD_DEPE2 %in% c(5) ~ "Servicio Local de Educación",)) %>% 
-  mutate(COD_COM_RBD = str_pad(COD_COM_RBD, width = 5, pad = "0")) %>% 
-  mutate(COD_REG_RBD = str_pad(COD_REG_RBD, width = 2, pad = "0"))
+  mutate(COD_COM_RBD = str_pad(COD_COM_RBD, width = 5, pad = "0"))
   
   
+
+
+###TOTAL NOTAS 2018###
+ 
+Nt_cursos2018 <- tabla_rendimientos2018 %>% 
+  tabyl(PROM_GRAL2, Curso) %>% 
+  adorn_percentages("col") %>% 
+  adorn_totals("col") %>% 
+  adorn_pct_formatting(digits=2) %>% 
+  adorn_ns()
+
+kable(Nt_cursos2018) %>% 
+  kable_classic(html_font = "Raleway") %>% 
+  kable_styling(bootstrap_options = kablevectores)
+
+
+
+###Estadisticos 2018###
+
+mean(tabla_rendimientos2018$PROM_GRAL)
+
+summary(tabla_rendimientos2018$PROM_GRAL)
 
 ####2019#######################################################################
 
@@ -128,26 +151,44 @@ tabla_rendimientos2019 <- rendimientos2019 %>% select(COD_REG_RBD,
 
 tabla_rendimientos2019 <- tabla_rendimientos2019 %>% 
   filter(PROM_GRAL != -0) %>% 
+  mutate(PROM_GRAL2 = case_when(PROM_GRAL %in% c(7, 70) ~ "Excelente (7,0)",
+                                PROM_GRAL %in% c(6, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69) ~ "Satisfactorio (6,0-6,9)", 
+                                PROM_GRAL %in% c(5, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59) ~ "Bueno (5,0-5,9)",
+                                PROM_GRAL %in% c(4, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49) ~ "Suficiente (4,0-4,9)", 
+                                PROM_GRAL %in% c(3, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39) ~ "Insuficiente (3,0-3,9)", 
+                                PROM_GRAL %in% c(2, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29) ~ "Malo (2,0-2,9)", 
+                                PROM_GRAL %in% c(1, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19) ~ "Muy malo (1,0-1,9)")) %>%
   mutate(GEN = case_when(GEN_ALU %in% c(1) ~ "Masculino",
                          GEN_ALU %in% c(2) ~ "Femenino")) %>%  
   mutate(Zona = case_when(COD_REG_RBD %in% c(1, 2, 3, 4, 15) ~ "Norte", 
                           COD_REG_RBD %in% c(5, 6, 13) ~ "Centro", 
                           COD_REG_RBD %in% c(7, 8, 9, 10, 11, 12, 14, 16) ~ "Sur")) %>% 
-  filter(COD_ENSE2 == c(5, 7)) %>% 
-  mutate(Curso = case_when(COD_GRADO %in% c(1) ~ "1ro Medio",
-                           COD_GRADO %in% c(2) ~ "2do Medio", 
-                           COD_GRADO %in% c(3) ~ "3ro Medio",
-                           COD_GRADO %in% c(4) ~ "4to Medio"))%>% 
+  filter(COD_ENSE2 ==2) %>% 
+  filter(COD_GRADO %in% c(1:5)) %>% 
+  mutate(Curso = case_when(COD_GRADO %in% c(1) ~ "1ero Básico",
+                           COD_GRADO %in% c(2) ~ "2ndo Básico", 
+                           COD_GRADO %in% c(3) ~ "3ro Básico",
+                           COD_GRADO %in% c(4) ~ "4to Básico", 
+                           COD_GRADO %in% c(5) ~ "5to Básico")) %>% 
   mutate(TipoRural = case_when(RURAL_RBD %in% c(0) ~ "Urbano",
                                RURAL_RBD %in% c(1) ~ "Rural")) %>% 
-  mutate(TipoEstablecimiento = case_when(COD_DEPE2 %in% c(1) ~ "Municipal",
-                                         COD_DEPE2 %in% c(2) ~ "Particular Subvencionado",
-                                         COD_DEPE2 %in% c(3) ~ "Particular Pagado",
-                                         COD_DEPE2 %in% c(4) ~ "Corporación de Administración Delegada",
-                                         COD_DEPE2 %in% c(5) ~ "Servicio Local de Educación",)) %>% 
-  mutate(COD_COM_RBD = str_pad(COD_COM_RBD, width = 5, pad = "0")) %>% 
-  mutate(COD_REG_RBD = str_pad(COD_REG_RBD, width = 2, pad = "0"))
+  mutate(COD_COM_RBD = str_pad(COD_COM_RBD, width = 5, pad = "0"))
 
+###Total notas 2020###
+
+
+Nt_cursos2019 <- tabla_rendimientos2019 %>% 
+  tabyl(PROM_GRAL2, Curso) %>% 
+  adorn_percentages("col") %>% 
+  adorn_totals("col") %>% 
+  adorn_pct_formatting(digits=2) %>% 
+  adorn_ns()
+
+kable(Nt_cursos2019) %>% 
+  kable_material(html_font = "Times New Roman") %>% 
+  kable_styling(bootstrap_options = kablevectores)
+
+kablevectores <- c("striped", "bordered", "responsive")
 
 
 
@@ -174,27 +215,50 @@ tabla_rendimientos2020 <- rendimientos2020 %>% select(COD_REG_RBD,
                                                 NOM_COM_ALU,
                                                 ASISTENCIA,
                                                 PROM_GRAL)
+
 tabla_rendimientos2020 <- tabla_rendimientos2020 %>% 
   filter(PROM_GRAL != -0) %>% 
+  mutate(PROM_GRAL2 = case_when(PROM_GRAL %in% c(7, 70) ~ "Excelente (7,0)",
+                                PROM_GRAL %in% c(6, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69) ~ "Satisfactorio (6,0-6,9)", 
+                                PROM_GRAL %in% c(5, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59) ~ "Bueno (5,0-5,9)",
+                                PROM_GRAL %in% c(4, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49) ~ "Suficiente (4,0-4,9)", 
+                                PROM_GRAL %in% c(3, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39) ~ "Insuficiente (3,0-3,9)", 
+                                PROM_GRAL %in% c(2, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29) ~ "Malo (2,0-2,9)", 
+                                PROM_GRAL %in% c(1, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19) ~ "Muy malo (1,0-1,9)")) %>%
   mutate(GEN = case_when(GEN_ALU %in% c(1) ~ "Masculino",
                          GEN_ALU %in% c(2) ~ "Femenino")) %>%  
   mutate(Zona = case_when(COD_REG_RBD %in% c(1, 2, 3, 4, 15) ~ "Norte", 
                           COD_REG_RBD %in% c(5, 6, 13) ~ "Centro", 
                           COD_REG_RBD %in% c(7, 8, 9, 10, 11, 12, 14, 16) ~ "Sur")) %>% 
-  filter(COD_ENSE2 == c(5, 7)) %>% 
-  mutate(Curso = case_when(COD_GRADO %in% c(1) ~ "1ro Medio",
-                           COD_GRADO %in% c(2) ~ "2do Medio", 
-                           COD_GRADO %in% c(3) ~ "3ro Medio",
-                           COD_GRADO %in% c(4) ~ "4to Medio"))%>% 
+  filter(COD_ENSE2 ==2) %>% 
+  filter(COD_GRADO %in% c(1:5)) %>% 
+  mutate(Curso = case_when(COD_GRADO %in% c(1) ~ "1ero Básico",
+                           COD_GRADO %in% c(2) ~ "2ndo Básico", 
+                           COD_GRADO %in% c(3) ~ "3ro Básico",
+                           COD_GRADO %in% c(4) ~ "4to Básico", 
+                           COD_GRADO %in% c(5) ~ "5to Básico")) %>% 
   mutate(TipoRural = case_when(RURAL_RBD %in% c(0) ~ "Urbano",
                                RURAL_RBD %in% c(1) ~ "Rural")) %>% 
-  mutate(TipoEstablecimiento = case_when(COD_DEPE2 %in% c(1) ~ "Municipal",
-                                         COD_DEPE2 %in% c(2) ~ "Particular Subvencionado",
-                                         COD_DEPE2 %in% c(3) ~ "Particular Pagado",
-                                         COD_DEPE2 %in% c(4) ~ "Corporación de Administración Delegada",
-                                         COD_DEPE2 %in% c(5) ~ "Servicio Local de Educación",)) %>% 
-  mutate(COD_COM_RBD = str_pad(COD_COM_RBD, width = 5, pad = "0")) %>% 
-  mutate(COD_REG_RBD = str_pad(COD_REG_RBD, width = 2, pad = "0"))
+  mutate(COD_COM_RBD = str_pad(COD_COM_RBD, width = 5, pad = "0"))
+
+###Total notas 2020###
+
+Nt_cursos2020 <- tabla_rendimientos2020 %>% 
+  tabyl(PROM_GRAL2, Curso) %>% 
+  adorn_percentages("col") %>% 
+  adorn_totals("col") %>% 
+  adorn_pct_formatting(digits=2) %>% 
+  adorn_ns()
+
+kable(Nt_cursos2020) %>% 
+  kable_material(html_font = "Times New Roman") %>% 
+  kable_styling(bootstrap_options = kablevectores)
+
+###Estadisticos 2020###
+
+mean(tabla_rendimientos2020$PROM_GRAL)
+
+summary(tabla_rendimientos2020$PROM_GRAL)
 
 
 ###2021#######################################################################
@@ -221,27 +285,47 @@ tabla_rendimientos2021 <- rendimientos2021 %>% select(COD_REG_RBD,
 
 tabla_rendimientos2021 <- tabla_rendimientos2021 %>% 
   filter(PROM_GRAL != -0) %>% 
+  mutate(PROM_GRAL2 = case_when(PROM_GRAL %in% c(7, 70) ~ "Excelente (7,0)",
+                                PROM_GRAL %in% c(6, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69) ~ "Satisfactorio (6,0-6,9)", 
+                                PROM_GRAL %in% c(5, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59) ~ "Bueno (5,0-5,9)",
+                                PROM_GRAL %in% c(4, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49) ~ "Suficiente (4,0-4,9)", 
+                                PROM_GRAL %in% c(3, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39) ~ "Insuficiente (3,0-3,9)", 
+                                PROM_GRAL %in% c(2, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29) ~ "Malo (2,0-2,9)", 
+                                PROM_GRAL %in% c(1, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19) ~ "Muy malo (1,0-1,9)")) %>%
   mutate(GEN = case_when(GEN_ALU %in% c(1) ~ "Masculino",
                          GEN_ALU %in% c(2) ~ "Femenino")) %>%  
   mutate(Zona = case_when(COD_REG_RBD %in% c(1, 2, 3, 4, 15) ~ "Norte", 
                           COD_REG_RBD %in% c(5, 6, 13) ~ "Centro", 
                           COD_REG_RBD %in% c(7, 8, 9, 10, 11, 12, 14, 16) ~ "Sur")) %>% 
-  filter(COD_ENSE2 == c(5, 7)) %>% 
-  mutate(Curso = case_when(COD_GRADO %in% c(1) ~ "1ro Medio",
-                           COD_GRADO %in% c(2) ~ "2do Medio", 
-                           COD_GRADO %in% c(3) ~ "3ro Medio",
-                           COD_GRADO %in% c(4) ~ "4to Medio"))%>% 
+  filter(COD_ENSE2 ==2) %>% 
+  filter(COD_GRADO %in% c(1:5)) %>% 
+  mutate(Curso = case_when(COD_GRADO %in% c(1) ~ "1ero Básico",
+                           COD_GRADO %in% c(2) ~ "2ndo Básico", 
+                           COD_GRADO %in% c(3) ~ "3ro Básico",
+                           COD_GRADO %in% c(4) ~ "4to Básico", 
+                           COD_GRADO %in% c(5) ~ "5to Básico")) %>% 
   mutate(TipoRural = case_when(RURAL_RBD %in% c(0) ~ "Urbano",
                                RURAL_RBD %in% c(1) ~ "Rural")) %>% 
-  mutate(TipoEstablecimiento = case_when(COD_DEPE2 %in% c(1) ~ "Municipal",
-                                         COD_DEPE2 %in% c(2) ~ "Particular Subvencionado",
-                                         COD_DEPE2 %in% c(3) ~ "Particular Pagado",
-                                         COD_DEPE2 %in% c(4) ~ "Corporación de Administración Delegada",
-                                         COD_DEPE2 %in% c(5) ~ "Servicio Local de Educación",)) %>% 
-  mutate(COD_COM_RBD = str_pad(COD_COM_RBD, width = 5, pad = "0")) %>% 
-  mutate(COD_REG_RBD = str_pad(COD_REG_RBD, width = 2, pad = "0"))
+  mutate(COD_COM_RBD = str_pad(COD_COM_RBD, width = 5, pad = "0"))
 
+###Total notas 2021###
 
+Nt_cursos2021 <- tabla_rendimientos2021 %>% 
+  tabyl(PROM_GRAL2, Curso) %>% 
+  adorn_percentages("col") %>% 
+  adorn_totals("col") %>% 
+  adorn_pct_formatting(digits=2) %>% 
+  adorn_ns()
+
+kable(Nt_cursos2021) %>% 
+  kable_material(html_font = "Times New Roman") %>% 
+  kable_styling(bootstrap_options = kablevectores)
+
+###Estadisticos 2021###
+
+mean(tabla_rendimientos2021$PROM_GRAL)
+
+summary(tabla_rendimientos2021$PROM_GRAL)
 
 ###2022#######################################################################
 
@@ -268,26 +352,49 @@ tabla_rendimientos2022 <- rendimientos2022 %>% select(COD_REG_RBD,
 
 tabla_rendimientos2022 <- tabla_rendimientos2022 %>% 
   filter(PROM_GRAL != -0) %>% 
+  mutate(PROM_GRAL2 = case_when(PROM_GRAL %in% c(7, 70) ~ "Excelente (7,0)",
+                                PROM_GRAL %in% c(6, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69) ~ "Satisfactorio (6,0-6,9)", 
+                                PROM_GRAL %in% c(5, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59) ~ "Bueno (5,0-5,9)",
+                                PROM_GRAL %in% c(4, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49) ~ "Suficiente (4,0-4,9)", 
+                                PROM_GRAL %in% c(3, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39) ~ "Insuficiente (3,0-3,9)", 
+                                PROM_GRAL %in% c(2, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29) ~ "Malo (2,0-2,9)", 
+                                PROM_GRAL %in% c(1, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19) ~ "Muy malo (1,0-1,9)")) %>%
   mutate(GEN = case_when(GEN_ALU %in% c(1) ~ "Masculino",
                          GEN_ALU %in% c(2) ~ "Femenino")) %>%  
   mutate(Zona = case_when(COD_REG_RBD %in% c(1, 2, 3, 4, 15) ~ "Norte", 
                           COD_REG_RBD %in% c(5, 6, 13) ~ "Centro", 
                           COD_REG_RBD %in% c(7, 8, 9, 10, 11, 12, 14, 16) ~ "Sur")) %>% 
-  filter(COD_ENSE2 == c(5, 7)) %>% 
-  mutate(Curso = case_when(COD_GRADO %in% c(1) ~ "1ro Medio",
-                           COD_GRADO %in% c(2) ~ "2do Medio", 
-                           COD_GRADO %in% c(3) ~ "3ro Medio",
-                           COD_GRADO %in% c(4) ~ "4to Medio"))%>% 
+  filter(COD_ENSE2 ==2) %>% 
+  filter(COD_GRADO %in% c(1:5)) %>% 
+  mutate(Curso = case_when(COD_GRADO %in% c(1) ~ "1ero Básico",
+                           COD_GRADO %in% c(2) ~ "2ndo Básico", 
+                           COD_GRADO %in% c(3) ~ "3ro Básico",
+                           COD_GRADO %in% c(4) ~ "4to Básico", 
+                           COD_GRADO %in% c(5) ~ "5to Básico")) %>% 
   mutate(TipoRural = case_when(RURAL_RBD %in% c(0) ~ "Urbano",
                                RURAL_RBD %in% c(1) ~ "Rural")) %>% 
-  mutate(TipoEstablecimiento = case_when(COD_DEPE2 %in% c(1) ~ "Municipal",
-                                         COD_DEPE2 %in% c(2) ~ "Particular Subvencionado",
-                                         COD_DEPE2 %in% c(3) ~ "Particular Pagado",
-                                         COD_DEPE2 %in% c(4) ~ "Corporación de Administración Delegada",
-                                         COD_DEPE2 %in% c(5) ~ "Servicio Local de Educación",)) %>% 
-  mutate(COD_COM_RBD = str_pad(COD_COM_RBD, width = 5, pad = "0")) %>% 
-  mutate(COD_REG_RBD = str_pad(COD_REG_RBD, width = 2, pad = "0"))
+  mutate(COD_COM_RBD = str_pad(COD_COM_RBD, width = 5, pad = "0"))
 
+
+
+###Total notas 2022###
+
+Nt_cursos2022 <- tabla_rendimientos2022 %>% 
+  tabyl(PROM_GRAL2, Curso) %>% 
+  adorn_percentages("col") %>% 
+  adorn_totals("col") %>% 
+  adorn_pct_formatting(digits=2) %>% 
+  adorn_ns()
+
+kable(Nt_cursos2022) %>% 
+  kable_material(html_font = "Times New Roman") %>% 
+  kable_styling(bootstrap_options = kablevectores)
+
+###Estadisticos 2022###
+
+mean(tabla_rendimientos2022$PROM_GRAL)
+
+summary(tabla_rendimientos2022$PROM_GRAL)
 
 
 
@@ -316,232 +423,45 @@ tabla_rendimientos2023 <- rendimientos2023 %>% select(COD_REG_RBD,
 
 tabla_rendimientos2023 <- tabla_rendimientos2023 %>% 
   filter(PROM_GRAL != -0) %>% 
+  mutate(PROM_GRAL2 = case_when(PROM_GRAL %in% c(7, 70) ~ "Excelente (7,0)",
+                                PROM_GRAL %in% c(6, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69) ~ "Satisfactorio (6,0-6,9)", 
+                                PROM_GRAL %in% c(5, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59) ~ "Bueno (5,0-5,9)",
+                                PROM_GRAL %in% c(4, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49) ~ "Suficiente (4,0-4,9)", 
+                                PROM_GRAL %in% c(3, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39) ~ "Insuficiente (3,0-3,9)", 
+                                PROM_GRAL %in% c(2, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29) ~ "Malo (2,0-2,9)", 
+                                PROM_GRAL %in% c(1, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19) ~ "Muy malo (1,0-1,9)")) %>%
   mutate(GEN = case_when(GEN_ALU %in% c(1) ~ "Masculino",
                          GEN_ALU %in% c(2) ~ "Femenino")) %>%  
   mutate(Zona = case_when(COD_REG_RBD %in% c(1, 2, 3, 4, 15) ~ "Norte", 
                           COD_REG_RBD %in% c(5, 6, 13) ~ "Centro", 
                           COD_REG_RBD %in% c(7, 8, 9, 10, 11, 12, 14, 16) ~ "Sur")) %>% 
-  filter(COD_ENSE2 == c(5, 7)) %>% 
-  mutate(Curso = case_when(COD_GRADO %in% c(1) ~ "1ro Medio",
-                           COD_GRADO %in% c(2) ~ "2do Medio", 
-                           COD_GRADO %in% c(3) ~ "3ro Medio",
-                           COD_GRADO %in% c(4) ~ "4to Medio"))%>% 
+  filter(COD_ENSE2 ==2) %>% 
+  filter(COD_GRADO %in% c(1:5)) %>% 
+  mutate(Curso = case_when(COD_GRADO %in% c(1) ~ "1ero Básico",
+                           COD_GRADO %in% c(2) ~ "2ndo Básico", 
+                           COD_GRADO %in% c(3) ~ "3ro Básico",
+                           COD_GRADO %in% c(4) ~ "4to Básico", 
+                           COD_GRADO %in% c(5) ~ "5to Básico")) %>% 
   mutate(TipoRural = case_when(RURAL_RBD %in% c(0) ~ "Urbano",
                                RURAL_RBD %in% c(1) ~ "Rural")) %>% 
-  mutate(TipoEstablecimiento = case_when(COD_DEPE2 %in% c(1) ~ "Municipal",
-                                         COD_DEPE2 %in% c(2) ~ "Particular Subvencionado",
-                                         COD_DEPE2 %in% c(3) ~ "Particular Pagado",
-                                         COD_DEPE2 %in% c(4) ~ "Corporación de Administración Delegada",
-                                         COD_DEPE2 %in% c(5) ~ "Servicio Local de Educación",)) %>% 
-  mutate(COD_COM_RBD = str_pad(COD_COM_RBD, width = 5, pad = "0")) %>% 
-  mutate(COD_REG_RBD = str_pad(COD_REG_RBD, width = 2, pad = "0"))
+  mutate(COD_COM_RBD = str_pad(COD_COM_RBD, width = 5, pad = "0"))
+
+
+###Total notas 2023###
+
+Nt_cursos2023 <- tabla_rendimientos2022 %>% 
+  tabyl(PROM_GRAL2, Curso) %>% 
+  adorn_percentages("col") %>% 
+  adorn_totals("col") %>% 
+  adorn_pct_formatting(digits=2) %>% 
+  adorn_ns()
+
+kable(Nt_cursos2023) %>% 
+  kable_material(html_font = "Times New Roman") %>% 
+  kable_styling(bootstrap_options = kablevectores)
 
 
 
-####Tipos de establecimiento Santiago###
-
-
-establecimiento2018 <- tabla_rendimientos2018 %>% 
-  filter(COD_PRO_RBD == 131) %>% 
-  group_by(as.integer(COD_COM_RBD), NOM_COM_RBD, TipoEstablecimiento) %>%
-  summarise(n_estudiantes = n(), 
-            promedio = round(mean(PROM_GRAL)) / 10,
-            .groups = "drop")
-
-establecimiento2018 <- establecimiento2018 %>% 
-  rename("codigo_comuna" = `as.integer(COD_COM_RBD)`) %>% 
-  rename("nombre_comuna" = NOM_COM_RBD)
-
-establecimiento2019 <- tabla_rendimientos2019 %>% 
-  filter(COD_PRO_RBD == 131) %>% 
-  group_by(as.integer(COD_COM_RBD), NOM_COM_RBD, TipoEstablecimiento) %>%
-  summarise(n_estudiantes = n(), 
-            promedio = round(mean(PROM_GRAL)) / 10,
-            .groups = "drop")
-
-
-establecimiento2019 <- establecimiento2019 %>% 
-  rename("codigo_comuna" = `as.integer(COD_COM_RBD)`) %>% 
-  rename("nombre_comuna" = NOM_COM_RBD)
-
-establecimiento2020 <- tabla_rendimientos2020 %>% 
-  filter(COD_PRO_RBD == 131) %>% 
-  group_by(as.integer(COD_COM_RBD), NOM_COM_RBD, TipoEstablecimiento) %>%
-  summarise(n_estudiantes = n(), 
-            promedio = round(mean(PROM_GRAL)) / 10,
-            .groups = "drop")
-
-
-establecimiento2020 <- establecimiento2020 %>%
-  rename("codigo_comuna" = `as.integer(COD_COM_RBD)`) %>% 
-  rename("nombre_comuna" = NOM_COM_RBD)
-
-establecimiento2021 <- tabla_rendimientos2021 %>% 
-  filter(COD_PRO_RBD == 131) %>% 
-  group_by(as.integer(COD_COM_RBD), NOM_COM_RBD, TipoEstablecimiento) %>%
-  summarise(n_estudiantes = n(), 
-            promedio = round(mean(PROM_GRAL)) / 10,
-            .groups = "drop")
-
-
-establecimiento2021 <- establecimiento2021 %>%
-  rename("codigo_comuna" = `as.integer(COD_COM_RBD)`) %>% 
-  rename("nombre_comuna" = NOM_COM_RBD)
-
-establecimiento2022 <- tabla_rendimientos2022 %>% 
-  filter(COD_PRO_RBD == 131) %>% 
-  group_by(as.integer(COD_COM_RBD), NOM_COM_RBD, TipoEstablecimiento) %>%
-  summarise(n_estudiantes = n(), 
-            promedio = round(mean(PROM_GRAL)) / 10,
-            .groups = "drop")
-
-
-establecimiento2022 <- establecimiento2022 %>%
-  rename("codigo_comuna" = `as.integer(COD_COM_RBD)`) %>% 
-  rename("nombre_comuna" = NOM_COM_RBD)
-
-establecimiento2023 <- tabla_rendimientos2023 %>% 
-  filter(COD_PRO_RBD == 131) %>% 
-  group_by(as.integer(COD_COM_RBD), NOM_COM_RBD, TipoEstablecimiento) %>%
-  summarise(n_estudiantes = n(), 
-            promedio = round(mean(PROM_GRAL)) / 10,
-            .groups = "drop")
-
-
-establecimiento2023 <- establecimiento2023 %>%
-  rename("codigo_comuna" = `as.integer(COD_COM_RBD)`) %>% 
-  rename("nombre_comuna" = NOM_COM_RBD)
-
-
-write_csv(establecimiento2018, "establecimiento2018.csv")
-write_csv(establecimiento2019, "establecimiento2019.csv")
-write_csv(establecimiento2020, "establecimiento2020.csv")
-write_csv(establecimiento2021, "establecimiento2021.csv")
-write_csv(establecimiento2022, "establecimiento2022.csv")
-write_csv(establecimiento2023, "establecimiento2023.csv")
-
-establecimientos_chile2018 <- tabla_rendimientos2018 %>% 
-  group_by(as.integer(COD_COM_RBD), NOM_COM_RBD, TipoEstablecimiento) %>%
-  summarise(n_estudiantes = n(), 
-            promedio = round(mean(PROM_GRAL)) / 10,
-            .groups = "drop")
-
-establecimientos_chile2018 <- establecimientos_chile2018 %>% 
-  rename("codigo_comuna" = `as.integer(COD_COM_RBD)`) %>% 
-  rename("nombre_comuna" = NOM_COM_RBD)
-
-establecimientos_chile2019 <- tabla_rendimientos2019 %>% 
-  group_by(as.integer(COD_COM_RBD), NOM_COM_RBD, TipoEstablecimiento) %>%
-  summarise(n_estudiantes = n(), 
-            promedio = round(mean(PROM_GRAL)) / 10,
-            .groups = "drop")
-
-establecimientos_chile2019 <- establecimientos_chile2019 %>%
-  rename("codigo_comuna" = `as.integer(COD_COM_RBD)`) %>% 
-  rename("nombre_comuna" = NOM_COM_RBD)
-
-establecimientos_chile2020 <- tabla_rendimientos2020 %>%
-  group_by(as.integer(COD_COM_RBD), NOM_COM_RBD, TipoEstablecimiento) %>%
-  summarise(n_estudiantes = n(), 
-            promedio = round(mean(PROM_GRAL)) / 10,
-            .groups = "drop")
-
-establecimientos_chile2020 <- establecimientos_chile2020 %>%
-  rename("codigo_comuna" = `as.integer(COD_COM_RBD)`) %>% 
-  rename("nombre_comuna" = NOM_COM_RBD)
-
-establecimientos_chile2021 <- tabla_rendimientos2021 %>%
-  group_by(as.integer(COD_COM_RBD), NOM_COM_RBD, TipoEstablecimiento) %>%
-  summarise(n_estudiantes = n(), 
-            promedio = round(mean(PROM_GRAL)) / 10,
-            .groups = "drop")
-
-establecimientos_chile2021 <- establecimientos_chile2021 %>%
-  rename("codigo_comuna" = `as.integer(COD_COM_RBD)`) %>% 
-  rename("nombre_comuna" = NOM_COM_RBD)
-
-establecimientos_chile2022 <- tabla_rendimientos2022 %>%
-  group_by(as.integer(COD_COM_RBD), NOM_COM_RBD, TipoEstablecimiento) %>%
-  summarise(n_estudiantes = n(), 
-            promedio = round(mean(PROM_GRAL)) / 10,
-            .groups = "drop")
-
-establecimientos_chile2022 <- establecimientos_chile2022 %>%
-  rename("codigo_comuna" = `as.integer(COD_COM_RBD)`) %>% 
-  rename("nombre_comuna" = NOM_COM_RBD)
-
-establecimientos_chile2023 <- tabla_rendimientos2023 %>%
-  group_by(as.integer(COD_COM_RBD), NOM_COM_RBD, TipoEstablecimiento) %>%
-  summarise(n_estudiantes = n(), 
-            promedio = round(mean(PROM_GRAL)) / 10,
-            .groups = "drop")
-
-establecimientos_chile2023 <- establecimientos_chile2023 %>%
-  rename("codigo_comuna" = `as.integer(COD_COM_RBD)`) %>% 
-  rename("nombre_comuna" = NOM_COM_RBD)
-
-write.csv(establecimientos_chile2018, "establecimientos_chile2018.csv")
-write.csv(establecimientos_chile2019, "establecimientos_chile2019.csv")
-write.csv(establecimientos_chile2020, "establecimientos_chile2020.csv")
-write.csv(establecimientos_chile2021, "establecimientos_chile2021.csv")
-write.csv(establecimientos_chile2022, "establecimientos_chile2022.csv")
-write.csv(establecimientos_chile2023, "establecimientos_chile2023.csv")
-
-
-
-sfinal_chile2018 <- situacionfinal2018 %>% 
-  group_by(as.integer(COD_COM_RBD), NOM_COM_RBD, SituacionFinal) %>% 
-  summarise(n_estudiantes = n(), 
-            .groups = "drop")
-
-sfinal_chile2018 <- sfinal_chile2018 %>% 
-  rename("codigo_comuna" = `as.integer(COD_COM_RBD)`) %>% 
-  rename("nombre_comuna" = NOM_COM_RBD)
-
-sfinal_chile2019 <- situacionfinal2019 %>%
-  group_by(as.integer(COD_COM_RBD), NOM_COM_RBD, SituacionFinal) %>% 
-  summarise(n_estudiantes = n(), 
-            .groups = "drop")
-
-sfinal_chile2019 <- sfinal_chile2019 %>%
-  rename("codigo_comuna" = `as.integer(COD_COM_RBD)`) %>% 
-  rename("nombre_comuna" = NOM_COM_RBD)
-
-sfinal_chile2020 <- situacionfinal2020 %>%
-  group_by(as.integer(COD_COM_RBD), NOM_COM_RBD, SituacionFinal) %>% 
-  summarise(n_estudiantes = n(), 
-            .groups = "drop")
-
-sfinal_chile2020 <- sfinal_chile2020 %>%
-  rename("codigo_comuna" = `as.integer(COD_COM_RBD)`) %>% 
-  rename("nombre_comuna" = NOM_COM_RBD)
-
-sfinal_chile2021 <- situacionfinal2021 %>%
-  group_by(as.integer(COD_COM_RBD), NOM_COM_RBD, SituacionFinal) %>% 
-  summarise(n_estudiantes = n(), 
-            .groups = "drop")
-
-sfinal_chile2021 <- sfinal_chile2021 %>%
-  rename("codigo_comuna" = `as.integer(COD_COM_RBD)`) %>% 
-  rename("nombre_comuna" = NOM_COM_RBD)
-
-sfinal_chile2022 <- situacionfinal2022 %>%
-  group_by(as.integer(COD_COM_RBD), NOM_COM_RBD, SituacionFinal) %>% 
-  summarise(n_estudiantes = n(), 
-            .groups = "drop")
-
-sfinal_chile2022 <- sfinal_chile2022 %>%
-  rename("codigo_comuna" = `as.integer(COD_COM_RBD)`) %>% 
-  rename("nombre_comuna" = NOM_COM_RBD)
-
-sfinal_chile2023 <- situacionfinal2023 %>%
-  group_by(as.integer(COD_COM_RBD), NOM_COM_RBD, SituacionFinal) %>% 
-  summarise(n_estudiantes = n(), 
-            .groups = "drop")
-
-sfinal_chile2023 <- sfinal_chile2023 %>%
-  rename("codigo_comuna" = `as.integer(COD_COM_RBD)`) %>% 
-  rename("nombre_comuna" = NOM_COM_RBD)
 
 
 ##############################################################################

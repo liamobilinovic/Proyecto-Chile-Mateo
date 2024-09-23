@@ -6,6 +6,7 @@ estudiantes_santiago2018 <- tabla_rendimientos2018 %>%
 
 
 
+
 ###2019###
 
 estudiantes_santiago2019 <- tabla_rendimientos2019 %>% 
