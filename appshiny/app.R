@@ -548,6 +548,7 @@ grafico_denunciasC <- function(comuna, year_index){
 
 ui <- fluidPage(
   tags$head(
+    tags$title("Visualizador Gran Santiago"),
     tags$link(rel = "stylesheet", href = "https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"),
     tags$style(
       HTML(
