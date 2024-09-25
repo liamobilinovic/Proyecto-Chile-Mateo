@@ -1,3 +1,6 @@
+### Visor de Chile###
+
+
 if (!require("summarytools")) install.packages("summarytools")
 if (!require("tidyverse")) install.packages("tidyverse")
 if (!require("dplyr")) install.packages("kableExtra")
@@ -48,6 +51,8 @@ library(scales)
 library(extrafont)
 library(showtext)
 
+
+
 ###Miscelaneos###
 
 
@@ -71,6 +76,8 @@ nombres_regiones <- c(
 )
 
 paleta <- c("#EC5A25", "#D7522D", "#C14936", "#AC413E", "#963846", "#81304F", "#6B2757", "#551E5F", "#401667", "#2B0E70", "#150578")
+
+paleta_g <- c("#EC5A25", "#2B0E70", "#6B2757", "#AC413E", "#150578", "#C70319", "#2C0DBB", "#6F0976")
 
 capitalize <- function(text) {
   # Divide el texto en palabras
@@ -432,7 +439,65 @@ grafico_ruralidad <- function(comuna, year_index){
 }
 
 
+### Denuncias ####
 
+denuncias_chile2018 <- read_csv("Datos-proyecto/denuncias_chile2018.csv")
+denuncias_chile2019 <- read_csv("Datos-proyecto/denuncias_chile2019.csv")
+denuncias_chile2020 <- read_csv("Datos-proyecto/denuncias_chile2020.csv")
+denuncias_chile2021 <- read_csv("Datos-proyecto/denuncias_chile2021.csv")
+denuncias_chile2022 <- read_csv("Datos-proyecto/denuncias_chile2022.csv")
+denuncias_chile2023 <- read_csv("Datos-proyecto/denuncias_chile2023.csv")
+
+denuncias_chile_total <- list(denuncias_chile2018, denuncias_chile2019, denuncias_chile2020, denuncias_chile2021, denuncias_chile2022, denuncias_chile2023)
+
+
+
+comunas <- unique(denuncias_chile_total[1]$codigo_comuna)
+
+grafico_denunciasC <- function(comuna, year_index){
+  
+  df_comuna2 <- denuncias_chile_total[[year_index]]
+  
+  df_comuna2 <- df_comuna2 %>% 
+    filter(codigo_comuna == comuna)
+  
+  total_estudiantes <- sum(df_comuna2$n_denuncias)
+  
+  df_comuna2 <- df_comuna2 %>%
+    mutate(porcentaje = (n_denuncias / total_estudiantes) * 100,
+           ambito = sapply(ambito, capitalize))
+  
+  
+  nombre_comuna <- unique(df_comuna2$nombre_comuna)
+  
+  nombre_comuna <- capitalize(nombre_comuna)
+  
+  colores_asignados <- paleta_g[1:length(unique(df_comuna2$ambito))]
+  
+  plot_ly(df_comuna2, labels = ~ambito, values = ~n_denuncias, type = 'pie', hole = 0.6, width = 410, height = 260, # Aumentar tamaño para mayor control
+          hoverinfo = 'label+text',
+          text = ~paste(n_denuncias), 
+          textinfo = 'percent',
+          marker = list(colors = colores_asignados)
+  ) %>%
+    layout(
+      showlegend = FALSE, # Mostrar la leyenda
+      paper_bgcolor = 'rgba(0,0,0,0)', # Fondo del área del gráfico
+      plot_bgcolor = 'rgba(0,0,0,0)',  # Fondo del gráfico
+      font = list(color = "white"),
+      autosize = TRUE,
+      margin = list(l = 50, r = 50, t = 20, b = 70), # Ajustar márgenes para centrar el gráfico
+      legend = list(
+        x = 0.5,           # Centrar la leyenda horizontalmente
+        y = 0.5,           # Centrar la leyenda verticalmente
+        xanchor = 'center',# Fijar la posición horizontal de la leyenda
+        yanchor = 'middle',
+        font = list(size = 12, color = "white") # Tamaño y color de la leyenda
+      )
+    )
+  
+  
+}  
 
 #################
 
@@ -562,7 +627,7 @@ ui <- fluidPage(
     12,
     p(div(
       class = "highlighted-subtitle",
-      "Los siguientes mapas muestran el rendimiento académico de jóvenes de primero básico a quinto básico de Chile entre los años 2018 y 2023. Fuente: Sistema de Información General de Estudiantes (SIGE)"
+      "Los siguientes mapas muestran el rendimiento académico de jóvenes de primero medio a cuarto medio de Chile entre los años 2018 y 2023. Fuente: Sistema de Información General de Estudiantes (SIGE)"
     ))
   ),
   sidebarPanel(
@@ -650,6 +715,14 @@ ui <- fluidPage(
           class = "card-final",
           h4("Tipo de zona", class = "card-title"),
           plotlyOutput("grafico_ruralidad", height = "200px", width = "100%")
+        )
+      ),
+      column(
+        4,
+        div(
+          class = "card-final",
+          h4("Denuncias", class = "card-title"),
+          plotlyOutput("grafico_denunciasC", height = "200px", width = "100%")
         )
       ))
   )                
@@ -754,6 +827,12 @@ server <- function(input, output, session) {
     req(selected_codigo_comuna())
     year_index <- as.numeric(input$year) - 2017
     grafico_ruralidad(selected_codigo_comuna(), year_index)
+  })
+  
+  output$grafico_denunciasC <- renderPlotly({
+    req(selected_codigo_comuna())
+    year_index <- as.numeric(input$year) - 2017
+    grafico_denunciasC(selected_codigo_comuna(), year_index)
   })
   
   

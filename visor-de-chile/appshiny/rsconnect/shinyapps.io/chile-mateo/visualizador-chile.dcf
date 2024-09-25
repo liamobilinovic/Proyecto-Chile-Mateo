@@ -5,7 +5,7 @@ account: chile-mateo
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 12570658
-bundleId: 9047136
+bundleId: 9133071
 url: https://chile-mateo.shinyapps.io/visualizador-chile/
 version: 1
 asMultiple: FALSE

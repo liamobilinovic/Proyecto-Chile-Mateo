@@ -11,7 +11,7 @@
   <p align="center">
     Un visualizador de datos transparente e inclusivo
     <br />
-    <a href="https://chile-mateo.shinyapps.io/rendimientos/"><strong>Visite la página</strong></a>
+    <a href="https://liamobilinovic.github.io/Proyecto-Chile-Mateo/"><strong>Visite la página</strong></a>
     <br />
     <br />
     <a href="https://github.com/othneildrew/Best-README-Template/issues/new?labels=bug&template=bug-report---.md">Reportar un bug</a>

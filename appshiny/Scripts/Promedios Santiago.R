@@ -5,10 +5,9 @@
 ###2018###
 
 
-
 promedios2018 <- tabla_rendimientos2018 %>% 
   group_by(as.character(COD_COM_RBD)) %>% 
-  summarise(promedio = round(mean(PROM_GRAL)) /10)
+  summarise(promedio = round(mean(PROM_GRAL)) / 10)
 
 promedios2018 <- merge(promedios2018, estudiantes_santiago2018, by = "as.character(COD_COM_RBD)")
 
@@ -41,7 +40,7 @@ comunas_santiago2018 <- st_as_sf(comunas_santiago2018)
 
 promedios2019 <- tabla_rendimientos2019 %>% 
   group_by(as.character(COD_COM_RBD)) %>% 
-  summarise(promedio = round(mean(PROM_GRAL)) /10)
+  summarise(promedio = round(mean(PROM_GRAL)) / 10)
 
 promedios2019 <- merge(promedios2019, estudiantes_santiago2019, by = "as.character(COD_COM_RBD)")
 
@@ -67,7 +66,7 @@ comunas_santiago2019 <- st_as_sf(comunas_santiago2019)
 
 promedios2020 <- tabla_rendimientos2020 %>% 
   group_by(as.character(COD_COM_RBD)) %>% 
-  summarise(promedio = round(mean(PROM_GRAL)) /10)
+  summarise(promedio = round(mean(PROM_GRAL)) / 10)
 
 promedios2020 <- merge(promedios2020, estudiantes_santiago2020, by = "as.character(COD_COM_RBD)")
 
@@ -93,7 +92,7 @@ comunas_santiago2020 <- st_as_sf(comunas_santiago2020)
 
 promedios2021 <- tabla_rendimientos2021 %>% 
   group_by(as.character(COD_COM_RBD)) %>% 
-  summarise(promedio = round(mean(PROM_GRAL)) /10)
+  summarise(promedio = round(mean(PROM_GRAL)) / 10)
 
 promedios2021 <- merge(promedios2021, estudiantes_santiago2021, by = "as.character(COD_COM_RBD)")
 
@@ -119,7 +118,7 @@ comunas_santiago2021 <- st_as_sf(comunas_santiago2021)
 
 promedios2022 <- tabla_rendimientos2022 %>% 
   group_by(as.character(COD_COM_RBD)) %>% 
-  summarise(promedio = round(mean(PROM_GRAL)) /10)
+  summarise(promedio = round(mean(PROM_GRAL)) / 10)
 
 promedios2022 <- merge(promedios2022, estudiantes_santiago2022, by = "as.character(COD_COM_RBD)")
 
@@ -143,7 +142,7 @@ comunas_santiago2022 <- st_as_sf(comunas_santiago2022)
 
 promedios2023 <- tabla_rendimientos2023 %>% 
   group_by(as.character(COD_COM_RBD)) %>% 
-  summarise(promedio = round(mean(PROM_GRAL)) /10)
+  summarise(promedio = round(mean(PROM_GRAL)) / 10)
 
 promedios2023 <- merge(promedios2023, estudiantes_santiago2023, by = "as.character(COD_COM_RBD)")
 
@@ -162,6 +161,12 @@ comunas_santiago2023 <- mapa_zonas %>%
 
 comunas_santiago2023 <- st_as_sf(comunas_santiago2023)
 
+write_sf(comunas_santiago2018, "comunas_santiago2018.gpkg")
+write_sf(comunas_santiago2019, "comunas_santiago2019.gpkg")
+write_sf(comunas_santiago2020, "comunas_santiago2020.gpkg")
+write_sf(comunas_santiago2021, "comunas_santiago2021.gpkg")
+write_sf(comunas_santiago2022, "comunas_santiago2022.gpkg")
+write_sf(comunas_santiago2023, "comunas_santiago2023.gpkg")
 
 
 
@@ -348,19 +353,4 @@ mapa_santiago2023 <- leaflet(comunas_santiago2023) %>%
     ),
     label = ~paste("Comuna: ", comunas_santiago2023$nombre_comuna, "", "Promedio: ", comunas_santiago2023$promedio)
   )
-
-st_transform(comunas_santiago2018, 4326)
-st_transform(comunas_santiago2019, 4326)
-st_transform(comunas_santiago2020, 4326)
-st_transform(comunas_santiago2021, 4326)
-st_transform(comunas_santiago2022, 4326)
-st_transform(comunas_santiago2023, 4326)
-
-
-write_sf(comunas_santiago2018, "comunas_santiago2018.gpkg")
-write_sf(comunas_santiago2019, "comunas_santiago2019.gpkg")
-write_sf(comunas_santiago2020, "comunas_santiago2020.gpkg")
-write_sf(comunas_santiago2021, "comunas_santiago2021.gpkg")
-write_sf(comunas_santiago2022, "comunas_santiago2022.gpkg")
-write_sf(comunas_santiago2023, "comunas_santiago2023.gpkg")
 
