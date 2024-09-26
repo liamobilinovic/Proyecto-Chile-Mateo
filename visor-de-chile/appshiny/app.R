@@ -341,8 +341,8 @@ grafico_evolucion_chile <- function(comuna, year_index) {
     mutate(anio = factor(anio, levels = nombres_anios))
   
   ggplot(df_total, aes(x = anio, y = promedio, group = 1)) +
-    geom_line(color = "#031163", size = 2) +
-    geom_point(color = "#AC413E") +
+    geom_line(color = "#C70319", size = 2) +
+    geom_point(color = "white", size = 4) +
     geom_text(aes(label = scales::comma(promedio)), vjust = -0.5, color = "#CACFEC", size = 6) +
     labs(title = paste("Evolución del promedio en", nombre_comuna),
          x = "Año",
@@ -354,13 +354,13 @@ grafico_evolucion_chile <- function(comuna, year_index) {
     theme(
       plot.background = element_rect(fill = "#000005", color = "#000005"),
       panel.background = element_rect(fill = "#000005", color = "#000005"),
-      axis.text = element_text(family = "Arial", color = "#CACFEC", size = 16),
+      axis.text = element_text(family = "Roboto", color = "#CACFEC", size = 16),
       panel.grid.major = element_line(color = "#0E1E38"),
       panel.grid = element_blank(),
-      axis.title = element_text(family = "Arial", color = "#CACFEC", size = 18),
+      axis.title = element_text(family = "Roboto", color = "#CACFEC", size = 18),
       axis.ticks = element_blank(),
       axis.line = element_line(color = "#CACFEC"),
-      plot.title = element_text(family = "Arial", color = "#CACFEC", hjust = 0.5, size = 22),
+      plot.title = element_text(family = "Roboto", color = "#CACFEC", hjust = 0.5, size = 22),
       legend.position = "none" 
     )
   
