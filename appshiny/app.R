@@ -24,6 +24,7 @@ if (!require("shinyWidgets")) install.packages("shinyWidgets")
 if (!require("scales")) install.packages("scales")
 if (!require("extrafont")) install.packages("extrafont")
 if (!require("showtext")) install.packages("showtext")
+if (!require("shinycssloaders")) install.packages("shinycssloaders")
 
 
 library(summarytools)
@@ -50,6 +51,7 @@ library(shinyWidgets)
 library(scales)
 library(extrafont)
 library(showtext)
+library(shinycssloaders)
 
 
 ###Miscelaneos###
@@ -462,13 +464,13 @@ grafico_evolucion <- function(comuna, year_index) {
     theme(
       plot.background = element_rect(fill = "#000005", color = "#000005"),
       panel.background = element_rect(fill = "#000005", color = "#000005"),
-      axis.text = element_text(family = "Arial", color = "#CACFEC", size = 16),
+      axis.text = element_text(family = "Roboto", color = "#CACFEC", size = 16),
       panel.grid.major = element_line(color = "#0E1E38"),
       panel.grid = element_blank(),
-      axis.title = element_text(family = "Arial", color = "#CACFEC", size = 18),
+      axis.title = element_text(family = "Roboto", color = "#CACFEC", size = 18),
       axis.ticks = element_blank(),
       axis.line = element_line(color = "#CACFEC"),
-      plot.title = element_text(family = "Arial", color = "#CACFEC", hjust = 0.5, size = 22),
+      plot.title = element_text(family = "Roboto", color = "#CACFEC", hjust = 0.5, size = 22),
       legend.position = "none"  # Ocultar la leyenda
     )
   
@@ -509,7 +511,11 @@ grafico_denunciasC <- function(comuna, year_index){
   
   colores_asignados <- paleta_g[1:length(unique(df_comuna2$ambito))]
   
-  plot_ly(df_comuna2, labels = ~ambito, values = ~n_denuncias, type = 'pie', hole = 0.6, width = 410, height = 260, # Aumentar tamaño para mayor control
+  plot_ly(df_comuna2, 
+          labels = ~ambito,
+          values = ~n_denuncias,
+          parents = "",
+          type = "treemap",
           hoverinfo = 'label+text',
           text = ~paste(n_denuncias), 
           textinfo = 'percent',
@@ -519,15 +525,15 @@ grafico_denunciasC <- function(comuna, year_index){
       showlegend = FALSE, # Mostrar la leyenda
       paper_bgcolor = 'rgba(0,0,0,0)', # Fondo del área del gráfico
       plot_bgcolor = 'rgba(0,0,0,0)',  # Fondo del gráfico
-      font = list(color = "white"),
+      font = list(color = "white", size = 20),
       autosize = TRUE,
-      margin = list(l = 50, r = 50, t = 20, b = 70), # Ajustar márgenes para centrar el gráfico
+      margin = list(l = 50, r = 50, t = 20, b = 70),
       legend = list(
         x = 0.5,           # Centrar la leyenda horizontalmente
         y = 0.5,           # Centrar la leyenda verticalmente
         xanchor = 'center',# Fijar la posición horizontal de la leyenda
         yanchor = 'middle',
-        font = list(size = 12, color = "white") # Tamaño y color de la leyenda
+        font = list(size = 12, color = "white")
       )
     )
   
@@ -556,7 +562,7 @@ ui <- fluidPage(
         body {
           background: #000E25;
           color: white;
-          font-family: 'Poppins', sans-serif;
+          font-family: 'Roboto', sans-serif;
         }
         .well {
           background-color: #061a40;
@@ -570,7 +576,7 @@ ui <- fluidPage(
         }
         .map-title {
           color: white;
-          font-family: 'Poppins', sans-serif;
+          font-family: 'Roboto', sans-serif;
           text-align: center;
           margin-top: 20px;
         }
@@ -580,7 +586,7 @@ ui <- fluidPage(
           padding: 15px;
           margin-top: 20px;
           color: white;
-          font-family: 'Poppins', sans-serif;
+          font-family: 'Roboto', sans-serif;
           text-align: center;
         }
         .card-final {
@@ -589,7 +595,7 @@ ui <- fluidPage(
           padding: 15px;
           margin-top: 20px;
           color: white;
-          font-family: 'Poppins', sans-serif;
+          font-family: 'Roboto', sans-serif;
           text-align: center;
         }
         .card2 {
@@ -598,7 +604,7 @@ ui <- fluidPage(
           padding: 15px;
           margin-top: 20px;
           color: white;
-          font-family: 'Poppins', sans-serif;
+          font-family: 'Roboto', sans-serif;
           text-align: center;
         }
         .highlighted-subtitle {
@@ -615,7 +621,7 @@ ui <- fluidPage(
           color: white;
           height: 40px;
           background-color: rgba(0, 0, 0, 0.5);
-          font-family: 'Poppins', sans-serif;
+          font-family: 'Roboto', sans-serif;
           font-size: 24px;
           font-weight: 400;
           position: relative;
@@ -626,7 +632,7 @@ ui <- fluidPage(
         }
         .text {
           color: white;
-          font-family: 'Poppins', sans-serif;
+          font-family: 'Roboto', sans-serif;
           text-align: center;
           font-size: 16px;
           font-weight: 300;
@@ -635,7 +641,7 @@ ui <- fluidPage(
           border-radius: 10px;
         }
         .text2 {
-        font-family: 'Poppins', sans-serif;
+        font-family: 'Roboto', sans-serif;
         text-align: center;
         }
         .plot-container {
@@ -651,7 +657,7 @@ ui <- fluidPage(
         }
         .evolucion {
           color: white;
-          font-family: 'Poppins', sans-serif;
+          font-family: 'Roboto', sans-serif;
           text-align: center;
           font-size: 16px;
           font-weight: 300;
@@ -660,6 +666,15 @@ ui <- fluidPage(
           border-radius: 10px;
           overflow: hidden;
         } 
+        .card-final1 {
+          background-color: #1D263B;
+          border-radius: 10px;
+          padding: 5px;
+          margin-top: 20px;
+          color: white;
+          font-family: 'Roboto', sans-serif;
+          text-align: center;
+        }
         "
       )
     )
@@ -723,6 +738,12 @@ ui <- fluidPage(
       column(
         4,
         div(
+          class = "card-final1",
+          h4("Denuncias por comuna", class = "card-title"),
+          plotlyOutput("grafico_denunciasC", height = "500px", width = "100%"))),
+      column(
+        4,
+        div(
           class = "card-final",
           h4("Tipos de establecimientos", class = "card-title"),
           plotlyOutput("grafico_interactivo", height = "200px", width = "100%")
@@ -742,18 +763,9 @@ ui <- fluidPage(
           class = "card-final",
           div(class = "evolucion" ,plotOutput("grafico_evolucion", height = "500px", width = "100%")
         ))
-    ),
-    column(
-      4,
-      div(
-        class = "card-final",
-        h4("Denuncias por comuna", class = "card-title"),
-        plotlyOutput("grafico_denunciasC", height = "200px", width = "100%")
-      )
-    ))
-  )                
-)
-
+    )
+  )               
+))
 
 
 

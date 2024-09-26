@@ -474,7 +474,11 @@ grafico_denunciasC <- function(comuna, year_index){
   
   colores_asignados <- paleta_g[1:length(unique(df_comuna2$ambito))]
   
-  plot_ly(df_comuna2, labels = ~ambito, values = ~n_denuncias, type = 'pie', hole = 0.6, width = 410, height = 260, # Aumentar tamaño para mayor control
+  plot_ly(df_comuna2, 
+          labels = ~ambito,
+          values = ~n_denuncias,
+          parents = "",
+          type = "treemap",
           hoverinfo = 'label+text',
           text = ~paste(n_denuncias), 
           textinfo = 'percent',
@@ -484,17 +488,17 @@ grafico_denunciasC <- function(comuna, year_index){
       showlegend = FALSE, # Mostrar la leyenda
       paper_bgcolor = 'rgba(0,0,0,0)', # Fondo del área del gráfico
       plot_bgcolor = 'rgba(0,0,0,0)',  # Fondo del gráfico
-      font = list(color = "white"),
+      font = list(color = "white", size = 20),
       autosize = TRUE,
-      margin = list(l = 50, r = 50, t = 20, b = 70), # Ajustar márgenes para centrar el gráfico
+      margin = list(l = 50, r = 50, t = 20, b = 70),
       legend = list(
         x = 0.5,           # Centrar la leyenda horizontalmente
         y = 0.5,           # Centrar la leyenda verticalmente
         xanchor = 'center',# Fijar la posición horizontal de la leyenda
         yanchor = 'middle',
-        font = list(size = 12, color = "white") # Tamaño y color de la leyenda
+        font = list(size = 12, color = "white")
       )
-    )
+    ) 
   
   
 }  
@@ -514,7 +518,7 @@ ui <- fluidPage(
         body {
           background: #000E25;
           color: white;
-          font-family: 'Poppins', sans-serif;
+          font-family: 'Roboto', sans-serif;
         }
         .well {
           background-color: #061a40;
@@ -528,7 +532,7 @@ ui <- fluidPage(
         }
         .map-title {
           color: white;
-          font-family: 'Poppins', sans-serif;
+          font-family: 'Roboto', sans-serif;
           text-align: center;
           margin-top: 20px;
         }
@@ -538,7 +542,7 @@ ui <- fluidPage(
           padding: 15px;
           margin-top: 20px;
           color: white;
-          font-family: 'Poppins', sans-serif;
+          font-family: 'Roboto', sans-serif;
           text-align: center;
         }
         .card-final {
@@ -547,7 +551,7 @@ ui <- fluidPage(
           padding: 15px;
           margin-top: 20px;
           color: white;
-          font-family: 'Poppins', sans-serif;
+          font-family: 'Roboto', sans-serif;
           text-align: center;
         }
         .card2 {
@@ -556,7 +560,7 @@ ui <- fluidPage(
           padding: 15px;
           margin-top: 20px;
           color: white;
-          font-family: 'Poppins', sans-serif;
+          font-family: 'Roboto', sans-serif;
           text-align: center;
         }
         .highlighted-subtitle {
@@ -573,7 +577,7 @@ ui <- fluidPage(
           color: white;
           height: 40px;
           background-color: rgba(0, 0, 0, 0.5);
-          font-family: 'Poppins', sans-serif;
+          font-family: 'Roboto', sans-serif;
           font-size: 24px;
           font-weight: 400;
           position: relative;
@@ -584,7 +588,7 @@ ui <- fluidPage(
         }
         .text {
           color: white;
-          font-family: 'Poppins', sans-serif;
+          font-family: 'Roboto', sans-serif;
           text-align: center;
           font-size: 16px;
           font-weight: 300;
@@ -593,7 +597,7 @@ ui <- fluidPage(
           border-radius: 10px;
         }
         .text2 {
-        font-family: 'Poppins', sans-serif;
+        font-family: 'Roboto', sans-serif;
         text-align: center;
         }
         .plot-container {
@@ -609,7 +613,7 @@ ui <- fluidPage(
         }
         .evolucion {
           color: white;
-          font-family: 'Poppins', sans-serif;
+          font-family: 'Roboto', sans-serif;
           text-align: center;
           font-size: 16px;
           font-weight: 300;
@@ -618,6 +622,49 @@ ui <- fluidPage(
           border-radius: 10px;
           overflow: hidden;
         } 
+        .na_denuncias {
+          height: 500px;
+          width: 100%;
+          color: white;
+          border-radius: 10px;
+          text-align: center;
+          font-family: 'Roboto', sans-serif;
+        }
+         .help-button {
+          position: absolute;
+          top: -44px;
+          right: -1px;
+          border-radius: 50%;
+          border: none;
+          bottom-margin: 10px;
+          color: black;
+         }
+        .help-text {
+        color: black;  
+        font-family: 'Roboto', sans-serif;
+        font-size: 16px;
+         text-align: left;
+        }
+          /* Estilos para el modal */
+        .modal-content {
+          background-color: rgba(0, 0, 0, 0.5); 
+          border-radius: 10px; 
+          color: white; 
+        }
+        
+        .modal-title {
+          color: white; 
+          font-family: 'Roboto', sans-serif;
+        }
+        
+        .modal-body {
+          color: white; 
+          font-family: 'Roboto', sans-serif;
+        }
+        
+        .close {
+          color: white;
+        }
         "
       )
     )
@@ -690,8 +737,16 @@ ui <- fluidPage(
         4,
         div(
           class = "card-final",
+          h4("Denuncias", class = "card-title"),
+          withSpinner(uiOutput("grafico_denunciasC", height = "500px", width = "100%"), type = 1)
+        )
+      ),
+      column(
+        4,
+        div(
+          class = "card-final",
           h4("Tipos de establecimientos", class = "card-title"),
-          plotlyOutput("grafico_interactivo_chile", height = "200px", width = "100%")
+          withSpinner(plotlyOutput("grafico_interactivo_chile", height = "200px", width = "100%"))
         )
       ),
       column(
@@ -699,7 +754,21 @@ ui <- fluidPage(
         div(
           class = "card-final",
           h4("Situación final por comuna", class = "card-title"),
-          plotlyOutput("grafico_sfinal_chile", height = "200px", width = "100%")
+          withSpinner(plotlyOutput("grafico_sfinal_chile", height = "200px", width = "100%"))
+        )
+      ),
+      column(
+        4,
+        div(
+          class = "card-final",
+          h4("Tipo de zona", class = "card-title"),
+          div(style = "position: relative;",  
+              actionButton("ayuda", icon("info-circle"), 
+                           title = "Ayuda",
+                           class = "help-button",
+                           style = "border-radius: 50%"),
+              withSpinner(plotlyOutput("grafico_ruralidad", height = "200px", width = "100%"))
+          )
         )
       ),
       column(
@@ -708,23 +777,8 @@ ui <- fluidPage(
           class = "card-final",
           div(class = "evolucion" ,plotOutput("grafico_evolucion_chile", height = "500px", width = "100%")
           ))
-      ),
-      column(
-        4,
-        div(
-          class = "card-final",
-          h4("Tipo de zona", class = "card-title"),
-          plotlyOutput("grafico_ruralidad", height = "200px", width = "100%")
-        )
-      ),
-      column(
-        4,
-        div(
-          class = "card-final",
-          h4("Denuncias", class = "card-title"),
-          plotlyOutput("grafico_denunciasC", height = "200px", width = "100%")
-        )
-      ))
+      )
+    )
   )                
 )
 
@@ -739,12 +793,12 @@ server <- function(input, output, session) {
   # Actualiza el título del mapa basado en el año seleccionado
   output$map_title <- renderUI({
     titulo <- switch(as.character(input$year),
-                     "2018" = "Promedio por comuna 2018",
-                     "2019" = "Promedio por comuna 2019",
-                     "2020" = "Promedio por comuna 2020",
-                     "2021" = "Promedio por comuna 2021",
-                     "2022" = "Promedio por comuna 2022",
-                     "2023" = "Promedio por comuna 2023"
+                     "2018" = "Mapa de comunas",
+                     "2019" = "Mapa de comunas",
+                     "2020" = "Mapa de comunas",
+                     "2021" = "Mapa de comunas",
+                     "2022" = "Mapa de comunas",
+                     "2023" = "Mapa de comunas"
     )
     h3(titulo, class = "map-title")
   })
@@ -753,13 +807,13 @@ server <- function(input, output, session) {
   output$mapa1 <- renderLeaflet({
     year_index <- as.numeric(input$year) - 2017
     region <- input$Region
-
-  
-  # Observa cambios en el slider de años y actualiza el mapa
- 
-  generar_mapa(year_index, region)
-  
-})  
+    
+    
+    # Observa cambios en el slider de años y actualiza el mapa
+    
+    generar_mapa(year_index, region)
+    
+  })  
   
   
   # Observa los clics en el mapa y actualiza el contenido de las tarjetas
@@ -829,13 +883,40 @@ server <- function(input, output, session) {
     grafico_ruralidad(selected_codigo_comuna(), year_index)
   })
   
-  output$grafico_denunciasC <- renderPlotly({
-    req(selected_codigo_comuna())
+  output$grafico_denunciasC <- renderUI({
     year_index <- as.numeric(input$year) - 2017
+    req(selected_codigo_comuna())  # Asegura que haya una comuna seleccionada
+    
+    df_comuna2 <- denuncias_chile_total[[year_index]] %>%
+      filter(codigo_comuna == selected_codigo_comuna())
+    
+    if (nrow(df_comuna2) == 0) {
+      return(h5("No hay datos disponibles para la comuna seleccionada", class = "na_denuncias"))
+    } else {
+      plot <- grafico_denunciasC(selected_codigo_comuna(), year_index)
+      return(plotlyOutput("plot_denuncias", height = "500px", width = "100%"))
+    }
+  })
+  
+  output$plot_denuncias <- renderPlotly({
+    year_index <- as.numeric(input$year) - 2017
+    req(selected_codigo_comuna())
+    
     grafico_denunciasC(selected_codigo_comuna(), year_index)
   })
   
+  observeEvent(input$ayuda, {
+    showModal(
+      modalDialog(
+        title = "Gráfico de tipo de zonas",
+        "Este gráfico enseña los tipos de zona en los cuales se encuentran los establecimientos educacionales. Estos pueden ser de dos tipos: urbanos o rurales. Para conocer el tipo de zona de cada comuna debe reposar su cursor en el gráfico.",
+        easyClose = TRUE,
+        footer = NULL,
+      )
+    )
+  })
   
+    
   
   # Renderiza el contenido de las tarjetas basado en los valores reactivos
   output$selected_comuna <- renderText({
