@@ -54,7 +54,8 @@ library(showtext)
 library(shinycssloaders)
 
 
-###Miscelaneos###
+
+###Miscelaneos####
 
 
 

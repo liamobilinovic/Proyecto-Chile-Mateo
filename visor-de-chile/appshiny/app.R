@@ -50,6 +50,7 @@ library(shinyWidgets)
 library(scales)
 library(extrafont)
 library(showtext)
+library(shinycssloaders)
 
 
 
